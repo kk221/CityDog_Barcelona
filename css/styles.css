@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('images/barcelona-pets-bg.jpg');  /* Path relative to CSS file */
+    background-image: url('https://github.com/kk221/CityDog_Barcelona/blob/main/images/barcelona-pets-bg.jpg');  /* Path relative to CSS file */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
