@@ -1,6 +1,7 @@
 /* Base styles */
 :root {
-  --primary-color: #3B82F6;
+  --primary-color: #9F7AEA;  /* Light purple color */
+  --primary-hover: #805AD5;  /* Slightly darker purple for hover states */
   --text-color: #1F2937;
 }
 
@@ -21,16 +22,11 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Hero section styles */
-.hero {
-    padding: 6rem 2rem;
-    text-align: center;
-    background-color: #f8fafc;
-}
+
 
 /* Button styles */
 .btn-primary {
-    background-color: #3B82F6;
+    background-color: var(--primary-color);
     color: white;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
@@ -40,5 +36,5 @@ header {
 }
 
 .btn-primary:hover {
-    background-color: #2563EB;
+  background-color: var(--primary-hover);
 }
