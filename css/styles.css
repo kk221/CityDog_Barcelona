@@ -43,16 +43,20 @@
 /* Hero section styles */
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;  /* Adjusted height */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 8rem 2rem;
+    background-image: url('../images/barcelona-pets-bg.jpg');  /* Path relative to CSS file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Background image overlay */
+/* Overlay to make background lighter */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -60,19 +64,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://github.com/kk221/CityDog_Barcelona/blob/main/images/frontpage_bg_image.jpg'); /* Add your background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3; /* Makes the background lighter */
-    z-index: -1;
+    background-color: rgba(255, 255, 255, 0.8);  /* White overlay */
+    z-index: 1;
 }
 
 /* Hero content styles */
 .hero-content {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    position: relative;
+    z-index: 2;  /* Place content above the overlay */
     padding: 2rem;
-    border-radius: 1rem;
     max-width: 800px;
-    margin: 0 auto;
 }
