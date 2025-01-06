@@ -18,10 +18,12 @@
                 <!-- Updated image path -->
             <div>
                 <a href="index.html">
+                    <!-- Try these paths one at a time until the image shows -->
                     <img 
                         src="images/city-barcelona-logo.png" 
                         alt="City Dog Barcelona Logo" 
                         class="h-12 w-auto"
+                        onerror="console.log('Failed to load image')"
                     />
                 </a>
             </div>
