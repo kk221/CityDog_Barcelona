@@ -1,38 +1,39 @@
 /* Base styles */
 :root {
-  --primary-color: #9F7AEA;  /* Light purple color */
-  --primary-hover: #805AD5;  /* Slightly darker purple for hover states */
-  --text-color: #1F2937;
+  --primary-purple: #9F7AEA;
+  --primary-hover: #805AD5;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-color);
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
+/* Navigation styles */
+.nav-links a {
+  color: #4A5568;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
 }
 
-/* Add more styles as needed */
-
-/* Header styles */
-header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.nav-links a:hover {
+  color: var(--primary-purple);
 }
 
-
+/* Logo size adjustment */
+.logo img {
+  height: 120px;  /* Increased from 80px */
+  width: auto;
+}
 
 /* Button styles */
 .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    display: inline-block;
-    text-decoration: none;
-    transition: background-color 0.3s;
+  background-color: var(--primary-purple);
+  color: white;
+  padding: 1rem 2.5rem;  /* Increased padding */
+  border-radius: 9999px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
 }
 
 .btn-primary:hover {
