@@ -4,36 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Dog Barcelona</title>
-    <!-- Add Tailwind CSS via CDN for quick start -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add Google Fonts -->
+    <!-- Add custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add custom JavaScript -->
+    <script src="js/main.js" defer></script>
 </head>
 <body class="font-['Inter'] bg-gray-50">
-    <!-- Header -->
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <!-- Replace the text with logo image -->
-                <!-- Updated image path -->
-            <div class="logo">
-                <a href="./index.html">
-                    <!-- Try these paths one at a time until the image shows -->
-                    <img 
-                        src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-barcelona-logo.png" 
-                        alt="City Dog Barcelona Logo" 
-                        class="h-[100px] w-auto" 
+                <div class="logo">
+                    <a href="index.html">
+                        <img 
+                            src="images/city-barcelona-logo.png" 
+                            alt="City Dog Barcelona Logo" 
+                            class="h-[100px] w-auto" 
                         />
-                </a>
-            </div>
-                <div class="nav-links hidden md:flex space-x-6">
-                    <a href="regulations" class="hover:text-purple-500">Pet Regulations</a>
-                    <a href="groom" class="hover:text-purple-500">Groom</a>
-                    <a href="vets" class="hover:text-purple-500">Veterinary Care</a>
-                    <a href="adoption" class="hover:text-purple-500">Adoption</a>
+                    </a>
                 </div>
-                <!-- Mobile menu button -->
-                <button class="md:hidden">
+                <div class="nav-links hidden md:flex space-x-6">
+                    <a href="pages/regulations.html" class="hover:text-purple-500">Pet Regulations</a>
+                    <a href="pages/services.html" class="hover:text-purple-500">Groom</a>
+                    <a href="pages/vets.html" class="hover:text-purple-500">Veterinary Care</a>
+                    <a href="pages/adoption.html" class="hover:text-purple-500">Adoption</a>
+                </div>
+                <button class="md:hidden mobile-menu-button">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -42,34 +39,28 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <main class="min-h-screen flex items-center justify-center relative">
         <section class="hero-section text-center px-4">
-                             <!-- Background image div -->
-        <div class="hero-background absolute inset-0 z-0">
-            <img 
-                src="./images/barcelona-pets-bg.jpg"
-                alt="Barcelona Pets Background"
-                class="w-full h-full object-cover opacity-50"
-            />
-        </div>
-                    <!-- Content -->
-
-         <div class="hero-content bg-white/90 p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold text-center mb-6">
-                Welcome to Barcelona's Pet Community
-            </h1>
-            <p class="text-xl text-center text-gray-600 mb-8">
-                Your guide to pet-friendly living in Barcelona
-            </p>
-        <div class="flex justify-center">
-                <button class="btn-primary bg-purple-500 text-white px-8 py-3 rounded-full hover:bg-purple-700">
-                    Find Services
-                </button>
+            <div class="hero-background absolute inset-0 z-0">
+                <img 
+                    src="images/barcelona-pets-bg.jpg"
+                    alt="Barcelona Pets Background"
+                    class="w-full h-full object-cover opacity-50"
+                />
             </div>
-             
-         </div>
-
+            <div class="hero-content bg-white/90 p-8 rounded-lg shadow-lg max-w-3xl mx-auto relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-center mb-6">
+                    Welcome to Barcelona's Pet Community
+                </h1>
+                <p class="text-xl text-center text-gray-600 mb-8">
+                    Your guide to pet-friendly living in Barcelona
+                </p>
+                <div class="flex justify-center">
+                    <button class="btn-primary bg-purple-500 text-white px-8 py-3 rounded-full hover:bg-purple-700">
+                        Find Services
+                    </button>
+                </div>
+            </div>
         </section>
     </main>
 </body>
