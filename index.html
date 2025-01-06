@@ -1,8 +1,51 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Dog Barcelona</title>
-  </head>
-  <body>
-    <h1>Woof Woof Woof</h1></hi>
-  </body>
+    <!-- Add Tailwind CSS via CDN for quick start -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">City Dog Barcelona</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#regulations" class="hover:text-blue-600">Pet Regulations</a>
+                    <a href="#services" class="hover:text-blue-600">Services</a>
+                    <a href="#vets" class="hover:text-blue-600">Veterinary Care</a>
+                    <a href="#adoption" class="hover:text-blue-600">Adoption</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-20">
+        <section class="container mx-auto px-4 py-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-center mb-6">
+                Welcome to Barcelona's Pet Community
+            </h1>
+            <p class="text-xl text-center text-gray-600 mb-8">
+                Your guide to pet-friendly living in Barcelona
+            </p>
+            <div class="flex justify-center">
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                    Find Services
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
 </html>
