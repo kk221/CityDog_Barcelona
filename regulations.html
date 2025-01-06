@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Regulations - City Dog Barcelona</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <!-- Header (same as index.html) -->
+
+    <main class="pt-32 pb-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-12">City Regulations for Pet Ownership in Barcelona</h1>
+            
+            <!-- Regulations Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Vaccination Requirements -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">1. Vaccination Requirements</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• All pets must be vaccinated against rabies (mandatory in Spain)</li>
+                                <li>• Annual check-ups and booster shots for other diseases recommended</li>
+                                <li>• Keep vaccination records updated and available for city inspections or travel</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Official Vaccination Guidelines →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 2. Pet Registration -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">2. Pet Registration</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Mandatory registration for dogs, cats, and ferrets</li>
+                                <li>• Register within 3 months of ownership or 30 days of moving</li>
+                                <li>• Required documents:
+                                    <ul class="ml-4 mt-2">
+                                        <li>- Valid ID/passport</li>
+                                        <li>- Proof of address in Barcelona</li>
+                                        <li>- Pet's microchip number and vaccination certificate</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Register Online →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 3. Microchipping -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">3. Microchipping</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Mandatory for all dogs, cats, and ferrets</li>
+                                <li>• Must be linked to owner's contact information</li>
+                                <li>• Registration required in city pet registry</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Microchipping Services →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 4. PPP Certification -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">4. PPP Certification</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Special requirements for Potentially Dangerous Dogs (PPP):
+                                    <ul class="ml-4 mt-2">
+                                        <li>- Special PPP license (renewed every 5 years)</li>
+                                        <li>- Muzzle required in public</li>
+                                        <li>- Liability insurance (min. €120,000)</li>
+                                    </ul>
+                                </li>
+                                <li>• Applies to Pit Bulls, Rottweilers, and other specified breeds</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">PPP Guidelines →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 5. Dog Parks and Public Spaces -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">5. Dog Parks and Public Spaces</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Designated off-leash areas available (e.g., Parc de la Ciutadella)</li>
+                                <li>• Leash required in other public areas</li>
+                                <li>• Beach restrictions during summer months</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Dog Park Locations →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 6. Cleaning and Waste Disposal -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">6. Cleaning and Waste Disposal</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Mandatory cleanup in public spaces</li>
+                                <li>• Fines: €300 - €1,500 for violations</li>
+                                <li>• Free waste bags available in many public areas</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Waste Disposal Guidelines →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 7. Noise and Behavior -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">7. Noise and Behavior</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Excessive barking can result in fines</li>
+                                <li>• Owners responsible for pet behavior</li>
+                                <li>• Training recommended for public spaces</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Behavior Guidelines →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 8. Pet-Friendly Public Transport -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">8. Pet-Friendly Public Transport</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Small pets allowed in carriers</li>
+                                <li>• Large dogs: non-peak hours only</li>
+                                <li>• Muzzle and leash required for large dogs</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Transport Rules →</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 9. Emergency Services -->
+                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
+                        <h3 class="text-xl font-semibold text-purple-600 mb-2">9. Emergency Services</h3>
+                        <div class="card-content hidden">
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                <li>• Contact Animal Protection Department for emergencies</li>
+                                <li>• Veterinarians must report dangerous animals</li>
+                                <li>• Emergency contact numbers available 24/7</li>
+                            </ul>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Emergency Contacts →</a>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="mt-16 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4">Quick Links and Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="#" class="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                        <span class="text-purple-600">Barcelona Pet Registration Website →</span>
+                    </a>
+                    <a href="#" class="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                        <span class="text-purple-600">City Regulations for PPP Dogs →</span>
+                    </a>
+                    <a href="#" class="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                        <span class="text-purple-600">Map of Dog Parks →</span>
+                    </a>
+                    <a href="#" class="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                        <span class="text-purple-600">Emergency Veterinary Services →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+function toggleCard(button) {
+    const content = button.querySelector('.card-content');
+    const allContents = document.querySelectorAll('.card-content');
+    
+    // Close other cards
+    allContents.forEach(item => {
+        if (item !== content && !item.classList.contains('hidden')) {
+            item.classList.add('hidden');
+        }
+    });
+    
+    // Toggle current card
+    content.classList.toggle('hidden');
+}
+</script>
+</html>
