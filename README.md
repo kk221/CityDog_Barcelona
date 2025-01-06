@@ -20,7 +20,7 @@ CityDog_Barcelona/
 ├── images/
 └── pages/
     ├── regulations.html
-    ├── services.html
+    ├── groom.html
     ├── vets.html
     └── adoption.html
 
