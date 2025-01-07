@@ -1,0 +1,41 @@
+/* Map specific styles */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.map-filters select,
+.map-filters input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.map-filters select:focus,
+.map-filters input:focus {
+    outline: none;
+    ring: 2px;
+    ring-purple-500;
+}
+
+/* Info window styles */
+.gm-style-iw {
+    padding: 1rem !important;
+}
+
+.park-info {
+    font-family: 'Inter', sans-serif;
+    max-width: 300px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #dogParksMap {
+        height: 400px;
+    }
+}
