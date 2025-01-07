@@ -32,29 +32,34 @@
                 <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden flex items-center">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+<!-- Update the mobile menu button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-lg hover:bg-gray-100">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden w-full mt-4">
-            <div class="flex flex-col space-y-4 pb-4">
-                <a href="regulations.html" class="mobile-link text-purple-600 font-semibold">Pet Regulations</a>
-                <a href="services.html" class="mobile-link">Groom</a>
-                <a href="vets.html" class="mobile-link">Veterinary Care</a>
-                <a href="adoption.html" class="mobile-link">Adoption</a>
-            </div>
+<!-- Update the mobile menu container -->
+<div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
+    <div class="flex flex-col space-y-1">
+        <a href="regulations.html" class="mobile-link text-purple-600 font-semibold px-4 py-2">Pet Regulations</a>
+        <a href="services.html" class="mobile-link px-4 py-2">Groom Service</a>
+        <a href="vets.html" class="mobile-link px-4 py-2">Veterinary Care</a>
+        <a href="adoption.html" class="mobile-link px-4 py-2">Adoption</a>
+    </div>
             
         </div>
     </nav>
 </header>
 
-    <main class="pt-32 pb-16 px-4">
-        <div class="max-w-7xl mx-auto">
+<!-- Add this after the header -->
+<main class="pt-32 pb-16 px-4">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">
+            City Regulations for Pet Ownership
+            <span class="block text-xl md:text-2xl text-gray-600 mt-2">Barcelona</span>
+        </h1>
            
             
             <!-- Regulations Grid -->
@@ -248,25 +253,34 @@ function toggleCard(button) {
     content.classList.toggle('hidden');
 }
         // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
 
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('show');
-            });
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            
+            // Add animation classes
+            if (isMenuOpen) {
+                mobileMenu.classList.add('slide-in');
+            } else {
+                mobileMenu.classList.remove('slide-in');
+            }
+        });
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mobileMenu.contains(event.target) && 
-                    !mobileMenuButton.contains(event.target)) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('show');
-                }
-            });
-        }
-    });
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('slide-in');
+                isMenuOpen = false;
+            }
+        });
+    }
+});
 </script>
 </html>
