@@ -32,6 +32,364 @@
     <Folder>
       <name>By Category</name>
       <!-- We'll add park data here -->
+      <!-- Large Dog Parks -->
+      <Folder>
+        <name>Large Dog Parks</name>
+        <Placemark>
+          <name>Parc de la Ciutadella</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Ciutat Vella</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Ciutadella | Vila Olímpica</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.186874,41.388094</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Platja de Llevant</name>
+          <styleUrl>#sharedarea</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Selva de Mar</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Summer (June-September): Dogs allowed before 10:00 and after 19:00</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.215537,41.404797</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Laberint d'Horta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Mundet</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic garden area requires entrance fee and dogs not allowed</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.145678,41.440123</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Park Güell</name>
+          <styleUrl>#sharedarea</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Gràcia</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Vallcarca, L3 Lesseps</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Monumental Zone requires ticket and dogs not allowed</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.152279,41.414181</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Jardins del Palau de Pedralbes</name>
+          <styleUrl>#smallpark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Les Corts</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Palau Reial</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Palace garden area restricted during official events</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.113889,41.387778</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Barceloneta</name>
+          <styleUrl>#sharedarea</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Ciutat Vella</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Barceloneta</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Beach area: Summer restrictions apply (June-September, before 10:00 and after 19:00)</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.190278,41.375833</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Fòrum</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 El Maresme | Fòrum</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Access restricted during events and concerts</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.219444,41.411389</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc de Montjuïc</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Funicular de Montjuïc, Bus: 150</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Castle area and museums require separate tickets and have dog restrictions</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.168009,41.363694</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Nova Mar Bella Beach</name>
+          <styleUrl>#sharedarea</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Selva de Mar</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Summer (June-September): Dogs allowed before 10:00 and after 19:00</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.215537,41.404797</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Jardins de Joan Maragall</name>
+          <styleUrl>#smallpark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: 150</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Garden area requires prior reservation and has restricted access</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.156389,41.371944</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Camp de l'Arpa</name>
+          <styleUrl>#smallpark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 Camp de l'Arpa</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Closed during night hours (23:00-07:00)</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.181667,41.408333</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc de l'Espanya Industrial</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Plaça de Sants</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Water area restricted for dogs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.140278,41.375556</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Poblenou</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Poblenou</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Beach access has summer restrictions (June-September, before 10:00 and after 19:00)</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.206944,41.403889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Vall d'Hebron</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Vall d'Hebron</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Sports facilities areas have restricted access</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.148056,41.426389</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc Central de Nou Barris</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Llucmajor</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Lake area restricted for dogs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.178889,41.438333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Diagonal Mar</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Selva de Mar</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Water features and playground areas restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.219167,41.409722</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Turó de la Peira</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 Vilapicina</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Sports facilities require separate access</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.170556,41.431111</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Trinitat</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Andreu</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Trinitat Vella</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Some areas closed during maintenance (check local signage)</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.189722,41.448333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Dragó</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Fabra i Puig</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Sports complex areas have restricted access</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.186389,41.435278</coordinates>
+          </Point>
+        </Placemark>
+
+
     </Folder>
 
     <!-- Organization by District -->
