@@ -77,6 +77,31 @@ body {
   margin: 0 auto;
 }
 
+
+.mobile-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #4A5568;
+    transition: all 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--primary-purple);
+    background-color: #F7FAFC;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#mobile-menu.show {
+    max-height: 300px;
+}
+
+
 /* Mobile menu styles */
 @media (max-width: 768px) {
   .nav-links {
