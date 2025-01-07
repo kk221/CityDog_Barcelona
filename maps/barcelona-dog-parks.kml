@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Barcelona Dog Parks</name>
+    
+    <!-- Styles -->
+    <Style id="largepark">
+      <IconStyle>
+        <color>ffff0000</color> <!-- Blue -->
+        <scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+
+    <Style id="smallpark">
+      <IconStyle>
+        <color>ff00ffff</color> <!-- Yellow -->
+        <scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+
+    <Style id="sharedarea">
+      <IconStyle>
+        <color>ff0000ff</color> <!-- Red -->
+        <scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+
+    <!-- Organization by Category -->
+    <Folder>
+      <name>By Category</name>
+      <!-- We'll add park data here -->
+    </Folder>
+
+    <!-- Organization by District -->
+    <Folder>
+      <name>By District</name>
+      <!-- We'll add park data here -->
+    </Folder>
+  </Document>
+</kml>
