@@ -1,46 +1,83 @@
-/* Base styles */
+/* Base styles and variables */
 :root {
   --primary-purple: #9F7AEA;
   --primary-hover: #805AD5;
+  --text-gray: #4A5568;
+  --bg-light: #F7FAFC;
 }
 
 body {
   min-height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Navigation styles */
+/* Header and Navigation */
+.logo img {
+  height: 100px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.02);
+}
+
 .nav-links a {
-  color: #4A5568;
+  color: var(--text-gray);
   font-size: 1.1rem;
   padding: 0.75rem 1rem;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-links a:hover {
   color: var(--primary-purple);
 }
 
-/* Logo size adjustment */
-.logo img {
-  height: 100px;
-  width: auto;
-}
-
-/* Button styles */
-.btn-primary {
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
   background-color: var(--primary-purple);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 9999px;
-  font-size: 1.1rem;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-hover);
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
-/* Hero section styles */
+/* Mobile Navigation */
+.mobile-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-gray);
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobile-link:hover {
+  color: var(--primary-purple);
+  background-color: var(--bg-light);
+  border-left-color: var(--primary-purple);
+}
+
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+#mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
 .hero-section {
   position: relative;
   width: 100%;
@@ -69,40 +106,66 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
+  backdrop-filter: blur(5px);
 }
 
-
-.mobile-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #4A5568;
-    transition: all 0.3s ease;
+/* Button Styles */
+.btn-primary {
+  background-color: var(--primary-purple);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(159, 122, 234, 0.2);
 }
 
-.mobile-link:hover {
-    color: var(--primary-purple);
-    background-color: #F7FAFC;
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(159, 122, 234, 0.3);
 }
 
-/* Mobile menu animation */
-#mobile-menu {
-    transition: all 0.3s ease-in-out;
-    max-height: 0;
-    overflow: hidden;
+/* Regulation Cards */
+.regulation-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#mobile-menu.show {
-    max-height: 300px;
+.regulation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+.card-content {
+  transition: all 0.3s ease-out;
+  opacity: 1;
+}
 
-/* Mobile menu styles */
+.card-content.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Quick Links Section */
+.quick-links a {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(159, 122, 234, 0.2);
+}
+
+.quick-links a:hover {
+  background-color: rgba(159, 122, 234, 0.1);
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -116,24 +179,32 @@ body {
     right: 0;
     background-color: white;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid var(--primary-purple);
+  }
+
+  .hero-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .btn-primary {
+    padding: 0.875rem 2rem;
   }
 }
-/* regulation */
-.regulation-card {
-    transition: all 0.3s ease;
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.regulation-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.card-content {
-    transition: max-height 0.3s ease-out;
-}
-
-.card-content.hidden {
-    max-height: 0;
-    overflow: hidden;
+.slide-in {
+  animation: slideDown 0.3s ease-out forwards;
 }
