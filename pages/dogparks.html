@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Park Locations - City Dog Barcelona</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dogparks.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <!-- Header (same as other pages) -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <!-- ... existing header code ... -->
+    </header>
+
+    <main class="pt-32 pb-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Title Section -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">Dog Park Locations</h1>
+                <p class="text-gray-600">Find the perfect spot for your furry friend in Barcelona</p>
+            </div>
+
+            <!-- Map Filters -->
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <select id="view-type" class="rounded-lg border-gray-300">
+                        <option value="category">View by Category</option>
+                        <option value="district">View by District</option>
+                    </select>
+                    
+                    <input 
+                        type="text" 
+                        id="park-search" 
+                        placeholder="Search parks..."
+                        class="rounded-lg border-gray-300"
+                    >
+                    
+                    <select id="filter-type" class="rounded-lg border-gray-300">
+                        <option value="all">All Types</option>
+                        <option value="large">Large Parks</option>
+                        <option value="small">Small Areas</option>
+                        <option value="shared">Time-restricted</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Map Container -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div id="dogParksMap" class="w-full h-[600px]"></div>
+            </div>
+
+            <!-- Legend -->
+            <div class="bg-white rounded-lg shadow-md p-4 mt-6">
+                <h3 class="font-semibold mb-3">Map Legend</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
+                        <span>Large Dog Parks</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-yellow-400 rounded-full mr-2"></span>
+                        <span>Small Off-leash Areas</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                        <span>Time-restricted Areas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="../js/dogparks.js"></script>
+</html>
