@@ -90,4 +90,6 @@ function handleMarkerClick(event) {
     infoWindow.open(map);
 }
 
-// Add more helper functions as needed
+
+// Initialize map when the page loads
+document.addEventListener('DOMContentLoaded', initDogParksMap);
