@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Dog-friendly areas in Barcelona</name>
+    <description><![CDATA[In yellow: small off-leash enclosures<br>In blue: larger dog parks<br>In red: shared use areas (specific times for dogs)]]></description>
+    <NetworkLink>
+      <name>Dog-friendly areas in Barcelona</name>
+      <Link>
+        <href><![CDATA[https://www.google.com/maps/d/u/0/kml?forcekml=1&mid=14Jx6c9s5TG10FEmyckJnzaUeJ5Tr9Xg]]></href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>
