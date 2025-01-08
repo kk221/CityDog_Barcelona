@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/dogparks.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&libraries=places"></script>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header (same as other pages) -->
@@ -86,26 +86,37 @@
    
    <!-- Map Initialization Script -->
    <script>
-     function initMap() {
-       const map = new google.maps.Map(document.getElementById("map"), {
-         zoom: 12,
-         center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center coordinates
-       });
-       
-       // Load KML layer
-       const kmlLayer = new google.maps.KmlLayer({
-         url: 'https://github.com/kk221/CityDog_Barcelona/blob/main/maps/barcelona-dog-parks.kml',
-         map: map
-          preserveViewport: false,
-       suppressInfoWindows: false
-     });
-     
-     kmlLayer.addListener('status_changed', function() {
-       if (kmlLayer.getStatus() !== 'OK') {
-         console.error('KML layer loading failed:', kmlLayer.getStatus());
-       }
-     });
-   }
+// Initialize and add the map
+let map;
+let kmlLayer;
+
+async function initMap() {
+    // Wait for the Google Maps API to be fully loaded
+    await google.maps.event.load;
+    
+    // Create the map
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center
+        mapTypeId: 'terrain'
+    });
+    
+    // Add the KML layer
+    kmlLayer = new google.maps.KmlLayer({
+        url: 'URL_TO_YOUR_KML_FILE', // Your KML file URL
+        map: map,
+        preserveViewport: false,
+        suppressInfoWindows: false
+    });
+    
+    // Add error handling
+    kmlLayer.addListener('status_changed', function() {
+        if (kmlLayer.getStatus() !== 'OK') {
+            console.error('KML layer loading failed:', kmlLayer.getStatus());
+        }
+    });
+}
+
    
    window.initMap = initMap;
    </script>
