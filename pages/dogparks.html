@@ -77,5 +77,26 @@
 </body>
 
 <!-- Replace YOUR_API_KEY with your actual key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&libraries=places"></script>
+<!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&libraries=places"></script> -->
+      
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk"></script>
+   
+   <!-- Map Container -->
+   <div id="map" style="height: 500px; width: 100%;"></div>
+   
+   <!-- Map Initialization Script -->
+   <script>
+     function initMap() {
+       const map = new google.maps.Map(document.getElementById("map"), {
+         zoom: 12,
+         center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center coordinates
+       });
+       
+       // Load KML layer
+       const kmlLayer = new google.maps.KmlLayer({
+         url: 'https://github.com/kk221/CityDog_Barcelona/blob/main/maps/barcelona-dog-parks.kml',
+         map: map
+       });
+     }
+   </script>
 </html>
