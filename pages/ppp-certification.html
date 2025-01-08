@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPP Certification - City Dog Barcelona</title>
+    <link href="../style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <!-- Hero Section -->
+    <div class="bg-purple-900 text-white py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">PPP Dog Certification Guide</h1>
+            <p class="text-xl text-center text-purple-200 mb-4">Understanding Potentially Dangerous Dogs Regulations in Barcelona</p>
+            <p class="text-center">
+                <a href="https://www.boe.es/buscar/doc.php?lang=en&id=BOE-A-2002-6016" 
+                   target="_blank" 
+                   class="text-sm text-purple-200 hover:text-white underline">
+                    Official Reference: BOE-A-2002-6016
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Tab Navigation -->
+        <div class="tab-container mb-12">
+            <div class="flex space-x-4 border-b">
+                <button class="tab-btn active px-6 py-3 rounded-t-lg" data-tab="breeds">
+                    PPP Breeds
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="requirements">
+                    Requirements
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="process">
+                    Process
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="calculator">
+                    Cost Calculator
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-content-container mt-8">
+                <!-- Breeds Tab -->
+                <div id="breeds" class="tab-content">
+                    <div class="mb-6">
+                        <input type="text" 
+                               class="search-input w-full p-3 border rounded-lg"
+                               placeholder="Search for a breed...">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Breed Cards -->
+                        <div class="breed-card group">
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="https://source.unsplash.com/featured/?pitbull" 
+                                     alt="Pit Bull Terrier"
+                                     class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-semibold">Pit Bull Terrier</h3>
+                                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                                        Click for breed details
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more breed cards -->
+                    </div>
+                </div>
+
+                <!-- Requirements Tab -->
+                <div id="requirements" class="tab-content hidden">
+                    <div class="requirements-checklist space-y-4">
+                        <label class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                            <span class="ml-3">Valid ID/NIE</span>
+                            <span class="ml-auto text-green-500 hidden check-complete">✓</span>
+                        </label>
+                        <!-- Add more requirement items -->
+                    </div>
+                </div>
+
+                <!-- Process Tab -->
+                <div id="process" class="tab-content hidden">
+                    <div class="stepper flex justify-between mb-8">
+                        <div class="step active">
+                            <div class="step-circle w-10 h-10 rounded-full flex items-center justify-center border-2 border-purple-600">
+                                1
+                            </div>
+                            <div class="step-text mt-2">Documents</div>
+                        </div>
+                        <!-- Add more steps -->
+                    </div>
+                </div>
+
+                <!-- Calculator Tab -->
+                <div id="calculator" class="tab-content hidden">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Estimate Your Costs</h3>
+                        <select class="insurance-type w-full p-3 border rounded-lg mb-4">
+                            <option value="basic">Basic Coverage (€120)</option>
+                            <option value="extended">Extended Coverage (€180)</option>
+                        </select>
+                        <div class="total-cost text-2xl font-bold text-purple-600">
+                            €120
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/interactive.js"></script>
+</body>
+</html>
