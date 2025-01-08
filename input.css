@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles for interactive features */
+.tab-btn.active {
+    @apply bg-purple-600 text-white;
+}
+
+.step.active .step-circle {
+    @apply bg-purple-600 text-white;
+}
+
+.tooltip {
+    @apply absolute z-10 p-2 bg-gray-800 text-white text-sm rounded shadow-lg;
+}
