@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Locations - City Dog Barcelona</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/dogparks.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initMap"></script>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header (same as other pages) -->
@@ -50,9 +51,9 @@
             </div>
 
             <!-- Map Container -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            
                 <div id="dogParksMap" class="w-full h-[600px]"></div>
-            </div>
+           
 
             <!-- Legend -->
             <div class="bg-white rounded-lg shadow-md p-4 mt-6">
@@ -74,14 +75,6 @@
             </div>
         </div>
     </main>
-</body>
-
-<!-- Replace YOUR_API_KEY with your actual key -->
-<!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk"></script> -->
-      
-   
-   <!-- Map Container -->
-   <div id="map" style="height: 500px; width: 100%;"></div>
    
    <!-- Map Initialization Script -->
    <script>
@@ -94,7 +87,7 @@ async function initMap() {
     await google.maps.event.load;
     
     // Create the map
-    map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("dogParksMap"), {
         zoom: 12,
         center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center
         mapTypeId: 'terrain'
@@ -102,7 +95,7 @@ async function initMap() {
     
     // Add the KML layer
     kmlLayer = new google.maps.KmlLayer({
-        url: 'URL_TO_YOUR_KML_FILE', // Your KML file URL
+        url: 'https://github.com/kk221/CityDog_Barcelona/blob/main/maps/barcelona-dog-parks.kml', // Your KML file URL
         map: map,
         preserveViewport: false,
         suppressInfoWindows: false
@@ -119,4 +112,5 @@ async function initMap() {
    
    window.initMap = initMap;
    </script>
+</body>
 </html>
