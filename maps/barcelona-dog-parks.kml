@@ -388,9 +388,2112 @@
             <coordinates>2.186389,41.435278</coordinates>
           </Point>
         </Placemark>
+        <Placemark>
+          <name>Parc del Castell de l'Oreneta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: V3, 60</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large forested area ideal for dogs, miniature train area restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.115833,41.398056</coordinates>
+          </Point>
+        </Placemark>
 
+        <Placemark>
+          <name>Parc del Putxet</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L7 Putxet</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Hilltop park with panoramic views, multiple paths for dogs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.147778,41.408333</coordinates>
+          </Point>
+        </Placemark>
 
+        <Placemark>
+          <name>Parc de la Guineueta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Llucmajor</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Lake area restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.173611,41.438889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Clot</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Clot</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic industrial elements, large open spaces</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.186944,41.408333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Nova Icària</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Poblenou</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Beach access has summer restrictions (June-September)</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.206389,41.393889</coordinates>
+          </Point>
+        </Placemark>
+       <Placemark>
+          <name>Parc de Carles I</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Marina</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.187778,41.391667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Poblenou</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Poblenou</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Beach area has summer restrictions</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.206944,41.403889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Sant Martí</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L2 Sant Martí</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.196389,41.416667</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc del Laberint d'Horta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Mundet</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic garden area requires ticket and has dog restrictions, but surrounding park is excellent for dogs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.145678,41.440123</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Collserola (Carretera de les Aigües)</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Peu del Funicular</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Natural park area, dogs must be under control during wildlife breeding seasons</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.130556,41.415833</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc de les Rieres d'Horta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 Horta</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Natural stream areas, extensive walking paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.158333,41.438889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc dels Tres Turons</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Alfons X</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large forest area with multiple trails, some steep paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.162222,41.415833</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Creueta del Coll</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Gràcia</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 El Coll | La Teixonera</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Swimming pool area restricted in summer</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.147778,41.418889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Pegaso</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Andreu</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Sant Andreu</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Lake and garden areas have restrictions</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.191667,41.426944</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Centre del Poblenou</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Poblenou</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Modern design park with multiple paths and open areas</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.199722,41.403333</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Jardins del Turó del Putget</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Putxet</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Hilltop park with panoramic views, multiple walking paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.147222,41.408889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Font Florida</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Plaça Espanya</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Quiet park with shaded areas, good for sensitive dogs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.148333,41.371111</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Sabaté</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Zona Franca</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large open spaces, popular with local dog owners</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.138889,41.361667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Maquinista</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Andreu</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Torres i Bages</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Industrial heritage site with large walking areas</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.189444,41.436667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Besòs</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L2 Sant Roc</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Riverside walks, some areas may be restricted during events</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.219444,41.421667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Trinitat Vella</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Andreu</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Trinitat Vella</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large green spaces with multiple paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.189722,41.448333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Xavier Montsalvatge</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 El Carmel</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Quiet park with good visibility</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.165556,41.421667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Turó de la Rovira</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: V17</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic site with extensive hiking trails, bunker area restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.166667,41.418889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Josep Maria Serra Martí</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Via Júlia</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Popular with local dog owners, multiple levels</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.176111,41.441667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Quintana</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 El Carmel</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Peaceful area with natural surroundings</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.163889,41.423333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Vall d'Hebron</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Vall d'Hebron</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Extensive green areas, some sports facilities restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.148056,41.426389</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de les Aigües</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Alfons X</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic park with terraced areas</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.170556,41.415833</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Guinardó</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: V19</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large forest park with multiple trails</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.173889,41.418889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Joan Reventós</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Sarrià</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Terraced park with multiple levels for walking</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.123333,41.398889</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Castelló</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Sant Gervasi</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic garden with large walking areas</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.138889,41.401667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de l'Oreneta</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: V3</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Forest park with extensive trails, miniature train area restricted</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.115556,41.398333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Caralleu</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: 130</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Natural area connecting to Collserola</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.116667,41.401667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Font del Racó</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Peu del Funicular</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Forested area with natural springs</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.127778,41.411667</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Parc de la Primavera</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Bus: 13</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Terraced park with views of the port</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.168889,41.361667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Sant Martí de Provençals</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sant Martí</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L2 Sant Martí</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large open spaces with walking paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.196667,41.418333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc del Turó del Putxet</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sarrià-Sant Gervasi</value>
+            </Data>
+            <Data name="transport">
+              <value>FGC: Putxet</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Hilltop park with panoramic views</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.146667,41.408333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Serra Martí</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L4 Via Júlia</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Multiple levels with connecting paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.176667,41.441667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Mercader</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Sants-Montjuïc</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L1 Santa Eulàlia</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Historic park with extensive grounds</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.133333,41.358333</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Taxonera</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Horta-Guinardó</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L5 El Coll | La Teixonera</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Natural park with forest paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.146667,41.421667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de la Trinitat Nova</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Nou Barris</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Trinitat Nova</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Large recreational area with multiple paths</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.186667,41.446667</coordinates>
+          </Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Parc de Can Rigal</name>
+          <styleUrl>#largepark</styleUrl>
+          <ExtendedData>
+            <Data name="district">
+              <value>Les Corts</value>
+            </Data>
+            <Data name="transport">
+              <value>Metro: L3 Zona Universitària</value>
+            </Data>
+            <Data name="additional_info">
+              <value>Sports facilities nearby, large open areas</value>
+            </Data>
+          </ExtendedData>
+          <Point>
+            <coordinates>2.116667,41.383333</coordinates>
+          </Point>
+        </Placemark>
     </Folder>
+
+<!-- 45 large dog parks -->
+
+               <!-- Small Off-leash Areas (Pipicans) -->
+        <Folder>
+          <name>Small Off-leash Areas</name>
+          
+          <Placemark>
+            <name>Jardins de Sant Pau del Camp</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Ciutat Vella</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Paral·lel</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>180 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.168516,41.375439</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Estació del Nord</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Arc de Triomf</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>250 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.186667,41.391944</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Joan Miró</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Rocafort</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Park hours (6:00 - 23:00)
+Closed during garden maintenance</value>
+              </Data>
+              <Data name="size">
+                <value>300 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.148889,41.379444</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Sagrada Família</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L2/L5 Sagrada Família</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Temporary closures during major events</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.174444,41.403889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Fort Pienc</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Marina</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00
+Closed first Monday each month for maintenance</value>
+              </Data>
+              <Data name="size">
+                <value>150 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.183333,41.395833</coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Pipi Can Jardins de la Indústria</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Hospital de Sant Pau</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.178333,41.406944</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Montserrat</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Hospital Clínic</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00
+Closed during garden maintenance (monthly)</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.153333,41.389722</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins Paula Montal</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Entença</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>160 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.145833,41.388056</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Doctor Duran</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Poble Sec</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Lighting until 23:00</value>
+              </Data>
+              <Data name="size">
+                <value>225 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.168056,41.373611</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de la Font Florida</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Plaça Espanya</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 21:00
+Closed during events at Fira Barcelona</value>
+              </Data>
+              <Data name="size">
+                <value>280 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.148333,41.371111</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Celestina Vigneaux</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Hostafrancs</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>190 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.143889,41.375833</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Can Mantega</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Plaça de Sants</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>250 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.136944,41.378611</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de la Rambla de Sants</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Santa Eulàlia</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Maintenance every Monday morning</value>
+              </Data>
+              <Data name="size">
+                <value>220 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.133333,41.375000</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de les Hortes de Sant Bertran</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sants-Montjuïc</value>
+              </Data>
+              <Data name="transport">
+                <value>Bus: D20</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.171389,41.371944</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Les Corts</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Les Corts</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Les Corts</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>300 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.134722,41.385833</coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Pipi Can Jardins de Bacardí</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Les Corts</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Collblanc</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.128889,41.378611</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de la Maternitat</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Les Corts</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Zona Universitària</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Closed during campus events</value>
+              </Data>
+              <Data name="size">
+                <value>280 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.123333,41.383889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Can Bruixa</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Les Corts</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Les Corts</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>150 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.138889,41.388889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Can Castelló</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sarrià-Sant Gervasi</value>
+              </Data>
+              <Data name="transport">
+                <value>FGC: Sant Gervasi</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.138889,41.401667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Turó Park</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sarrià-Sant Gervasi</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Diagonal</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Park hours (10:00 - 21:00)</value>
+              </Data>
+              <Data name="size">
+                <value>225 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.143889,41.395833</coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Pipi Can Jardins de Monterols</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sarrià-Sant Gervasi</value>
+              </Data>
+              <Data name="transport">
+                <value>FGC: Muntaner</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>190 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.146111,41.401667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Vila Florida</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sarrià-Sant Gervasi</value>
+              </Data>
+              <Data name="transport">
+                <value>FGC: Sant Gervasi</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Maintenance every Tuesday morning</value>
+              </Data>
+              <Data name="size">
+                <value>160 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.141667,41.403889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Camp de Sarrià</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sarrià-Sant Gervasi</value>
+              </Data>
+              <Data name="transport">
+                <value>FGC: Sarrià</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.123333,41.398889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça Gal·la Placídia</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Gràcia</value>
+              </Data>
+              <Data name="transport">
+                <value>FGC: Gràcia</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>170 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.153333,41.398889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Mestre Balcells</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Gràcia</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Lesseps</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00
+Closed during garden maintenance (monthly)</value>
+              </Data>
+              <Data name="size">
+                <value>180 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.151667,41.408889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça de les Dones del 36</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Gràcia</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Fontana</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>165 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.156944,41.401667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins Manuel Blancafort</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Gràcia</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Vallcarca</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.148889,41.411667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Mestre Balcells</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Gràcia</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Lesseps</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.151667,41.408889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Príncep de Girona</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Bus: V21</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>250 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.173333,41.411667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Baix Guinardó</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Alfons X</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>220 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.168889,41.413889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc del Guinardó</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Bus: V19</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>300 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.173889,41.418889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins Rosa Luxemburg</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 El Carmel</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>190 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.166667,41.421667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins Juan Ponce</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 El Carmel</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>180 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.163889,41.423333</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Can Marcet</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Montbau</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>210 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.148333,41.428889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Can Brasó</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Horta-Guinardó</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Horta</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>170 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.158333,41.431667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça Sóller</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Nou Barris</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Llucmajor</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>280 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.176667,41.433333</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de la Guineueta</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Nou Barris</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Llucmajor</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>240 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.173611,41.438889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc Turó de la Peira</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Nou Barris</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Vilapicina</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.170556,41.431111</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de la Constància</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Nou Barris</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Via Júlia</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.176111,41.441667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de la Trinitat Nova</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Nou Barris</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L3 Trinitat Nova</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>230 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.186667,41.446667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça Canòdrom</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Fabra i Puig</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>320 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.186389,41.435278</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de la Pegaso</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Sant Andreu</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00
+Closed during park events</value>
+              </Data>
+              <Data name="size">
+                <value>250 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.191667,41.426944</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça Ferran Reyes</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Navas</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>190 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.186667,41.418889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins d'Elx</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Fabra i Puig</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>180 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.183333,41.431667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de la Trinitat</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Trinitat Vella</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>270 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.189722,41.448333</coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Pipi Can Parc del Clot</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Clot</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>300 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.186944,41.408333</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça de les Glòries</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Glòries</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Temporary closures during construction works</value>
+              </Data>
+              <Data name="size">
+                <value>250 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.191667,41.403889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc del Poblenou</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Poblenou</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>280 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.206944,41.403889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de Sant Martí</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L2 Sant Martí</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>220 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.196389,41.416667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de Diagonal Mar</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Selva de Mar</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Maintenance Monday mornings</value>
+              </Data>
+              <Data name="size">
+                <value>350 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.215278,41.408889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Rambla Prim</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L2 Sant Martí</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.201667,41.418889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins Josep Trueta</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Poblenou</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.198889,41.401667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc del Port Olímpic</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Ciutadella-Vila Olímpica</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access
+Some restrictions during events</value>
+              </Data>
+              <Data name="size">
+                <value>230 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.196667,41.388889</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins del Clot de la Mel</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Clot</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>190 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.188889,41.411667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Parc de Nova Icària</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Martí</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L4 Bogatell</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>260 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.206389,41.393889</coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Pipi Can Jardins de la Indústria</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Eixample</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L5 Sant Pau</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 7:00 - 22:00</value>
+              </Data>
+              <Data name="size">
+                <value>220 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.176667,41.413333</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Flora Tristán</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Sant Andreu</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>175 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.188889,41.433333</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça de l'Assemblea de Catalunya</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Sant Andreu</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 8:00 - 21:00</value>
+              </Data>
+              <Data name="size">
+                <value>150 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.191667,41.436667</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Jardins de Can Fabra</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Sant Andreu</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: Dawn to dusk</value>
+              </Data>
+              <Data name="size">
+                <value>200 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.189722,41.435000</coordinates>
+            </Point>
+          </Placemark>
+
+          <Placemark>
+            <name>Pipi Can Plaça de Masadas</name>
+            <styleUrl>#smallpark</styleUrl>
+            <ExtendedData>
+              <Data name="district">
+                <value>Sant Andreu</value>
+              </Data>
+              <Data name="transport">
+                <value>Metro: L1 Sant Andreu</value>
+              </Data>
+              <Data name="additional_info">
+                <value>Hours: 24h access</value>
+              </Data>
+              <Data name="size">
+                <value>170 m²</value>
+              </Data>
+            </ExtendedData>
+            <Point>
+              <coordinates>2.190556,41.433889</coordinates>
+            </Point>
+          </Placemark>
+
+
+ </Folder>
 
     <!-- Organization by District -->
     <Folder>
