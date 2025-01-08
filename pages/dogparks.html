@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Locations - City Dog Barcelona</title>
+
+    <!-- Tailwind CSS -->
     <link href="style.css" rel="stylesheet">
-    
+
+    <!-- Custom styles -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/dogparks.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initMap"></script>
 </head>
@@ -51,8 +55,9 @@
             </div>
 
             <!-- Map Container -->
-            
+             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div id="dogParksMap" class="w-full h-[600px]"></div>
+            </div>
            
 
             <!-- Legend -->
@@ -110,7 +115,7 @@ async function initMap() {
 }
 
    
-   window.initMap = initMap;
+    window.initMap = initMap;
    </script>
 </body>
 </html>
