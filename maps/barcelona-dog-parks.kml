@@ -6,7 +6,7 @@
     <!-- Styles -->
     <Style id="largepark">
       <IconStyle>
-        <color>ffff0000</color> <!-- Blue -->
+        <color>ff0000ff</color> <!-- Blue -->
         <scale>1.2</scale>
         <Icon><href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon>
       </IconStyle>
@@ -22,7 +22,7 @@
 
     <Style id="sharedarea">
       <IconStyle>
-        <color>ff0000ff</color> <!-- Red -->
+        <color>ffff0000</color> <!-- Red -->
         <scale>1.2</scale>
         <Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
       </IconStyle>
