@@ -45,27 +45,151 @@
             <!-- Tab Contents -->
             <div class="tab-content-container mt-8">
                 <!-- Breeds Tab -->
-                <div id="breeds" class="tab-content">
-                    <div class="mb-6">
-                        <input type="text" 
-                               class="search-input w-full p-3 border rounded-lg"
-                               placeholder="Search for a breed...">
+<!-- Breeds Tab Content -->
+<div id="breeds" class="tab-content">
+    <!-- Search Input -->
+    <div class="mb-6">
+        <input type="text" 
+               class="search-input w-full p-3 border rounded-lg"
+               placeholder="Search PPP breed...">
+    </div>
+    
+    <!-- Breed Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pit Bull Terrier -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?pitbull" 
+                     alt="Pit Bull Terrier"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Pit Bull Terrier</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Strong and muscular build</li>
+                            <li>• Requires PPP license</li>
+                            <li>• Muzzle mandatory in public</li>
+                        </ul>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Breed Cards -->
-                        <div class="breed-card group">
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <img src="https://source.unsplash.com/featured/?pitbull" 
-                                     alt="Pit Bull Terrier"
-                                     class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h3 class="font-semibold">Pit Bull Terrier</h3>
-                                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
-                                        Click for breed details
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staffordshire Bull Terrier -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?staffordshirebullterrier" 
+                     alt="Staffordshire Bull Terrier"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Staffordshire Bull Terrier</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Muscular and agile</li>
+                            <li>• PPP certification needed</li>
+                            <li>• Special training required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rottweiler -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?rottweiler" 
+                     alt="Rottweiler"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Rottweiler</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Large and powerful</li>
+                            <li>• PPP license mandatory</li>
+                            <li>• Strict control in public</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dogo Argentino -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?dogoargentino" 
+                     alt="Dogo Argentino"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Dogo Argentino</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Athletic and strong</li>
+                            <li>• PPP requirements apply</li>
+                            <li>• Special handling needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila Brasileiro -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?filabrasileiro" 
+                     alt="Fila Brasileiro"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Fila Brasileiro</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Large and powerful</li>
+                            <li>• PPP certification required</li>
+                            <li>• Experienced owner needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tosa Inu -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?tosainu" 
+                     alt="Tosa Inu"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Tosa Inu</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Japanese mastiff breed</li>
+                            <li>• PPP license needed</li>
+                            <li>• Special regulations apply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Akita Inu -->
+        <div class="breed-card group">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img src="https://source.unsplash.com/featured/?akitainu" 
+                     alt="Akita Inu"
+                     class="w-full h-48 object-cover transform transition-transform group-hover:scale-105">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Akita Inu</h3>
+                    <div class="mt-2 text-sm text-gray-600 hidden group-hover:block">
+                        <ul class="space-y-1">
+                            <li>• Large Japanese breed</li>
+                            <li>• PPP certification required</li>
+                            <li>• Special handling needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                         <!-- Add more breed cards -->
                     </div>
                 </div>
