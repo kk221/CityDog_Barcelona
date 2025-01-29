@@ -1,4 +1,5 @@
-// Add this to your interactive.js file
+// Search functionality - Commented out for now
+/*
 
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-input');
@@ -77,3 +78,4 @@ function showNotFoundPopup() {
 function hideNotFoundPopup() {
     document.getElementById('notFoundPopup').classList.add('hidden');
 }
+*/
