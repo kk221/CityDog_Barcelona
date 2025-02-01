@@ -81,59 +81,85 @@ function hideNotFoundPopup() {
 */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // opt
+    // tab switch
     const tabContainer = document.querySelector('.tab-container');
     if (!tabContainer) return;
 
-    // opt
+    // event 
     tabContainer.addEventListener('click', function(e) {
-        const btn = e.target.closest('.tab-btn');
-        if (!btn) return;
+        const btn = e.target.closest('[role="tab"]');
+        if (!btn || btn.getAttribute('aria-selected') === 'true') return;
 
         const targetTab = btn.dataset.tab;
         if (!targetTab) return;
 
-        // switch button
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        // switch button status
+        document.querySelectorAll('[role="tab"]').forEach(tab => {
+            tab.classList.remove('active');
+            tab.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
 
         // switch content
         document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList[content.id === targetTab ? 'remove' : 'add']('hidden');
+            content.classList.toggle('hidden', content.id !== targetTab);
         });
 
-        // effect smooth
-        const targetElement = document.getElementById(targetTab);
-        if (targetElement) {
-            targetElement.scrollIntoView({
+        // scoll
+        setTimeout(() => {
+            const targetElement = document.getElementById(targetTab);
+            targetElement?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
-        }
+        }, 50);
     });
 
-    // default 1st button
-    const firstTab = tabContainer.querySelector('.tab-btn.active');
-    firstTab?.click();
+    // default to 1st tab
+    const defaultTab = tabContainer.querySelector('[role="tab"][aria-selected="true"]');
+    if (!defaultTab) {
+        const firstTab = tabContainer.querySelector('[role="tab"]');
+        if (firstTab) {
+            firstTab.setAttribute('aria-selected', 'true');
+            document.getElementById(firstTab.dataset.tab)?.classList.remove('hidden');
+        }
+    }
 });
 
 // calculator
-document.addEventListener('DOMContentLoaded', function() {
+function initCalculator() {
     const insuranceSelect = document.getElementById('insurance-select');
     const totalCost = document.querySelector('.total-cost');
 
-    if (insuranceSelect && totalCost) {
-        insuranceSelect.addEventListener('change', function() {
-            const prices = {
-                basic: { price: 120, coverage: '€120 (Third Party Liability)' },
-                extended: { price: 180, coverage: '€180 (Full Coverage)' }
-            };
-            
-            const selected = prices[this.value];
-            totalCost.innerHTML = `
-                <span class="text-lg">${selected.coverage}</span>
-                <div class="text-sm text-gray-500 mt-1">Includes mandatory insurance + certification fees</div>
-            `;
-        });
-    }
-});
+    if (!insuranceSelect || !totalCost) return;
+
+    const updatePrice = () => {
+        const prices = {
+            basic: { 
+                price: 120,
+                coverage: '€120 (Third Party Liability)',
+                details: 'Covers basic legal requirements'
+            },
+            extended: {
+                price: 180,
+                coverage: '€180 (Full Coverage)',
+                details: 'Includes veterinary expenses and theft protection'
+            }
+        };
+        
+        const selected = prices[insuranceSelect.value];
+        totalCost.innerHTML = `
+            <div class="price-display">
+                <span class="text-lg font-semibold">${selected.coverage}</span>
+                <div class="text-sm text-gray-500 mt-1">${selected.details}</div>
+                <div class="mt-2 text-purple-600 font-bold">Total: €${selected.price}/year</div>
+            </div>
+        `;
+    };
+
+    insuranceSelect.addEventListener('change', updatePrice);
+    updatePrice(); // default
+}
+
+document.addEventListener('DOMContentLoaded', initCalculator);
