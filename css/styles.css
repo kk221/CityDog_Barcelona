@@ -239,6 +239,10 @@ body {
 }
 
 /* Tab Styles */
+.debug-visible {
+    border: 2px solid red !important;
+}
+
 .tab-content {
     display: block;
     opacity: 1;
