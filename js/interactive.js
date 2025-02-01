@@ -80,7 +80,6 @@ function hideNotFoundPopup() {
 }
 */
 
-// Tab switching functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get all tab buttons and content
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -89,16 +88,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to each tab button
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.add('hidden'));
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.remove('bg-gray-100');
+                btn.classList.remove('text-purple-700');
+            });
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
 
             // Add active class to clicked button
             button.classList.add('active');
+            button.classList.add('bg-gray-100');
+            button.classList.add('text-purple-700');
 
             // Show corresponding content
             const tabId = button.getAttribute('data-tab');
-            document.getElementById(tabId).classList.remove('hidden');
+            const tabContent = document.getElementById(tabId);
+            if (tabContent) {
+                tabContent.classList.remove('hidden');
+            }
         });
     });
 });
