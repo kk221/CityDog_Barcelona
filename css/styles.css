@@ -238,15 +238,25 @@ body {
     text-align: center;
 }
 
+/* Tab Styles */
+.tab-content {
+    display: block;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-content.tab-hidden {
+    display: none;
+    opacity: 0;
+}
+
+.tab-btn {
+    position: relative;
+    cursor: pointer;
+}
+
 .tab-btn.active {
     color: #6B46C1;
     border-bottom: 2px solid #6B46C1;
-}
-
-.tab-content {
-    display: block;
-}
-
-.tab-content.hidden {
-    display: none;
+    background-color: #F3F4F6;
 }
