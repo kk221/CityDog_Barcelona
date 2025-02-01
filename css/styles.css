@@ -238,18 +238,15 @@ body {
     text-align: center;
 }
 
-/* Active tab styles */
 .tab-btn.active {
+    color: #6B46C1;
     border-bottom: 2px solid #6B46C1;
 }
 
-/* Tab hover effects */
-.tab-btn:hover {
-    background-color: #F3F4F6;
-    color: #6B46C1;
+.tab-content {
+    display: block;
 }
 
-/* Tab content transitions */
-.tab-content {
-    transition: all 0.3s ease-in-out;
+.tab-content.hidden {
+    display: none;
 }
