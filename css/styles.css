@@ -251,7 +251,14 @@ body {
 }
 
 .tab-content {
-    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.tab-content:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .tab-content.hidden {
