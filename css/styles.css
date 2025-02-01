@@ -237,3 +237,19 @@ body {
     margin: 0;
     text-align: center;
 }
+
+/* Active tab styles */
+.tab-btn.active {
+    color: #6B46C1; /* purple-700 */
+    border-bottom: 2px solid #6B46C1;
+    background-color: #F3F4F6; /* gray-100 */
+}
+
+/* Tab content visibility */
+.tab-content {
+    display: block;
+}
+
+.tab-content.hidden {
+    display: none;
+}
