@@ -80,35 +80,45 @@ function hideNotFoundPopup() {
 }
 */
 
-document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+     
+        document.addEventListener('DOMContentLoaded', function() {
+            // all tab
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
 
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
+            // event for each tab
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.dataset.tab;
+
+                    // remove active
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // add active
+                    button.classList.add('active');
+
+                    // hide all
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // show target
+                    const targetContent = document.getElementById(targetTab);
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
             });
 
-            // Hide all contents
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-
-            // Add active class to clicked button
-            button.classList.add('active');
-
-            // Show corresponding content
-            const tabId = button.getAttribute('data-tab');
-            const selectedContent = document.getElementById(tabId);
-            if (selectedContent) {
-                selectedContent.classList.remove('hidden');
-            }
+            // first tab show
+            document.querySelector('.tab-btn.active').click();
         });
-    });
-});
 
-    // Show breeds tab by default
-    document.getElementById('breeds').classList.remove('hidden');
-});
+        // optional: 
+        const insuranceSelect = document.getElementById('insurance-select');
+        const totalCost = document.querySelector('.total-cost');
+        
+        insuranceSelect.addEventListener('change', () => {
+            totalCost.textContent = insuranceSelect.value === 'basic' 
+                ? '€120' 
+                : '€180';
+        });
