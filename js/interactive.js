@@ -80,44 +80,41 @@ function hideNotFoundPopup() {
 }
 */
 
-// At the top of interactive.js
-console.log('Tab script loaded');
-
+// interactive.js
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded');
-    
+    // Get all tab buttons and content
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
-    console.log('Found tab buttons:', tabButtons.length);
-    console.log('Found tab contents:', tabContents.length);
 
+    // Add click event to each tab button
     tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            console.log('Tab clicked:', button.getAttribute('data-tab'));
-            
-            // Remove active class from all buttons
+        button.addEventListener('click', function() {
+            // Remove active class and styles from all buttons
             tabButtons.forEach(btn => {
                 btn.classList.remove('active');
+                btn.classList.remove('bg-gray-100');
+                btn.classList.remove('text-purple-700');
             });
 
-            // Hide all contents
+            // Hide all tab contents
             tabContents.forEach(content => {
-                content.classList.add('tab-hidden');
+                content.classList.add('hidden');
             });
 
-            // Add active class to clicked button
-            button.classList.add('active');
+            // Add active class and styles to clicked button
+            this.classList.add('active');
+            this.classList.add('bg-gray-100');
+            this.classList.add('text-purple-700');
 
-            // Show corresponding content
-            const tabId = button.getAttribute('data-tab');
-            const selectedContent = document.getElementById(tabId);
-            if (selectedContent) {
-                selectedContent.classList.remove('tab-hidden');
-                console.log('Showing content for:', tabId);
-            } else {
-                console.log('Could not find content for:', tabId);
+            // Show the corresponding tab content
+            const tabId = this.getAttribute('data-tab');
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
             }
         });
     });
+
+    // Show breeds tab by default
+    document.getElementById('breeds').classList.remove('hidden');
 });
