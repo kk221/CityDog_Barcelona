@@ -265,3 +265,15 @@ body {
     display: none;
 }
 
+/* 在CSS文件中添加 */
+[role="tab"][aria-selected="true"] {
+    background-color: #6b46c1; /* bg-purple-600 */
+    color: white;
+    border-bottom-color: white;
+}
+
+.tab-btn:hover:not([aria-selected="true"]) {
+    background-color: rgba(107, 70, 193, 0.1); /* bg-opacity-10 */
+    color: #4c1d95; /* text-purple-800 */
+}
+
