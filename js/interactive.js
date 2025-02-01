@@ -80,12 +80,22 @@ function hideNotFoundPopup() {
 }
 */
 
+// At the top of interactive.js
+console.log('Tab script loaded');
+
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
+    
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
+    
+    console.log('Found tab buttons:', tabButtons.length);
+    console.log('Found tab contents:', tabContents.length);
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
+            console.log('Tab clicked:', button.getAttribute('data-tab'));
+            
             // Remove active class from all buttons
             tabButtons.forEach(btn => {
                 btn.classList.remove('active');
@@ -104,6 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedContent = document.getElementById(tabId);
             if (selectedContent) {
                 selectedContent.classList.remove('tab-hidden');
+                console.log('Showing content for:', tabId);
+            } else {
+                console.log('Could not find content for:', tabId);
             }
         });
     });
