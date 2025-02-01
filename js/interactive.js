@@ -79,3 +79,26 @@ function hideNotFoundPopup() {
     document.getElementById('notFoundPopup').classList.add('hidden');
 }
 */
+
+// Tab switching functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all tab buttons and content
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // Add click event to each tab button
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.add('hidden'));
+
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Show corresponding content
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.remove('hidden');
+        });
+    });
+});
