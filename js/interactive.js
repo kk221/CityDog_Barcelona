@@ -80,40 +80,34 @@ function hideNotFoundPopup() {
 }
 */
 
-// interactive.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all tab buttons and content
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    // Add click event to each tab button
     tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class and styles from all buttons
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
             tabButtons.forEach(btn => {
                 btn.classList.remove('active');
-                btn.classList.remove('bg-gray-100');
-                btn.classList.remove('text-purple-700');
             });
 
-            // Hide all tab contents
+            // Hide all contents
             tabContents.forEach(content => {
                 content.classList.add('hidden');
             });
 
-            // Add active class and styles to clicked button
-            this.classList.add('active');
-            this.classList.add('bg-gray-100');
-            this.classList.add('text-purple-700');
+            // Add active class to clicked button
+            button.classList.add('active');
 
-            // Show the corresponding tab content
-            const tabId = this.getAttribute('data-tab');
-            const targetContent = document.getElementById(tabId);
-            if (targetContent) {
-                targetContent.classList.remove('hidden');
+            // Show corresponding content
+            const tabId = button.getAttribute('data-tab');
+            const selectedContent = document.getElementById(tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
             }
         });
     });
+});
 
     // Show breeds tab by default
     document.getElementById('breeds').classList.remove('hidden');
