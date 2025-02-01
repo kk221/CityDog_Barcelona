@@ -80,34 +80,30 @@ function hideNotFoundPopup() {
 }
 */
 
-// interactive.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all tab buttons
-    const tabButtons = document.querySelectorAll('[data-tab]');
-    
-    // Add click event to each tab button
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
     tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Get the tab id from data-tab attribute
-            const tabId = this.getAttribute('data-tab');
-            
+        button.addEventListener('click', () => {
             // Remove active class from all buttons
             tabButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
+
+            // Hide all contents
+            tabContents.forEach(content => {
+                content.classList.add('tab-hidden');
             });
-            
-            // Show selected tab content
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.remove('hidden');
+
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Show corresponding content
+            const tabId = button.getAttribute('data-tab');
+            const selectedContent = document.getElementById(tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('tab-hidden');
             }
         });
     });
