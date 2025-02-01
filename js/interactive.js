@@ -80,36 +80,34 @@ function hideNotFoundPopup() {
 }
 */
 
+// interactive.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all tab buttons and content
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
+    // Get all tab buttons
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    
     // Add click event to each tab button
     tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', function() {
+            // Get the tab id from data-tab attribute
+            const tabId = this.getAttribute('data-tab');
+            
             // Remove active class from all buttons
             tabButtons.forEach(btn => {
                 btn.classList.remove('active');
-                btn.classList.remove('bg-gray-100');
-                btn.classList.remove('text-purple-700');
             });
-
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
             // Hide all tab contents
-            tabContents.forEach(content => {
+            document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.add('hidden');
             });
-
-            // Add active class to clicked button
-            button.classList.add('active');
-            button.classList.add('bg-gray-100');
-            button.classList.add('text-purple-700');
-
-            // Show corresponding content
-            const tabId = button.getAttribute('data-tab');
-            const tabContent = document.getElementById(tabId);
-            if (tabContent) {
-                tabContent.classList.remove('hidden');
+            
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
             }
         });
     });
