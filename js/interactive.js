@@ -80,45 +80,60 @@ function hideNotFoundPopup() {
 }
 */
 
-     
-        document.addEventListener('DOMContentLoaded', function() {
-            // all tab
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+document.addEventListener('DOMContentLoaded', function() {
+    // opt
+    const tabContainer = document.querySelector('.tab-container');
+    if (!tabContainer) return;
 
-            // event for each tab
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.dataset.tab;
+    // opt
+    tabContainer.addEventListener('click', function(e) {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
 
-                    // remove active
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    // add active
-                    button.classList.add('active');
+        const targetTab = btn.dataset.tab;
+        if (!targetTab) return;
 
-                    // hide all
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
+        // switch button
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-                    // show target
-                    const targetContent = document.getElementById(targetTab);
-                    if (targetContent) {
-                        targetContent.classList.remove('hidden');
-                    }
-                });
+        // switch content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList[content.id === targetTab ? 'remove' : 'add']('hidden');
+        });
+
+        // effect smooth
+        const targetElement = document.getElementById(targetTab);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
+        }
+    });
 
-            // first tab show
-            document.querySelector('.tab-btn.active').click();
-        });
+    // default 1st button
+    const firstTab = tabContainer.querySelector('.tab-btn.active');
+    firstTab?.click();
+});
 
-        // optional: 
-        const insuranceSelect = document.getElementById('insurance-select');
-        const totalCost = document.querySelector('.total-cost');
-        
-        insuranceSelect.addEventListener('change', () => {
-            totalCost.textContent = insuranceSelect.value === 'basic' 
-                ? '€120' 
-                : '€180';
+// calculator
+document.addEventListener('DOMContentLoaded', function() {
+    const insuranceSelect = document.getElementById('insurance-select');
+    const totalCost = document.querySelector('.total-cost');
+
+    if (insuranceSelect && totalCost) {
+        insuranceSelect.addEventListener('change', function() {
+            const prices = {
+                basic: { price: 120, coverage: '€120 (Third Party Liability)' },
+                extended: { price: 180, coverage: '€180 (Full Coverage)' }
+            };
+            
+            const selected = prices[this.value];
+            totalCost.innerHTML = `
+                <span class="text-lg">${selected.coverage}</span>
+                <div class="text-sm text-gray-500 mt-1">Includes mandatory insurance + certification fees</div>
+            `;
         });
+    }
+});
