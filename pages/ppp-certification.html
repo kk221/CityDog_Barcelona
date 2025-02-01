@@ -28,20 +28,70 @@
         <!-- Tab Navigation -->
         <div class="tab-container mb-12">
             <!-- Tab Buttons -->
-            <div class="flex space-x-4 border-b">
-                <button class="tab-btn active px-6 py-3 rounded-t-lg" data-tab="breeds">
-                    PPP Breeds
-                </button>
-                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="requirements">
-                    Requirements
-                </button>
-                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="process">
-                    Process
-                </button>
-                <button class="tab-btn px-6 py-3 rounded-t-lg" data-tab="calculator">
-                    Cost Calculator
-                </button>
-            </div>
+<div class="tab-container mb-12">
+    <!-- Tab Buttons 优化版本 -->
+    <div class="flex space-x-4 border-b border-purple-100" role="tablist">
+        <button 
+            class="tab-btn px-6 py-3 rounded-t-lg 
+                   transition-all duration-200 
+                   bg-opacity-0 hover:bg-opacity-10 
+                   aria-selected:bg-purple-600 aria-selected:text-white
+                   text-purple-900 hover:text-purple-800 
+                   border-b-2 border-transparent
+                   aria-selected:border-white" 
+            role="tab"
+            aria-selected="true"
+            aria-controls="breeds"
+            data-tab="breeds">
+            PPP Breeds
+        </button>
+        
+        <button 
+            class="tab-btn px-6 py-3 rounded-t-lg 
+                   transition-all duration-200 
+                   bg-opacity-0 hover:bg-opacity-10 
+                   aria-selected:bg-purple-600 aria-selected:text-white
+                   text-purple-900 hover:text-purple-800 
+                   border-b-2 border-transparent
+                   aria-selected:border-white" 
+            role="tab"
+            aria-selected="false"
+            aria-controls="requirements"
+            data-tab="requirements">
+            Requirements
+        </button>
+        
+        <button 
+            class="tab-btn px-6 py-3 rounded-t-lg 
+                   transition-all duration-200 
+                   bg-opacity-0 hover:bg-opacity-10 
+                   aria-selected:bg-purple-600 aria-selected:text-white
+                   text-purple-900 hover:text-purple-800 
+                   border-b-2 border-transparent
+                   aria-selected:border-white" 
+            role="tab"
+            aria-selected="false"
+            aria-controls="process"
+            data-tab="process">
+            Process
+        </button>
+        
+        <button 
+            class="tab-btn px-6 py-3 rounded-t-lg 
+                   transition-all duration-200 
+                   bg-opacity-0 hover:bg-opacity-10 
+                   aria-selected:bg-purple-600 aria-selected:text-white
+                   text-purple-900 hover:text-purple-800 
+                   border-b-2 border-transparent
+                   aria-selected:border-white" 
+            role="tab"
+            aria-selected="false"
+            aria-controls="calculator"
+            data-tab="calculator">
+            Cost Calculator
+        </button>
+    </div>
+</div>
 
             <!-- Tab Contents -->
             <div class="tab-content-container mt-8">
