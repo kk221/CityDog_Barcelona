@@ -240,16 +240,16 @@ body {
 
 /* Active tab styles */
 .tab-btn.active {
-    color: #6B46C1; /* purple-700 */
     border-bottom: 2px solid #6B46C1;
-    background-color: #F3F4F6; /* gray-100 */
 }
 
-/* Tab content visibility */
+/* Tab hover effects */
+.tab-btn:hover {
+    background-color: #F3F4F6;
+    color: #6B46C1;
+}
+
+/* Tab content transitions */
 .tab-content {
-    display: block;
-}
-
-.tab-content.hidden {
-    display: none;
+    transition: all 0.3s ease-in-out;
 }
