@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Locations - City Dog Barcelona</title>
-     <!-- Temporarily keep the CDN until we fix the local Tailwind -->
-    <!--script src="https://cdn.tailwindcss.com"></script > -->
-
-    
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/dogparks.css">
     <link href="../style.css" rel="stylesheet">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Maps API -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initMap"></script>
+    <style>
+        .map-loader {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .gm-style .info-window {
+            min-width: 250px;
+            font-family: 'Inter', sans-serif;
+        }
+        .info-window h3 {
+            @apply text-lg font-semibold mb-2;
+        }
+        .info-window ul {
+            @apply list-disc pl-4 space-y-1;
+        }
+    </style>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header (same as other pages) -->
@@ -32,92 +41,140 @@
                 <p class="text-gray-600">Find the perfect spot for your furry friend in Barcelona</p>
             </div>
 
-            <!-- Map Filters -->
-            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <select id="view-type" class="rounded-lg border-gray-300">
-                        <option value="category">View by Category</option>
-                        <option value="district">View by District</option>
-                    </select>
-                    
-                    <input 
-                        type="text" 
-                        id="park-search" 
-                        placeholder="Search parks..."
-                        class="rounded-lg border-gray-300"
-                    >
-                    
-                    <select id="filter-type" class="rounded-lg border-gray-300">
-                        <option value="all">All Types</option>
-                        <option value="large">Large Parks</option>
-                        <option value="small">Small Areas</option>
-                        <option value="shared">Time-restricted</option>
-                    </select>
+            <!-- Map Controls -->
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <select id="district-filter" class="rounded-lg border-gray-300">
+                    <option value="all">All Districts</option>
+                    <option value="ciutat-vella">Ciutat Vella</option>
+                    <option value="eixample">Eixample</option>
+                    <!-- Add other districts -->
+                </select>
+                
+                <select id="type-filter" class="rounded-lg border-gray-300">
+                    <option value="all">All Types</option>
+                    <option value="zuc">Time-restricted (ZUC)</option>
+                    <option value="large">Large Parks (>400m²)</option>
+                    <option value="small">Small Areas (Pipicans)</option>
+                    <option value="beach">Dog Beach</option>
+                </select>
+
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search parks..." 
+                           class="w-full rounded-lg border-gray-300 pr-10">
+                    <svg class="absolute right-3 top-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
                 </div>
             </div>
 
             <!-- Map Container -->
-             <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden relative">
                 <div id="dogParksMap" class="w-full h-[600px]"></div>
+                <div id="map-loader" class="map-loader">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+                </div>
             </div>
-           
 
             <!-- Legend -->
             <div class="bg-white rounded-lg shadow-md p-4 mt-6">
-                <h3 class="font-semibold mb-3 hidden">Map Legend</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
                     <div class="flex items-center">
                         <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
                         <span>Large Dog Parks</span>
                     </div>
                     <div class="flex items-center">
                         <span class="w-4 h-4 bg-yellow-400 rounded-full mr-2"></span>
-                        <span>Small Off-leash Areas</span>
+                        <span>Small Areas</span>
                     </div>
                     <div class="flex items-center">
                         <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
-                        <span>Time-restricted Areas</span>
+                        <span>Time-restricted</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                        <span>Dog Beach</span>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-   
-   <!-- Map Initialization Script -->
-   <script>
-// Initialize and add the map
-let map;
-let kmlLayer;
 
-async function initMap() {
-    // Wait for the Google Maps API to be fully loaded
-    await google.maps.event.load;
-    
-    // Create the map
-    map = new google.maps.Map(document.getElementById("dogParksMap"), {
-        zoom: 12,
-        center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center
-        mapTypeId: 'terrain'
-    });
-    
-    // Add the KML layer
-    kmlLayer = new google.maps.KmlLayer({
-        url: 'https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/maps/barcelona-dog-parks.kml', // Your KML file URL
-        map: map,
-        preserveViewport: false,
-        suppressInfoWindows: false
-    });
-    
-    // Add error handling
-    kmlLayer.addListener('status_changed', function() {
-        if (kmlLayer.getStatus() !== 'OK') {
-            console.error('KML layer loading failed:', kmlLayer.getStatus());
+    <!-- Map Initialization Script -->
+    <script>
+        let map;
+        let kmlLayer;
+        let infoWindow;
+
+        async function initMap() {
+            // Show loader
+            document.getElementById('map-loader').style.display = 'block';
+
+            // Initialize map
+            map = new google.maps.Map(document.getElementById("dogParksMap"), {
+                zoom: 13,
+                center: { lat: 41.3851, lng: 2.1734 },
+                mapTypeId: 'terrain',
+                gestureHandling: 'cooperative'
+            });
+
+            // Initialize info window
+            infoWindow = new google.maps.InfoWindow({
+                maxWidth: 300
+            });
+
+            // Load KML layer
+            try {
+                kmlLayer = new google.maps.KmlLayer({
+                    url: 'https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/maps/barcelona-dog-parks.kml',
+                    map: map,
+                    preserveViewport: false,
+                    suppressInfoWindows: true
+                });
+
+                // Add click listener
+                kmlLayer.addListener('click', (event) => {
+                    const content = formatInfoWindowContent(event.featureData);
+                    infoWindow.setContent(content);
+                    infoWindow.setPosition(event.latLng);
+                    infoWindow.open(map);
+                });
+
+                // Handle layer status
+                kmlLayer.addListener('status_changed', () => {
+                    if (kmlLayer.getStatus() === 'OK') {
+                        document.getElementById('map-loader').style.display = 'none';
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading KML layer:', error);
+                document.getElementById('map-loader').style.display = 'none';
+            }
+
+            // Add filter controls
+            document.getElementById('district-filter').addEventListener('change', applyFilters);
+            document.getElementById('type-filter').addEventListener('change', applyFilters);
+            document.getElementById('search-input').addEventListener('input', applyFilters);
         }
-    });
-}
 
-   
-    window.initMap = initMap;
-   </script>
+        function formatInfoWindowContent(featureData) {
+            const { name, description } = featureData;
+            return `
+                <div class="info-window">
+                    <h3 class="text-lg font-semibold mb-2">${name}</h3>
+                    <div class="text-sm">${description}</div>
+                </div>
+            `;
+        }
+
+        function applyFilters() {
+            // Implement your filter logic here
+            // Note: KmlLayer doesn't support client-side filtering
+            // Consider switching to GeoJSON for advanced filtering
+            console.log('Filters changed - implement filtering logic');
+        }
+
+        window.initMap = initMap;
+    </script>
 </body>
 </html>
