@@ -86,9 +86,9 @@
                    aria-selected:border-white" 
             role="tab"
             aria-selected="false"
-            aria-controls="calculator"
-            data-tab="calculator">
-            Cost Calculator
+            aria-controls="checklist"
+            data-tab="checklist">
+            Checklist
         </button>
     </div>
 </div>
@@ -469,24 +469,92 @@
     </div>
 </div>
 
-                <!-- Calculator Tab -->
-                <div id="calculator" class="tab-content hidden">
-                    <div class="bg-white rounded-lg shadow-lg p-6">
-                        <h3 class="text-xl font-semibold mb-4">Estimate Your Costs</h3>
-                        <select 
-                            id="insurance-select" 
-                            name="insurance-type" 
-                            class="insurance-type w-full p-3 border rounded-lg mb-4">
-                            <option value="basic">Basic Coverage (€120)</option>
-                            <option value="extended">Extended Coverage (€180)</option>
-                        </select>
-                        <div class="total-cost text-2xl font-bold text-purple-600">
-                            €120
-                        </div>
+<!-- 2. Checklist Tab Content -->
+<div id="checklist" class="tab-content hidden">
+    <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Progress Indicator -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+                <div class="h-3 bg-gray-200 rounded-full">
+                    <div class="progress-bar h-full rounded-full bg-purple-600 transition-all duration-300" 
+                         style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 text-center">
+                    <span class="progress-percent">0</span>% Complete
+                </p>
+            </div>
+
+            <!-- Interactive Checklist -->
+            <div class="space-y-4">
+                <!-- Criminal Record -->
+                <div class="checklist-item flex items-start p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+                    <input type="checkbox" class="mt-1 mr-3 h-5 w-5 accent-purple-600">
+                    <div>
+                        <h4 class="font-semibold">Criminal Record Certificate</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Obtain from Spanish Ministry of Justice (valid for 3 months)
+                        </p>
+                        <a href="https://www.mjusticia.gob.es/en" 
+                           target="_blank" 
+                           class="text-purple-600 hover:text-purple-800 text-sm inline-block mt-2">
+                            ↗ Request Online
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Psychological Evaluation -->
+                <div class="checklist-item flex items-start p-4 border rounded-lg hover:bg-gray-50">
+                    <input type="checkbox" class="mt-1 mr-3 h-5 w-5 accent-purple-600">
+                    <div>
+                        <h4 class="font-semibold">Psychological Evaluation</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                            From authorized medical centers (approx. €50-80)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dog Documentation -->
+                <div class="checklist-item flex items-start p-4 border rounded-lg hover:bg-gray-50">
+                    <input type="checkbox" class="mt-1 mr-3 h-5 w-5 accent-purple-600">
+                    <div>
+                        <h4 class="font-semibold">Dog Documentation</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Microchip, rabies vaccine, and health certificate from vet
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Insurance -->
+                <div class="checklist-item flex items-start p-4 border rounded-lg hover:bg-gray-50">
+                    <input type="checkbox" class="mt-1 mr-3 h-5 w-5 accent-purple-600">
+                    <div>
+                        <h4 class="font-semibold">Liability Insurance</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Minimum €120,000 coverage (annual renewal required)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Appointment Booking -->
+                <div class="checklist-item flex items-start p-4 border rounded-lg hover:bg-gray-50">
+                    <input type="checkbox" class="mt-1 mr-3 h-5 w-5 accent-purple-600">
+                    <div>
+                        <h4 class="font-semibold">Application Appointment</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Book via Barcelona City Hall's online portal
+                        </p>
+                        <a href="https://seuelectronica.ajuntament.barcelona.cat/oficinavirtual/ca/inici" 
+                           target="_blank" 
+                           class="text-purple-600 hover:text-purple-800 text-sm inline-block mt-2">
+                            ↗ Book Appointment
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </main>
 
     <script src="../js/interactive.js"></script>
