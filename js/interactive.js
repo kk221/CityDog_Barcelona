@@ -163,3 +163,43 @@ function initCalculator() {
 }
 
 document.addEventListener('DOMContentLoaded', initCalculator);
+
+
+// Checklist Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressPercent = document.querySelector('.progress-percent');
+
+    function updateProgress() {
+        const checked = document.querySelectorAll('.checklist-item input:checked').length;
+        const total = checkboxes.length;
+        const percent = Math.round((checked / total) * 100);
+        
+        progressBar.style.width = `${percent}%`;
+        progressPercent.textContent = percent;
+        
+        // Save state
+        checkboxes.forEach((checkbox, index) => {
+            localStorage.setItem(`pppChecklist-${index}`, checkbox.checked);
+        });
+    }
+
+    // Load saved state
+    checkboxes.forEach((checkbox, index) => {
+        const isChecked = localStorage.getItem(`pppChecklist-${index}`) === 'true';
+        checkbox.checked = isChecked;
+        if(isChecked) checkbox.parentElement.classList.add('opacity-70');
+    });
+
+    // Update on change
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            checkbox.parentElement.classList.toggle('opacity-70', checkbox.checked);
+            updateProgress();
+        });
+    });
+
+    // Initial update
+    updateProgress();
+});
