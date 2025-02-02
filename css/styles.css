@@ -301,3 +301,21 @@ body {
   background-color: white;
   margin: 0 auto;
 }
+
+/* Checklist Item Animation */
+.checklist-item {
+    transition: all 0.2s ease;
+}
+
+.checklist-item input:checked + div {
+    opacity: 0.7;
+}
+
+.checklist-item input:checked + div h4 {
+    text-decoration: line-through;
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    transition: width 0.5s ease-in-out;
+}
