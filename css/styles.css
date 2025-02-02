@@ -265,7 +265,6 @@ body {
     display: none;
 }
 
-/* 在CSS文件中添加 */
 [role="tab"][aria-selected="true"] {
     background-color: #6b46c1; /* bg-purple-600 */
     color: white;
@@ -277,3 +276,28 @@ body {
     color: #4c1d95; /* text-purple-800 */
 }
 
+.stepper {
+  position: relative;
+}
+
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e5e7eb;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.step-circle {
+  background-color: white;
+  margin: 0 auto;
+}
