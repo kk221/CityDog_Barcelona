@@ -19,12 +19,6 @@
             min-width: 250px;
             font-family: 'Inter', sans-serif;
         }
-        .info-window h3 {
-            @apply text-lg font-semibold mb-2;
-        }
-        .info-window ul {
-            @apply list-disc pl-4 space-y-1;
-        }
     </style>
 </head>
 <body class="font-['Inter'] bg-gray-50">
@@ -45,14 +39,21 @@
             <div class="bg-white rounded-lg shadow-md p-4 mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <select id="district-filter" class="rounded-lg border-gray-300">
                     <option value="all">All Districts</option>
-                    <option value="ciutat-vella">Ciutat Vella</option>
-                    <option value="eixample">Eixample</option>
-                    <!-- Add other districts -->
+                    <option value="Ciutat Vella">Ciutat Vella</option>
+                    <option value="Eixample">Eixample</option>
+                    <option value="Sants-Montjuïc">Sants-Montjuïc</option>
+                    <option value="Les Corts">Les Corts</option>
+                    <option value="Sarrià-Sant Gervasi">Sarrià-Sant Gervasi</option>
+                    <option value="Gràcia">Gràcia</option>
+                    <option value="Horta-Guinardó">Horta-Guinardó</option>
+                    <option value="Nou Barris">Nou Barris</option>
+                    <option value="Sant Andreu">Sant Andreu</option>
+                    <option value="Sant Martí">Sant Martí</option>
                 </select>
                 
                 <select id="type-filter" class="rounded-lg border-gray-300">
                     <option value="all">All Types</option>
-                    <option value="zuc">Time-restricted (ZUC)</option>
+                    <option value="ZUC">Time-restricted (ZUC)</option>
                     <option value="large">Large Parks (>400m²)</option>
                     <option value="small">Small Areas (Pipicans)</option>
                     <option value="beach">Dog Beach</option>
@@ -102,8 +103,9 @@
     <!-- Map Initialization Script -->
     <script>
         let map;
-        let kmlLayer;
+        let dataLayer;
         let infoWindow;
+        let allFeatures = [];
 
         async function initMap() {
             // Show loader
@@ -117,37 +119,38 @@
                 gestureHandling: 'cooperative'
             });
 
+            // Initialize data layer
+            dataLayer = new google.maps.Data();
+            dataLayer.setMap(map);
+
             // Initialize info window
             infoWindow = new google.maps.InfoWindow({
                 maxWidth: 300
             });
 
-            // Load KML layer
+            // Load GeoJSON data
             try {
-                kmlLayer = new google.maps.KmlLayer({
-                    url: 'https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/maps/barcelona-dog-parks.kml',
-                    map: map,
-                    preserveViewport: false,
-                    suppressInfoWindows: true
-                });
+                const response = await fetch('https://raw.githubusercontent.com/your-account/your-repo/main/barcelona-dog-parks.geojson');
+                const geoJson = await response.json();
+                
+                // Store all features for filtering
+                allFeatures = geoJson.features;
+
+                // Add features to data layer with styling
+                dataLayer.addGeoJson(geoJson);
+                applyStyleToFeatures();
 
                 // Add click listener
-                kmlLayer.addListener('click', (event) => {
-                    const content = formatInfoWindowContent(event.featureData);
-                    infoWindow.setContent(content);
+                dataLayer.addListener('click', (event) => {
+                    const feature = event.feature;
+                    infoWindow.setContent(createInfoWindowContent(feature));
                     infoWindow.setPosition(event.latLng);
                     infoWindow.open(map);
                 });
 
-                // Handle layer status
-                kmlLayer.addListener('status_changed', () => {
-                    if (kmlLayer.getStatus() === 'OK') {
-                        document.getElementById('map-loader').style.display = 'none';
-                    }
-                });
-
+                document.getElementById('map-loader').style.display = 'none';
             } catch (error) {
-                console.error('Error loading KML layer:', error);
+                console.error('Error loading GeoJSON:', error);
                 document.getElementById('map-loader').style.display = 'none';
             }
 
@@ -157,21 +160,68 @@
             document.getElementById('search-input').addEventListener('input', applyFilters);
         }
 
-        function formatInfoWindowContent(featureData) {
-            const { name, description } = featureData;
+        function applyStyleToFeatures() {
+            dataLayer.setStyle((feature) => {
+                const type = feature.getProperty('type');
+                return {
+                    icon: getIconForType(type),
+                    title: feature.getProperty('name')
+                };
+            });
+        }
+
+        function getIconForType(type) {
+            const base = 'https://maps.google.com/mapfiles/kml/paddle/';
+            const color = {
+                'ZUC': 'red',
+                'large': 'blue',
+                'small': 'yellow',
+                'beach': 'green'
+            }[type] || 'gray';
+
+            return {
+                url: `${base}${color}-stars.png`,
+                scaledSize: new google.maps.Size(32, 32)
+            };
+        }
+
+        function createInfoWindowContent(feature) {
+            const props = feature.getProperties();
             return `
                 <div class="info-window">
-                    <h3 class="text-lg font-semibold mb-2">${name}</h3>
-                    <div class="text-sm">${description}</div>
+                    <h3 class="text-lg font-semibold mb-2">${props.name}</h3>
+                    <p class="text-sm mb-2">${props.district} District</p>
+                    <div class="text-sm">
+                        <p>Type: ${props.type}</p>
+                        ${props.schedule ? `<p>Schedule: ${props.schedule}</p>` : ''}
+                        ${props.size ? `<p>Size: ${props.size}m²</p>` : ''}
+                    </div>
                 </div>
             `;
         }
 
         function applyFilters() {
-            // Implement your filter logic here
-            // Note: KmlLayer doesn't support client-side filtering
-            // Consider switching to GeoJSON for advanced filtering
-            console.log('Filters changed - implement filtering logic');
+            const districtFilter = document.getElementById('district-filter').value;
+            const typeFilter = document.getElementById('type-filter').value;
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+
+            dataLayer.forEach((feature) => {
+                const props = feature.getProperties();
+                const matchesDistrict = districtFilter === 'all' || props.district === districtFilter;
+                const matchesType = typeFilter === 'all' || props.type === typeFilter;
+                const matchesSearch = props.name.toLowerCase().includes(searchQuery) || 
+                                    (props.description && props.description.toLowerCase().includes(searchQuery));
+
+                feature.setProperty('visible', matchesDistrict && matchesType && matchesSearch);
+            });
+
+            dataLayer.setStyle((feature) => {
+                if (!feature.getProperty('visible')) return { visible: false };
+                return {
+                    icon: getIconForType(feature.getProperty('type')),
+                    visible: true
+                };
+            });
         }
 
         window.initMap = initMap;
