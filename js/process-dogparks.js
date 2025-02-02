@@ -1,15 +1,14 @@
-// process-dogparks.js
 const fs = require('fs');
 const axios = require('axios');
 
 async function processData() {
   try {
-    // 1. Fetch official data
+    console.log('Fetching data...');
     const { data } = await axios.get(
       'https://opendata-ajuntament.barcelona.cat/resources/bcn/AreesGossos/arees_gossos_i_esbarjo_gossos.json'
     );
 
-    // 2. Standardize GeoJSON structure
+    console.log('Processing features...');
     const cleanedGeoJSON = {
       type: "FeatureCollection",
       features: data.features.map(feature => ({
@@ -32,14 +31,17 @@ async function processData() {
       }))
     };
 
-    // 3. Save to file
-    fs.writeFileSync('barcelona-dogparks.geojson', JSON.stringify(cleanedGeoJSON));
-    console.log('GeoJSON file created successfully!');
+    // Write to CURRENT directory
+    fs.writeFileSync(
+      `${__dirname}/barcelona-dogparks.geojson`, 
+      JSON.stringify(cleanedGeoJSON, null, 2)
+    );
+    
+    console.log('✅ File saved to:', `${__dirname}/barcelona-dogparks.geojson`);
 
   } catch (error) {
-    console.error('Error processing data:', error);
+    console.error('❌ Error:', error.message);
   }
 }
 
 processData();
-
