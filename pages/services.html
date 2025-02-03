@@ -3,180 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcelona Pet Care Community | City Pets Care</title>
-    <link rel="stylesheet" href="../css/groom.css">
+    <title>Barcelona Pet Care | Modern Grooming Guides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Additional Clean Styling */
-        .content-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #7E5BEF;
+            --secondary: #6366F1;
+            --accent: #EC4899;
         }
 
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(126,34,206,0.1);
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
-        .feature-divider {
-            width: 60px;
-            height: 4px;
-            background: var(--primary-purple);
-            margin: 1.5rem auto;
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
         }
 
-        .preview-image {
-            background: linear-gradient(135deg, #f3e8ff 0%, #f0f4ff 100%);
-            border-radius: 12px 12px 0 0;
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
         }
 
-        .email-input {
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .email-input:focus {
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 0 4px rgba(126,34,206,0.1);
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Value Header -->
-    <header class="bg-purple-700 text-white py-3">
-        <div class="container mx-auto px-4 text-center text-sm">
-            🎁 Get our <strong>Free Barcelona Pet Care Kit</strong> with subscription
+<body class="font-['Inter'] bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-gray-900">PetCare</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-gray-900">Guides</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900">Community</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 max-w-6xl">
-        <!-- Hero Section -->
-        <section class="py-16 text-center">
-            <div class="max-w-2xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Barcelona Pet Parents Community
-                </h1>
-                <div class="feature-divider"></div>
-                <p class="text-xl text-gray-600 mb-8">
-                    Essential resources for urban pet care in Barcelona's unique environment
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-4 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Barcelona Pet Care Made Simple</h1>
+                <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Essential grooming guides & urban pet care tips for Barcelona residents
                 </p>
-            </div>
-        </section>
-
-        <!-- Value Proposition Grid -->
-        <section class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="content-card">
-                <div class="preview-image h-48 flex items-center justify-center">
-                    <span class="text-purple-500 text-5xl">🐶</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-4">Apartment-Friendly Guides</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>• Small space grooming</li>
-                        <li>• Noise control techniques</li>
-                        <li>• Balcony safety</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content-card">
-                <div class="preview-image h-48 flex items-center justify-center">
-                    <span class="text-purple-500 text-5xl">🌞</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-4">Seasonal Care</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>• Summer heat management</li>
-                        <li>• Winter paw protection</li>
-                        <li>• Festive season safety</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content-card">
-                <div class="preview-image h-48 flex items-center justify-center">
-                    <span class="text-purple-500 text-5xl">🏥</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-4">Health Essentials</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>• Local vet recommendations</li>
-                        <li>• Vaccination schedules</li>
-                        <li>• Emergency preparedness</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lead Capture Section -->
-        <section class="py-16">
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 max-w-2xl mx-auto">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Get Started Now</h2>
-                    <p class="text-gray-600">Join our community and receive:</p>
-                </div>
-                
-                <form class="space-y-6">
-                    <div>
+                <div class="max-w-md mx-auto">
+                    <div class="bg-white rounded-lg p-2 flex">
                         <input type="email" 
-                               placeholder="Your email address"
-                               class="email-input w-full px-6 py-4 rounded-xl">
+                               placeholder="Enter your email" 
+                               class="w-full px-4 py-3 border-0 focus:ring-0">
+                        <button class="bg-[var(--accent)] text-white px-6 rounded-lg">
+                            Get Free Tips
+                        </button>
                     </div>
-                    <button class="w-full bg-purple-600 text-white px-6 py-4 rounded-xl hover:bg-purple-700 transition-all">
-                        Unlock Free Resources →
-                    </button>
-                </form>
-
-                <div class="mt-8 text-center text-sm text-gray-500">
-                    <p>Join 2,500+ Barcelona pet owners</p>
-                    <div class="flex items-center justify-center mt-2 space-x-2">
-                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-                        <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    </div>
+                    <p class="text-sm text-gray-300 mt-3">Join 5,000+ Barcelona pet parents</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Content Preview -->
-        <section class="py-16">
+    <!-- Features Grid -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature Card 1 -->
+            <div class="bg-white rounded-xl p-8 card-hover">
+                <div class="feature-icon rounded-lg mb-6 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Apartment-Friendly Guides</h3>
+                <p class="text-gray-600">Space-saving techniques for Barcelona's compact living</p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="bg-white rounded-xl p-8 card-hover">
+                <div class="feature-icon rounded-lg mb-6 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Seasonal Care Plans</h3>
+                <p class="text-gray-600">Adapt to Barcelona's unique climate challenges</p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="bg-white rounded-xl p-8 card-hover">
+                <div class="feature-icon rounded-lg mb-6 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Local Community</h3>
+                <p class="text-gray-600">Connect with Barcelona pet owners</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Weekly Featured Content</h2>
-                <div class="feature-divider"></div>
+                <h2 class="text-3xl font-bold mb-4">Latest Guides</h2>
+                <p class="text-gray-600">Practical advice for Barcelona's urban pets</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <article class="content-card">
-                    <div class="p-6">
-                        <div class="bg-purple-100 p-4 rounded-lg mb-4">
-                            <span class="text-purple-600 font-semibold">New This Week</span>
+                <!-- Guide 1 -->
+                <article class="bg-white rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-blue-100"></div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[var(--accent)] text-white px-3 py-1 rounded-full text-sm">New</span>
+                            <span class="ml-2 text-gray-500 text-sm">7 min read</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Beach Day Safety Guide</h3>
-                        <p class="text-gray-600 mb-6">Essential tips for Barcelona beach outings with your dog</p>
-                        <div class="text-purple-600 font-medium">Available to members</div>
+                        <h3 class="text-xl font-semibold mb-2">Summer Heat Survival Guide</h3>
+                        <p class="text-gray-600">Keeping pets cool in Barcelona's summers</p>
                     </div>
                 </article>
 
-                <article class="content-card">
-                    <div class="p-6">
-                        <div class="bg-purple-100 p-4 rounded-lg mb-4">
-                            <span class="text-purple-600 font-semibold">Video Guide</span>
+                <!-- Guide 2 -->
+                <article class="bg-white rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-blue-100"></div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[var(--primary)] text-white px-3 py-1 rounded-full text-sm">Video</span>
+                            <span class="ml-2 text-gray-500 text-sm">5 min watch</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Nail Trimming Masterclass</h3>
-                        <p class="text-gray-600 mb-6">Stress-free techniques for home care</p>
-                        <div class="text-purple-600 font-medium">Available to members</div>
+                        <h3 class="text-xl font-semibold mb-2">Balcony Safety Essentials</h3>
+                        <p class="text-gray-600">Creating pet-safe outdoor spaces</p>
                     </div>
                 </article>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">Made with ❤️ in Barcelona</p>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2023 PetCare. Serving Barcelona pet owners with ❤️</p>
         </div>
     </footer>
 </body>
