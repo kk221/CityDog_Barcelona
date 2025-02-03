@@ -4,7 +4,9 @@
     <!-- Existing head content -->
     <title>Pet Grooming Guides - City Dog Barcelona</title>
     <meta name="description" content="Expert grooming tips for Barcelona pet owners - DIY guides, product recommendations, and seasonal care advice for dogs and cats.">
-<link href="path/to/grooming-styles.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/groom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header -->
@@ -46,10 +48,10 @@
 
         <!-- Category Navigation -->
         <nav class="flex flex-wrap gap-4 mb-12 border-b border-gray-200">
-            <button class="px-6 py-2 rounded-full bg-purple-600 text-white">All Topics</button>
-            <button class="px-6 py-2 rounded-full hover:bg-gray-100">DIY Tutorials</button>
-            <button class="px-6 py-2 rounded-full hover:bg-gray-100">Product Reviews</button>
-            <button class="px-6 py-2 rounded-full hover:bg-gray-100">Seasonal Care</button>
+            <button class="category-filter active" data-category="all">All Topics</button>
+    <button class="category-filter" data-category="diy">DIY Tutorials</button>
+    <button class="category-filter" data-category="products">Product Reviews</button>
+    <button class="category-filter" data-category="seasonal">Seasonal Care</button>
         </nav>
 
         <!-- Blog Grid -->
