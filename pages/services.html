@@ -3,118 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcelona Pet Grooming Tips | City Pets Care</title>
-    <meta name="description" content="Essential pet grooming guides for Barcelona owners. Get free weekly tips and become a grooming expert for your dog or cat.">
+    <title>Barcelona Pet Care Community | City Pets Care</title>
     <link rel="stylesheet" href="../css/groom.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional Clean Styling */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(126,34,206,0.1);
+        }
+
+        .feature-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-purple);
+            margin: 1.5rem auto;
+        }
+
+        .preview-image {
+            background: linear-gradient(135deg, #f3e8ff 0%, #f0f4ff 100%);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .email-input {
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .email-input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 4px rgba(126,34,206,0.1);
+        }
+    </style>
 </head>
-<body class="font-['Inter'] bg-gray-50">
-    
-    <!-- Value Proposition Header -->
-    <header class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p>🐾 Get our free <strong>Barcelona Pet Grooming Checklist</strong> when you subscribe!</p>
+<body class="bg-gray-50">
+    <!-- Value Header -->
+    <header class="bg-purple-700 text-white py-3">
+        <div class="container mx-auto px-4 text-center text-sm">
+            🎁 Get our <strong>Free Barcelona Pet Care Kit</strong> with subscription
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                Master Pet Grooming in Barcelona
-            </h1>
-            <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-                Weekly expert tips for Barcelona's unique climate and urban challenges
-            </p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Hero Section -->
+        <section class="py-16 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Barcelona Pet Parents Community
+                </h1>
+                <div class="feature-divider"></div>
+                <p class="text-xl text-gray-600 mb-8">
+                    Essential resources for urban pet care in Barcelona's unique environment
+                </p>
+            </div>
+        </section>
 
-    <!-- Lead Capture Section -->
-    <section class="container mx-auto px-4 py-12 max-w-2xl">
-        <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Get Free Grooming Resources</h2>
-            <p class="text-gray-600 mb-6">Join our Barcelona pet community and receive:</p>
-            <ul class="text-left list-disc pl-6 mb-8 space-y-2 mx-auto w-fit">
-                <li>Seasonal grooming checklists</li>
-                <li>Local product recommendations</li>
-                <li>Apartment-friendly tutorials</li>
-                <li>Exclusive vet Q&A sessions</li>
-            </ul>
-            
-            <form id="leadForm" class="space-y-4">
-                <input type="email" 
-                       placeholder="Your email address" 
-                       class="w-full px-4 py-3 rounded-lg border border-gray-300"
-                       required>
-                <button type="submit" 
-                        class="w-full bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition">
-                    Get Free Resources →
-                </button>
-                <p class="text-sm text-gray-500">We respect your privacy. No spam ever.</p>
-            </form>
-        </div>
-    </section>
-
-    <!-- Content Preview Section -->
-    <section class="container mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center mb-8">Latest Grooming Guides</h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Guide 1 -->
-            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition">
+        <!-- Value Proposition Grid -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="content-card">
+                <div class="preview-image h-48 flex items-center justify-center">
+                    <span class="text-purple-500 text-5xl">🐶</span>
+                </div>
                 <div class="p-6">
-                    <div class="bg-purple-100 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-purple-500">📘 Guide Preview</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Summer Coat Care in Barcelona</h3>
-                    <p class="text-gray-600 mb-4">Essential tips for managing your pet's coat during hot Catalan summers</p>
-                    <div class="text-sm text-purple-600 font-medium">Available to subscribers</div>
-                </div>
-            </article>
-
-            <!-- Guide 2 -->
-            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition">
-                <div class="p-6">
-                    <div class="bg-purple-100 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-purple-500">📹 Video Preview</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Bath Time in Small Bathrooms</h3>
-                    <p class="text-gray-600 mb-4">Space-saving techniques for Barcelona apartments</p>
-                    <div class="text-sm text-purple-600 font-medium">Available to subscribers</div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Social Proof Section -->
-    <section class="bg-gray-50 py-12 mt-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-8">Join 2,500+ Barcelona Pet Owners</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-4">
-                    <p class="text-3xl font-bold text-purple-600 mb-2">97%</p>
-                    <p class="text-gray-600">Recommend us to friends</p>
-                </div>
-                <div class="p-4">
-                    <p class="text-3xl font-bold text-purple-600 mb-2">15k+</p>
-                    <p class="text-gray-600">Monthly grooming tips shared</p>
-                </div>
-                <div class="p-4">
-                    <p class="text-3xl font-bold text-purple-600 mb-2">4.9★</p>
-                    <p class="text-gray-600">Average user rating</p>
+                    <h3 class="text-xl font-semibold mb-4">Apartment-Friendly Guides</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Small space grooming</li>
+                        <li>• Noise control techniques</li>
+                        <li>• Balcony safety</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <script>
-        // Simple lead capture with localStorage
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = e.target.elements[0].value;
-            localStorage.setItem('petOwnerEmail', email);
-            window.location.href = '/thank-you'; // Create thank-you page
-        });
-    </script>
+            <div class="content-card">
+                <div class="preview-image h-48 flex items-center justify-center">
+                    <span class="text-purple-500 text-5xl">🌞</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-4">Seasonal Care</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Summer heat management</li>
+                        <li>• Winter paw protection</li>
+                        <li>• Festive season safety</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="preview-image h-48 flex items-center justify-center">
+                    <span class="text-purple-500 text-5xl">🏥</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-4">Health Essentials</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Local vet recommendations</li>
+                        <li>• Vaccination schedules</li>
+                        <li>• Emergency preparedness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Capture Section -->
+        <section class="py-16">
+            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Get Started Now</h2>
+                    <p class="text-gray-600">Join our community and receive:</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div>
+                        <input type="email" 
+                               placeholder="Your email address"
+                               class="email-input w-full px-6 py-4 rounded-xl">
+                    </div>
+                    <button class="w-full bg-purple-600 text-white px-6 py-4 rounded-xl hover:bg-purple-700 transition-all">
+                        Unlock Free Resources →
+                    </button>
+                </form>
+
+                <div class="mt-8 text-center text-sm text-gray-500">
+                    <p>Join 2,500+ Barcelona pet owners</p>
+                    <div class="flex items-center justify-center mt-2 space-x-2">
+                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Preview -->
+        <section class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Weekly Featured Content</h2>
+                <div class="feature-divider"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <article class="content-card">
+                    <div class="p-6">
+                        <div class="bg-purple-100 p-4 rounded-lg mb-4">
+                            <span class="text-purple-600 font-semibold">New This Week</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Beach Day Safety Guide</h3>
+                        <p class="text-gray-600 mb-6">Essential tips for Barcelona beach outings with your dog</p>
+                        <div class="text-purple-600 font-medium">Available to members</div>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="p-6">
+                        <div class="bg-purple-100 p-4 rounded-lg mb-4">
+                            <span class="text-purple-600 font-semibold">Video Guide</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Nail Trimming Masterclass</h3>
+                        <p class="text-gray-600 mb-6">Stress-free techniques for home care</p>
+                        <div class="text-purple-600 font-medium">Available to members</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">Made with ❤️ in Barcelona</p>
+        </div>
+    </footer>
 </body>
 </html>
