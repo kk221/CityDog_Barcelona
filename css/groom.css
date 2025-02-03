@@ -1,71 +1,108 @@
-/* Add to groom.css */
 /* Base Styles */
-.grooming-guide-card {
-    @apply bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300;
-    transform: translateY(0);
+:root {
+    --primary-purple: #9333ea;
+    --primary-blue: #3b82f6;
+    --text-gray: #4b5563;
 }
 
-.grooming-guide-card:hover {
-    @apply shadow-xl;
-    transform: translateY(-4px);
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(249, 250, 251);
 }
 
-/* Category Filter Buttons */
-.category-filter {
-    @apply px-4 py-2 rounded-full transition-colors duration-200;
+/* Header Styles */
+header {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
-.category-filter.active {
-    @apply bg-purple-600 text-white;
-}
-
-/* Featured Article Animation */
-.featured-article {
-    animation: slideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slideIn {
-    0% { opacity: 0; transform: translateX(-20px); }
-    100% { opacity: 1; transform: translateX(0); }
-}
-
-/* Load Animation for Cards */
-.blog-card {
-    animation: cardAppear 0.6s ease-out both;
-    animation-delay: calc(var(--index) * 0.1s);
-}
-
-@keyframes cardAppear {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Search Input Effects */
-.search-input {
-    @apply transition-all duration-300;
+/* Hero Section */
+.hero-gradient {
+    background: linear-gradient(to right, #f3e8ff, #eff6ff);
 }
 
 .search-input:focus {
-    @apply ring-2 ring-purple-500;
-    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
 }
 
-/* Newsletter Pulse Animation */
-@keyframes newsletterPulse {
-    0% { transform: scale(0.98); }
-    50% { transform: scale(1.01); }
-    100% { transform: scale(0.98); }
+/* Article Cards */
+.article-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.article-card:hover {
+    transform: translateY(-2px);
+}
+
+.featured-image {
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover .featured-image {
+    transform: scale(1.05);
+}
+
+/* Category Navigation */
+.category-button {
+    transition: background-color 0.2s ease;
+}
+
+.category-button.active {
+    background-color: var(--primary-purple);
+    color: white;
+}
+
+/* Blog Grid */
+.blog-card {
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Tags */
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.tag-essential {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+}
+
+.tag-summer {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* Newsletter Section */
 .newsletter-section {
-    animation: newsletterPulse 6s ease-in-out infinite;
+    background-color: #f3e8ff;
+    border-radius: 1rem;
 }
 
-/* Lazy Load Images */
-.lazy-load {
-    @apply opacity-0 transition-opacity duration-500;
+.newsletter-input {
+    transition: border-color 0.2s ease;
 }
 
-.lazy-load.loaded {
-    @apply opacity-100;
+.newsletter-input:focus {
+    border-color: var(--primary-purple);
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-navigation {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
 }
