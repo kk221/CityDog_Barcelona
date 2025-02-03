@@ -3,169 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcelona Pet Grooming & Care | City Pets Care</title>
-    <meta name="description" content="Professional pet grooming services in Barcelona. Expert care for your dogs and cats with Barcelona-certified groomers. Book online now.">
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="css/groom.css" as="style">
-    <link rel="preload" href="js/groom.js" as="script">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/groom.css">
+    <title>Barcelona Pet Grooming Tips | City Pets Care</title>
+    <meta name="description" content="Essential pet grooming guides for Barcelona owners. Get free weekly tips and become a grooming expert for your dog or cat.">
+    <link rel="stylesheet" href="../css/groom.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "City Pets Care Barcelona",
-        "image": "https://citypetscare.com/images/barcelona-grooming.jpg",
-        "priceRange": "€€",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Barcelona",
-            "addressRegion": "Catalonia",
-            "postalCode": "08001"
-        }
-    }
-    </script>
 </head>
+<body class="font-['Inter'] bg-gray-50">
+    
+    <!-- Value Proposition Header -->
+    <header class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>🐾 Get our free <strong>Barcelona Pet Grooming Checklist</strong> when you subscribe!</p>
+        </div>
+    </header>
 
-<body class="font-primary">
     <!-- Hero Section -->
     <section class="hero-section py-16">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">
-                Premium Pet Grooming in Barcelona
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Master Pet Grooming in Barcelona
             </h1>
             <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-                Certified care for Barcelona's beloved pets since 2018
+                Weekly expert tips for Barcelona's unique climate and urban challenges
             </p>
+        </div>
+    </section>
+
+    <!-- Lead Capture Section -->
+    <section class="container mx-auto px-4 py-12 max-w-2xl">
+        <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Get Free Grooming Resources</h2>
+            <p class="text-gray-600 mb-6">Join our Barcelona pet community and receive:</p>
+            <ul class="text-left list-disc pl-6 mb-8 space-y-2 mx-auto w-fit">
+                <li>Seasonal grooming checklists</li>
+                <li>Local product recommendations</li>
+                <li>Apartment-friendly tutorials</li>
+                <li>Exclusive vet Q&A sessions</li>
+            </ul>
             
-            <!-- Search -->
-            <div class="search-container">
-                <input type="text" 
-                       placeholder="Find grooming services..." 
-                       class="search-input"
-                       id="grooming-search">
+            <form id="leadForm" class="space-y-4">
+                <input type="email" 
+                       placeholder="Your email address" 
+                       class="w-full px-4 py-3 rounded-lg border border-gray-300"
+                       required>
+                <button type="submit" 
+                        class="w-full bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition">
+                    Get Free Resources →
+                </button>
+                <p class="text-sm text-gray-500">We respect your privacy. No spam ever.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Content Preview Section -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Latest Grooming Guides</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Guide 1 -->
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition">
+                <div class="p-6">
+                    <div class="bg-purple-100 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-purple-500">📘 Guide Preview</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Summer Coat Care in Barcelona</h3>
+                    <p class="text-gray-600 mb-4">Essential tips for managing your pet's coat during hot Catalan summers</p>
+                    <div class="text-sm text-purple-600 font-medium">Available to subscribers</div>
+                </div>
+            </article>
+
+            <!-- Guide 2 -->
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition">
+                <div class="p-6">
+                    <div class="bg-purple-100 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-purple-500">📹 Video Preview</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Bath Time in Small Bathrooms</h3>
+                    <p class="text-gray-600 mb-4">Space-saving techniques for Barcelona apartments</p>
+                    <div class="text-sm text-purple-600 font-medium">Available to subscribers</div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="bg-gray-50 py-12 mt-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Join 2,500+ Barcelona Pet Owners</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-4">
+                    <p class="text-3xl font-bold text-purple-600 mb-2">97%</p>
+                    <p class="text-gray-600">Recommend us to friends</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl font-bold text-purple-600 mb-2">15k+</p>
+                    <p class="text-gray-600">Monthly grooming tips shared</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl font-bold text-purple-600 mb-2">4.9★</p>
+                    <p class="text-gray-600">Average user rating</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <!-- Services Navigation -->
-        <nav class="category-navigation flex flex-wrap gap-4 mb-12">
-            <button class="category-filter active" data-category="all">All Services</button>
-            <button class="category-filter" data-category="dogs">Dog Grooming</button>
-            <button class="category-filter" data-category="cats">Cat Care</button>
-            <button class="category-filter" data-category="special">Special Treatments</button>
-        </nav>
-
-        <!-- Services Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Dog Grooming Service -->
-            <article class="service-card" data-category="dogs">
-                <div class="featured-image">
-                    <img data-src="../images/dog-grooming.jpg" 
-                         alt="Professional dog grooming in Barcelona"
-                         class="lazy-load w-full h-64 object-cover">
-                </div>
-                <div class="p-6">
-                    <span class="tag tag-essential">Essential Service</span>
-                    <h2 class="text-2xl font-bold mt-4 mb-2">Full Dog Grooming</h2>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li>✓ Breed-specific haircuts</li>
-                        <li>✓ Hypoallergenic baths</li>
-                        <li>✓ Nail & ear care</li>
-                    </ul>
-                    <div class="flex justify-between items-center">
-                        <p class="price text-xl font-semibold">49</p>
-                        <button class="newsletter-button px-6 py-2">Book Now</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Cat Grooming Service -->
-            <article class="service-card" data-category="cats">
-                <div class="featured-image">
-                    <img data-src="../images/cat-care.jpg" 
-                         alt="Professional cat grooming in Barcelona"
-                         class="lazy-load w-full h-64 object-cover">
-                </div>
-                <div class="p-6">
-                    <span class="tag tag-diy">Feline Specialists</span>
-                    <h2 class="text-2xl font-bold mt-4 mb-2">Cat Care Package</h2>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li>✓ Gentle brushing</li>
-                        <li>✓ Sanitary trim</li>
-                        <li>✓ Stress-free environment</li>
-                    </ul>
-                    <div class="flex justify-between items-center">
-                        <p class="price text-xl font-semibold">39</p>
-                        <button class="newsletter-button px-6 py-2">Book Now</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-
-        <!-- Trust Badges -->
-        <section class="trust-badges bg-white py-12 mt-16 rounded-xl">
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-4xl mb-2">🏅</div>
-                    <h3 class="font-semibold">Certified Groomers</h3>
-                    <p class="text-gray-600">Barcelona-licensed professionals</p>
-                </div>
-                <!-- Add more trust badges -->
-            </div>
-        </section>
-
-        <!-- Grooming Blog Section -->
-        <section class="blog-preview py-16">
-            <h2 class="text-3xl font-bold mb-8">Barcelona Grooming Tips</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <article class="blog-card">
-                    <img data-src="../images/summer-grooming.jpg" 
-                         alt="Summer pet care in Barcelona" 
-                         class="lazy-load blog-image">
-                    <div class="p-6">
-                        <span class="tag tag-summer">Summer Care</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">Beat the Barcelona Heat</h3>
-                        <p class="text-gray-600 mb-4">Essential summer grooming tips for city pets</p>
-                        <a href="#" class="text-purple-600 font-semibold">Read Guide →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter-section p-8 mt-8 rounded-xl">
-            <div class="max-w-xl mx-auto text-center">
-                <h3 class="text-2xl font-bold mb-4">Barcelona Pet Care Newsletter</h3>
-                <p class="text-gray-600 mb-6">Get seasonal grooming tips & exclusive offers</p>
-                <form id="newsletter-form" class="space-y-4">
-                    <input type="email" 
-                           placeholder="tu@email.com" 
-                           class="newsletter-input w-full"
-                           required>
-                    <button type="submit" class="newsletter-button w-full">
-                        Subscribe Now
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-16">
-        <div class="container mx-auto px-4">
-            <!-- Footer content -->
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/groom.js"></script>
+    <script>
+        // Simple lead capture with localStorage
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = e.target.elements[0].value;
+            localStorage.setItem('petOwnerEmail', email);
+            window.location.href = '/thank-you'; // Create thank-you page
+        });
+    </script>
 </body>
 </html>
