@@ -1,24 +1,20 @@
-/* Base Styles */
+/* groom.css - Barcelona Pet Grooming Styles */
 :root {
-    --primary-purple: #7e22ce;  /* Matches Tailwind's purple-700 */
-    --primary-purple-light: #a855f7;  /* Tailwind purple-500 */
-    --primary-purple-dark: #6b21a8;  /* Tailwind purple-800 */
-    --background-light: #f9fafb;  /* Tailwind gray-50 */
-    --text-dark: #111827;  /* Tailwind gray-900 */
-    --text-gray: #4b5563;  /* Tailwind gray-600 */
+    --primary-purple: #7e22ce;          /* Barcelona's iconic purple */
+    --primary-purple-light: #a855f7;    /* Vibrant accent color */
+    --primary-purple-dark: #6b21a8;     /* Deep purple for contrast */
+    --background-light: #f9fafb;        /* Light Barcelona sky */
+    --text-dark: #2d3748;               /* Dark text for readability */
+    --text-gray: #4a5568;               /* Secondary text color */
+    --accent-yellow: #f6e05e;           /* Catalan yellow accent */
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-dark);
-}
-
-/* Hero Section */
+/* Barcelona-inspired Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #7e22ce 0%, #4c1d95 100%);
+    background: linear-gradient(135deg, var(--primary-purple) 0%, #004d98 100%);
     position: relative;
     overflow: hidden;
+    border-bottom: 3px solid var(--accent-yellow);
 }
 
 .hero-section::before {
@@ -28,187 +24,109 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('../images/pattern.svg') repeat;
-    opacity: 0.1;
+    background: url('../images/barcelona-pattern.svg') repeat;
+    opacity: 0.15;
 }
 
-.search-container {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
+/* Euro Pricing Styling */
+.price::before {
+    content: '€';
+    font-size: 0.8em;
+    vertical-align: super;
+    margin-right: 2px;
 }
 
-.search-input {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border-radius: 9999px;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+.service-pill {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--primary-purple);
+    color: var(--primary-purple-dark);
 }
 
-.search-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.3);
-    transform: translateY(-1px);
+/* Barcelona Mobile-First Layout */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .search-input {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .category-filter {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
+    }
 }
 
-/* Featured Articles */
+/* Enhanced Card Styling for Barcelona Theme */
 .featured-article {
-    background: white;
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .featured-article:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
-                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 15px -3px rgba(126, 34, 206, 0.1),
+                0 4px 6px -4px rgba(126, 34, 206, 0.1);
 }
 
-.featured-image {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-}
-
-.featured-article:hover .featured-image img {
-    transform: scale(1.05);
-}
-
-/* Category Navigation */
-.category-filter {
-    padding: 0.5rem 1.25rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    background: transparent;
-    color: var(--text-gray);
-}
-
-.category-filter:hover {
-    background-color: rgba(126, 34, 206, 0.1);
-    color: var(--primary-purple);
-}
-
-.category-filter.active {
-    background-color: var(--primary-purple);
-    color: white;
-}
-
-/* Blog Cards */
-.blog-card {
-    background: white;
-    border-radius: 0.75rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* Tags */
-.tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    display: inline-block;
-}
-
+/* Catalan Color Scheme Adjustments */
 .tag-essential {
-    background-color: rgba(126, 34, 206, 0.1);
-    color: var(--primary-purple);
+    background-color: rgba(126, 34, 206, 0.08);
+    border: 1px solid var(--primary-purple-light);
 }
 
-.tag-summer {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: #92400e;
-}
-
-.tag-diy {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #1e40af;
-}
-
-/* Newsletter Section */
 .newsletter-section {
-    background-color: #f3e8ff;
-    border-radius: 1rem;
+    background: linear-gradient(145deg, #f3e8ff 0%, #e9d8fd 100%);
+    border: 2px solid var(--primary-purple-light);
+}
+
+/* Barcelona-style Button Interactions */
+.newsletter-button {
+    background: var(--primary-purple);
     position: relative;
     overflow: hidden;
-}
-
-.newsletter-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-}
-
-.newsletter-input:focus {
-    border-color: var(--primary-purple);
-    box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.2);
-    outline: none;
-}
-
-.newsletter-button {
-    background-color: var(--primary-purple);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .newsletter-button:hover {
-    background-color: var(--primary-purple-dark);
-    transform: translateY(-1px);
+    background: var(--primary-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px -3px rgba(126, 34, 206, 0.3);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
+/* Accessibility Enhancements */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-purple: #5b13b0;
+        --text-dark: #000000;
     }
     
-    .category-navigation {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 1rem;
-    }
-    
-    .category-filter {
-        display: inline-block;
-        margin-right: 0.5rem;
-    }
-    
-    .featured-article {
-        margin-bottom: 2rem;
+    .hero-section {
+        background: var(--primary-purple);
     }
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+/* Barcelona Localization Adjustments */
+.blog-card:hover .blog-title {
+    color: var(--primary-purple);
+    transition: color 0.3s ease;
+}
+
+.service-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Euro Price Formatting */
+.price {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--primary-purple-dark);
+}
+
+.price::after {
+    content: ' EUR';
+    font-size: 0.7em;
+    opacity: 0.7;
 }
