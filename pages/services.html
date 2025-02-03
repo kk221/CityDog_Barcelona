@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Existing head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Grooming Guides - City Dog Barcelona</title>
-    <meta name="description" content="Expert grooming tips for Barcelona pet owners - DIY guides, product recommendations, and seasonal care advice for dogs and cats.">
+    <!-- CSS Files -->
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/groom.css" rel="stylesheet">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="font-['Inter'] bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <!-- Existing header -->
-    </header>
-
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-purple-100 to-blue-50 py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Expert Grooming Guides for City Pets</h1>
-            <p class="text-xl text-gray-600 mb-8">Master at-home care for your dog or cat with our Barcelona-tested tips</p>
+    <div class="bg-purple-900 text-white py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">Expert Grooming Guides</h1>
+            <p class="text-xl text-center text-purple-200 mb-8">Master at-home care for your dog with Barcelona-tested tips</p>
             <div class="max-w-2xl mx-auto">
                 <div class="relative">
-                    <input type="text" placeholder="Search grooming guides..." 
-                           class="w-full rounded-full px-6 py-3 border-0 shadow-lg focus:ring-2 focus:ring-purple-500">
+                    <input type="text" 
+                           placeholder="Search grooming guides..." 
+                           class="w-full rounded-full px-6 py-3 text-gray-900 border-0 shadow-lg focus:ring-2 focus:ring-purple-500">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Main Content Grid -->
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
         <!-- Featured Articles -->
         <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
-                <img src="../images/groom/featured-bath.jpg" alt="Dog bathing tips" 
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="../images/groom/featured-bath.jpg" 
+                     alt="Dog bathing tips" 
                      class="w-full h-64 object-cover">
                 <div class="p-6">
-                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Essential Guide</span>
-                    <h2 class="text-2xl font-bold mt-4 mb-2">Bathing Your Dog in Small Spaces</h2>
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Essential Guide</span>
+                    <h2 class="text-2xl font-bold mt-4 mb-2 text-gray-900">Bathing Your Dog in Small Spaces</h2>
                     <p class="text-gray-600 mb-4">Barcelona apartment-friendly techniques for stress-free baths</p>
-                    <a href="#" class="text-purple-600 font-semibold">Read Guide →</a>
+                    <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">Read Guide →</a>
                 </div>
             </article>
             
-            <!-- Second featured article similar structure -->
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="../images/groom/featured-brush.jpg" 
+                     alt="Brushing techniques" 
+                     class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">DIY Guide</span>
+                    <h2 class="text-2xl font-bold mt-4 mb-2 text-gray-900">Professional Brushing at Home</h2>
+                    <p class="text-gray-600 mb-4">Expert techniques for different coat types</p>
+                    <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">Read Guide →</a>
+                </div>
+            </article>
         </div>
 
         <!-- Category Navigation -->
-        <nav class="flex flex-wrap gap-4 mb-12 border-b border-gray-200">
-            <button class="category-filter active" data-category="all">All Topics</button>
-    <button class="category-filter" data-category="diy">DIY Tutorials</button>
-    <button class="category-filter" data-category="products">Product Reviews</button>
-    <button class="category-filter" data-category="seasonal">Seasonal Care</button>
+        <nav class="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">
+            <button class="px-6 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-colors">All Topics</button>
+            <button class="px-6 py-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors">DIY Tutorials</button>
+            <button class="px-6 py-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors">Product Reviews</button>
+            <button class="px-6 py-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors">Seasonal Care</button>
         </nav>
 
         <!-- Blog Grid -->
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Blog Card 1 -->
-            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all">
+            <!-- Blog Cards -->
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div class="p-6">
-                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Summer Care</span>
-                    <h3 class="text-xl font-semibold mt-4 mb-2">Heatwave Grooming Strategies</h3>
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Summer Care</span>
+                    <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-900">Heatwave Grooming Strategies</h3>
                     <p class="text-gray-600 text-sm mb-4">Keeping your pet cool in Barcelona's summer</p>
                     <div class="flex items-center text-sm text-gray-500">
                         <span>12 min read</span>
@@ -70,24 +79,23 @@
                 </div>
             </article>
             
-            <!-- Repeat similar cards for other articles -->
+            <!-- Add more blog cards here -->
         </div>
 
-        <!-- Email Capture Section -->
+        <!-- Newsletter Section -->
         <section class="bg-purple-50 rounded-2xl p-8 mt-16 text-center">
-            <h3 class="text-2xl font-bold mb-4">Get Weekly Grooming Tips</h3>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Get Weekly Grooming Tips</h3>
             <p class="text-gray-600 mb-6">Join 5,000+ Barcelona pet owners in our newsletter</p>
             <div class="max-w-md mx-auto">
-                <input type="email" placeholder="Your email" 
-                       class="w-full mb-4 px-4 py-3 rounded-lg border border-gray-300">
-                <button class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 w-full">
+                <input type="email" 
+                       placeholder="Your email" 
+                       class="w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                <button class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors w-full font-medium">
                     Subscribe Now
                 </button>
             </div>
         </section>
     </main>
-<script src="path/to/grooming-interactive.js"></script>
-    <!-- Footer -->
-    <!-- Existing footer -->
+    <script src="../js/groom.js"></script>
 </body>
 </html>
