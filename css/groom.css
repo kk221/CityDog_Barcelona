@@ -1,0 +1,71 @@
+/* Add to groom.css */
+/* Base Styles */
+.grooming-guide-card {
+    @apply bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300;
+    transform: translateY(0);
+}
+
+.grooming-guide-card:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
+}
+
+/* Category Filter Buttons */
+.category-filter {
+    @apply px-4 py-2 rounded-full transition-colors duration-200;
+}
+
+.category-filter.active {
+    @apply bg-purple-600 text-white;
+}
+
+/* Featured Article Animation */
+.featured-article {
+    animation: slideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Load Animation for Cards */
+.blog-card {
+    animation: cardAppear 0.6s ease-out both;
+    animation-delay: calc(var(--index) * 0.1s);
+}
+
+@keyframes cardAppear {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Search Input Effects */
+.search-input {
+    @apply transition-all duration-300;
+}
+
+.search-input:focus {
+    @apply ring-2 ring-purple-500;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+}
+
+/* Newsletter Pulse Animation */
+@keyframes newsletterPulse {
+    0% { transform: scale(0.98); }
+    50% { transform: scale(1.01); }
+    100% { transform: scale(0.98); }
+}
+
+.newsletter-section {
+    animation: newsletterPulse 6s ease-in-out infinite;
+}
+
+/* Lazy Load Images */
+.lazy-load {
+    @apply opacity-0 transition-opacity duration-500;
+}
+
+.lazy-load.loaded {
+    @apply opacity-100;
+}
