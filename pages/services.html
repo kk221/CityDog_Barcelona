@@ -4,168 +4,148 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com https://raw.githubusercontent.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Dog Barcelona | Groom Services</title>
+    <title>City Dog Barcelona | Grooming Guides</title>
     <link href="../style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom gradient background */
-        .gradient-bg {
-            background: linear-gradient(135deg, #7E5BEF 0%, #6366F1 100%);
-            color: white;
-        }
-
-        /* Card hover effect */
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Feature icon styling */
-        .feature-icon {
-            background-color: rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Adjust for fixed header */
         main {
             padding-top: 140px;
+            min-height: calc(100vh - 200px);
         }
 
-        /* Ensure text visibility */
-        .hero-content h1,
-        .hero-content p {
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .guide-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(125, 91, 239, 0.1);
+        }
+
+        .guide-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px 12px 0 0;
         }
     </style>
 </head>
 <body class="font-['Inter'] bg-gray-50">
+    <!-- Header -->
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <!-- Logo -->
                 <div class="logo">
                     <a href="../index.html">
                         <img 
                             src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif" 
-                            alt="City Dog Barcelona Logo" 
-                            class="h-[100px] w-auto" 
+                            alt="Logo" 
+                            class="h-[80px] md:h-[100px] w-auto" 
                         />
                     </a>
                 </div>
                 
-                <!-- Desktop Navigation -->
-                <div class="nav-links hidden md:flex space-x-6">
-                    <a href="../pages/regulations.html" class="hover:text-purple-500">Pet Regulations</a>
-                    <a href="../pages/services.html" class="hover:text-purple-500 font-semibold text-purple-600">Groom Service</a>
-                    <a href="../pages/vets.html" class="hover:text-purple-500">Veterinary Care</a>
-                    <a href="../pages/adoption.html" class="hover:text-purple-500">Adoption</a>
+                <!-- Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="../pages/regulations.html" class="nav-link">Regulations</a>
+                    <a href="../pages/services.html" class="nav-link font-semibold text-purple-600">Grooming</a>
+                    <a href="../pages/vets.html" class="nav-link">Veterinary</a>
+                    <a href="../pages/adoption.html" class="nav-link">Adoption</a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
+
                 <button id="mobile-menu-button" class="md:hidden">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
-            
+
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden w-full mt-4">
-                <div class="flex flex-col space-y-4 pb-4">
-                    <a href="../pages/regulations.html" class="mobile-link">Pet Regulations</a>
-                    <a href="../pages/services.html" class="mobile-link font-semibold">Groom Service</a>
-                    <a href="../pages/vets.html" class="mobile-link">Veterinary Care</a>
-                    <a href="../pages/adoption.html" class="mobile-link">Adoption</a>
-                </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="../pages/regulations.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Regulations</a>
+                <a href="../pages/services.html" class="block py-2 px-4 bg-purple-50 text-purple-600 rounded">Grooming</a>
+                <a href="../pages/vets.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Veterinary</a>
+                <a href="../pages/adoption.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Adoption</a>
             </div>
         </nav>
     </header>
 
-    <main class="container mx-auto px-4">
+    <!-- Main Content -->
+    <main>
         <!-- Hero Section -->
-        <section class="gradient-bg rounded-xl mb-12 overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4 py-20 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Barcelona Pet Care Made Simple</h1>
-                <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-                    Essential grooming guides & urban pet care tips for Barcelona residents
-                </p>
-                <div class="max-w-md mx-auto">
-                    <div class="bg-white rounded-lg p-2 flex shadow-sm">
-                        <input 
-                            type="email" 
-                            placeholder="Enter your email" 
-                            class="w-full px-4 py-3 border-0 focus:ring-0 rounded-lg"
-                        >
-                        <button class="bg-purple-600 text-white px-6 rounded-lg hover:bg-purple-700 transition-colors whitespace-nowrap">
-                            Get Free Tips
-                        </button>
-                    </div>
-                    <p class="text-sm mt-3 opacity-80">Join 5,000+ Barcelona pet parents</p>
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div class="container mx-auto px-4 pt-24 pb-20">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Barcelona Pet Grooming Guides
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                        Expert tips for maintaining your pet's health and appearance in the city
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Features Grid -->
-        <section class="max-w-6xl mx-auto py-16">
+        <!-- Guide Cards -->
+        <section class="container mx-auto px-4 py-16">
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature Cards -->
-                <div class="bg-white rounded-xl p-8 card-hover">
-                    <div class="feature-icon mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                <!-- Guide 1 -->
+                <article class="guide-card">
+                    <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/summer-grooming.jpg')"></div>
+                    <div class="p-8">
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Seasonal Care</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2">Summer Heat Survival Guide</h3>
+                        <p class="text-gray-600 mb-4">Essential tips for keeping your pet cool during Barcelona's hot summers</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Apartment-Friendly Guides</h3>
-                    <p class="text-gray-600">Space-saving techniques for Barcelona's compact living</p>
-                </div>
+                </article>
 
-                <!-- Add other feature cards similarly -->
+                <!-- Guide 2 -->
+                <article class="guide-card">
+                    <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/apartment-grooming.jpg')"></div>
+                    <div class="p-8">
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Urban Living</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2">Apartment Grooming Solutions</h3>
+                        <p class="text-gray-600 mb-4">Space-efficient grooming techniques for small Barcelona apartments</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
+                    </div>
+                </article>
+
+                <!-- Guide 3 -->
+                <article class="guide-card">
+                    <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/coat-care.jpg')"></div>
+                    <div class="p-8">
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Coat Care</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2">Mediterranean Coat Maintenance</h3>
+                        <p class="text-gray-600 mb-4">Managing your pet's fur in Barcelona's coastal climate</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- Content Section -->
-        <section class="bg-white py-16">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold mb-4">Latest Guides</h2>
-                    <p class="text-gray-600">Practical advice for Barcelona's urban pets</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 px-4">
-                    <!-- Guide Cards -->
-                    <article class="bg-white rounded-xl overflow-hidden card-hover shadow-sm">
-                        <div class="h-48 bg-gradient-to-r from-purple-50 to-blue-50"></div>
-                        <div class="p-8">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm">New</span>
-                                <span class="ml-2 text-gray-500 text-sm">7 min read</span>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-2">Summer Heat Survival Guide</h3>
-                            <p class="text-gray-600">Keeping pets cool in Barcelona's summers</p>
-                        </div>
-                    </article>
-
-                    <!-- Add other guide cards similarly -->
+        <!-- Collaboration CTA -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4">Interested in Collaborating?</h2>
+                    <p class="text-gray-600 mb-8">We're always open to connecting with local pet care enthusiasts</p>
+                    <button class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                        Get in Touch
+                    </button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 mt-20">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2023 City Dog Barcelona. Serving pet owners with ❤️</p>
+            <p class="text-gray-400">© 2025 City Dog Barcelona. Serving pet owners with ❤️</p>
         </div>
     </footer>
 
