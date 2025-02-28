@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Dog Barcelona | Grooming Guides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="../style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,22 +16,73 @@
         }
 
         .guide-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: 1px solid #e5e7eb;
-            border-radius: 12px;
+            border-radius: 16px;
             background: white;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .guide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(125, 91, 239, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #d1d5db;
         }
 
         .guide-image {
-            height: 200px;
+            height: 240px;
             background-size: cover;
             background-position: center;
-            border-radius: 12px 12px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
+        }
+
+        .guide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .read-more {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .read-more:hover {
+            transform: translateX(4px);
+        }
+
+        .read-more svg {
+            margin-left: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .read-more:hover svg {
+            transform: translateX(2px);
         }
     </style>
 </head>
@@ -96,30 +148,48 @@
                 <!-- Guide 1 -->
                 <article class="guide-card">
                     <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/summer-grooming.jpg')"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold mt-4 mb-2">Summer Heat Survival Guide</h3>
-                        <p class="text-gray-600 mb-4">Keep your pets cool and comfortable during Barcelona's hot summers.</p>
-                        <a href="guides/summer-heat-guide.html" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
+                    <div class="guide-content p-8">
+                        <span class="guide-tag bg-red-50 text-red-600">Summer Care</span>
+                        <h3 class="text-2xl font-semibold mb-4">Summer Heat Survival Guide</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Essential tips and tricks to keep your pets cool and comfortable during Barcelona's hot summer months.</p>
+                        <a href="guides/summer-heat-guide.html" class="read-more text-red-600 hover:text-red-700 font-medium">
+                            Read Guide
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Guide 2 -->
                 <article class="guide-card">
                     <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/apartment-grooming.jpg')"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold mt-4 mb-2">Apartment Grooming Solutions</h3>
-                        <p class="text-gray-600 mb-4">Space-efficient grooming techniques for small Barcelona apartments.</p>
-                        <a href="guides/apartment-grooming.html" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
+                    <div class="guide-content p-8">
+                        <span class="guide-tag bg-blue-50 text-blue-600">Space Solutions</span>
+                        <h3 class="text-2xl font-semibold mb-4">Apartment Grooming Solutions</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Smart and space-efficient grooming techniques perfect for Barcelona's urban apartments.</p>
+                        <a href="guides/apartment-grooming.html" class="read-more text-blue-600 hover:text-blue-700 font-medium">
+                            Read Guide
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Guide 3 -->
                 <article class="guide-card">
                     <div class="guide-image" style="background-image: url('https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/coat-care.jpg')"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold mt-4 mb-2">Breed-Specific Grooming Guide</h3>
-                        <p class="text-gray-600 mb-4">Tailored grooming advice for popular dog breeds in Barcelona.</p>
-                        <a href="guides/breed-specific-grooming.html" class="text-purple-600 hover:text-purple-700 font-medium">Read Guide →</a>
+                    <div class="guide-content p-8">
+                        <span class="guide-tag bg-green-50 text-green-600">Breed Care</span>
+                        <h3 class="text-2xl font-semibold mb-4">Breed-Specific Grooming Guide</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Customized grooming advice for different dog breeds commonly found in Barcelona.</p>
+                        <a href="guides/breed-specific-grooming.html" class="read-more text-green-600 hover:text-green-700 font-medium">
+                            Read Guide
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -151,16 +221,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            let isMenuOpen = false;
 
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    isMenuOpen = !isMenuOpen;
                     mobileMenu.classList.toggle('hidden');
                 });
 
                 document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                    if (isMenuOpen && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
                         mobileMenu.classList.add('hidden');
+                        isMenuOpen = false;
                     }
                 });
             }
