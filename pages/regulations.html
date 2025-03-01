@@ -98,6 +98,7 @@
                 </div>
             </div>
 
+
                 <!-- 2. Pet Registration -->
                 <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
                     <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
@@ -269,16 +270,16 @@
 
 <script>
     
+        // Toggle Vaccination Requirements Content
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('vaccination-header');
             const content = document.getElementById('vaccination-content');
-            
-            // Initially hide the content
-            content.classList.add('hidden');
-            
-            header.addEventListener('click', function() {
-                content.classList.toggle('hidden');
-            });
+
+            if (header && content) {
+                header.addEventListener('click', function() {
+                    content.classList.toggle('hidden');
+                });
+            }
         });
 
 
