@@ -85,7 +85,7 @@ header {
     width: 100%;
     z-index: 1000;
     background: white;
-    height: 120px; /* Adjust based on your header height */
+    height: 100px; /* Adjust based on your header height */
 }
 /* Hero Section */
 .hero-section {
@@ -97,8 +97,8 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 140px; /* Add this to match header height */
-  padding-top: 60px; /* Adjust this value as needed */
+  margin-top: 160px; /* Add this to match header height */
+  padding-top: 40px; /* Adjust this value as needed */
 }
 
 .hero-background {
