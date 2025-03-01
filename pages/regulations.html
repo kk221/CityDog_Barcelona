@@ -68,20 +68,20 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <!-- 1. Vaccination Requirements -->
 <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
-    <div class="p-6" data-toggle="card">
+    <div class="p-6">
         <!-- Header -->
-        <div class="flex items-center justify-between cursor-pointer" onclick="toggleSection('vaccination')">
+        <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
                 <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
             </div>
-            <svg id="arrow-vaccination" class="w-5 h-5 text-purple-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
 
         <!-- Content -->
-        <div id="content-vaccination" class="hidden mt-4">
+        <div class="mt-4">
             <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
@@ -277,32 +277,7 @@
 
 <script>
     
-function toggleSection(id) {
-    // Get the content and arrow elements
-    const content = document.getElementById('content-' + id);
-    const arrow = document.getElementById('arrow-' + id);
-    
-    // Get all contents and arrows
-    const allContents = document.querySelectorAll('[id^="content-"]');
-    const allArrows = document.querySelectorAll('[id^="arrow-"]');
-    
-    // Close all other sections
-    allContents.forEach(item => {
-        if (item.id !== 'content-' + id) {
-            item.classList.add('hidden');
-        }
-    });
-    
-    allArrows.forEach(item => {
-        if (item.id !== 'arrow-' + id) {
-            item.classList.remove('rotate-180');
-        }
-    });
-    
-    // Toggle current section
-    content.classList.toggle('hidden');
-    arrow.classList.toggle('rotate-180');
-}
+
 
 
         // Mobile menu functionality
