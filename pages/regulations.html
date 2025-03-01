@@ -1,75 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com https://raw.githubusercontent.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Regulations - City Dog Barcelona</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>City Dog Barcelona | Grooming Guides</title>
+    <link href="../style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body class="font-['Inter'] bg-gray-50">
-    <!-- Header (same as index.html) -->
+    <!-- Header -->
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <nav class="container mx-auto px-6 py-2">
-        <div class="flex justify-between items-center">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="../index.html">  <!-- Note the ../ to go up one directory -->
-                    <img 
-                        src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif"
-                        alt="City Dog Barcelona Logo" 
-                        class="h-20 w-auto" 
-                    />
-                </a>
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif" alt="Logo" class="h-[80px] md:h-[100px] w-auto">
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-links hidden md:flex space-x-6">
+                    <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
+                    <a href="services.html" class="hover:text-purple-500">Groom Service</a>
+                    <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
+                    <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
 
-            <!-- Desktop Navigation -->
-            <div class="nav-links hidden md:flex space-x-8">
-                <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
-                <a href="services.html" class="hover:text-purple-500">Groom Service</a>
-                <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
-                <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
-            </div>
-
-<!-- Update the mobile menu button -->
-<button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-lg hover:bg-gray-100">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-</button>
-        </div>
-
-<!-- Update the mobile menu container -->
-<div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
+            <!-- Mobile Menu -->
+             <div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
     <div class="flex flex-col space-y-1">
          <a href="regulations.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Pet Regulations</a>
          <a href="services.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Groom Service</a>
          <a href="vets.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Veterinary Care</a>
          <a href="adoption.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Adoption</a>
     </div>
-            
-        </div>
-    </nav>
-</header>
+                 </div>
+        </nav>
+    </header>
 
-<!-- Main Content Structure -->
-<main class="pt-32 pb-16">
-    <div class="container mx-auto px-4">
-        
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white mt-[120px]">
-    <div class="container mx-auto px-4 py-16">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div class="container mx-auto px-4 pt-24 pb-20">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 City Regulations for Pet Ownership
-            </h1>
-            <p class="text-xl text-gray-200 mb-8">
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8">
                 Essential Guidelines for Pet Owners in Barcelona
-            </p>
-        </div>
-    </div>
-</section>
+                    </p>
+                </div>
+            </div>
+        </section>
            
             
             <!-- Regulations Grid -->
