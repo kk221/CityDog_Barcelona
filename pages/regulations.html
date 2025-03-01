@@ -70,18 +70,13 @@
 <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
     <div class="p-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
-                <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
-            </div>
-            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
+        <div class="flex items-center cursor-pointer" onclick="showContent('vaccination')">
+            <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
+            <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
         </div>
 
         <!-- Content -->
-        <div class="mt-4">
+        <div id="vaccination" class="content-section hidden mt-4">
             <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
@@ -277,7 +272,45 @@
 
 <script>
     
-
+function showContent(id) {
+    // Get all content sections
+    const allSections = document.querySelectorAll('.content-section');
+    const allArrows = document.querySelectorAll('.regulation-card svg');
+    
+    // Get the clicked section
+    const clickedSection = document.getElementById(id);
+    
+    // Hide all sections first
+    allSections.forEach(section => {
+        if (section !== clickedSection) {
+            section.classList.add('hidden');
+        }
+    });
+    
+    // Reset all arrows (except vaccination card which doesn't have one)
+    allArrows.forEach(arrow => {
+        arrow.classList.remove('rotate-180');
+    });
+    
+    // If clicked section is hidden, show it and rotate its arrow
+    if (clickedSection.classList.contains('hidden')) {
+        clickedSection.classList.remove('hidden');
+        // Find and rotate arrow (if it exists)
+        const parentCard = clickedSection.closest('.regulation-card');
+        const arrow = parentCard.querySelector('svg');
+        if (arrow) {
+            arrow.classList.add('rotate-180');
+        }
+    } else {
+        // If it's already showing, hide it and reset its arrow
+        clickedSection.classList.add('hidden');
+        const parentCard = clickedSection.closest('.regulation-card');
+        const arrow = parentCard.querySelector('svg');
+        if (arrow) {
+            arrow.classList.remove('rotate-180');
+        }
+    }
+}
 
 
         // Mobile menu functionality
