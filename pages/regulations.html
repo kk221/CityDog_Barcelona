@@ -47,7 +47,8 @@
     </header>
 
     <!-- Main Content -->
-        <main class="container mx-auto px-4 py-12">
+     <section class="container mx-auto px-4 py-12">
+
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
             <div class="container mx-auto px-4 pt-24 pb-20">
@@ -68,7 +69,7 @@
         <!-- 1. Vaccination Requirements -->
 <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
     <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between mb-2">
             <div class="flex items-center">
                 <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
                 <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
@@ -77,7 +78,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
-        <div class="card-content hidden mt-4">
+        <div class="card-content hidden">
             <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
@@ -282,17 +283,6 @@ function toggleCard(button) {
     arrow.classList.toggle('rotate-180');
 }
 
-
-// Add event listener when document is ready
-document.addEventListener('DOMContentLoaded', function() {
-    const button = document.querySelector('[onclick="toggleContent(\'vaccination-content\')"]');
-    if (button) {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleContent('vaccination-content');
-        });
-    }
-});
         // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
