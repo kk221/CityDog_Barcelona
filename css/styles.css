@@ -97,8 +97,8 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 120px; /* Add this to match header height */
-  padding-top: 40px; /* Adjust this value as needed */
+  margin-top: 140px; /* Add this to match header height */
+  padding-top: 60px; /* Adjust this value as needed */
 }
 
 .hero-background {
