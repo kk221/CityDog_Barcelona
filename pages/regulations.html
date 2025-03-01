@@ -68,8 +68,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <!-- 1. Vaccination Requirements -->
 <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
-    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-        <div class="flex items-center justify-between mb-2">
+    <div class="p-6 cursor-pointer" onclick="toggleCard(this)">
+        <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
                 <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
@@ -78,7 +78,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
-        <div class="card-content hidden">
+        <div class="content hidden mt-4">
             <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
@@ -100,7 +100,7 @@
                 </svg>
             </a>
         </div>
-    </button>
+    </div>
 </div>
 
                 <!-- 2. Pet Registration -->
@@ -273,16 +273,17 @@
     
 
 <script>
-function toggleCard(button) {
-    const content = button.querySelector('.card-content');
-    const arrow = button.querySelector('svg');
+    
+function toggleCard(element) {
+    const content = element.querySelector('.content');
+    const arrow = element.querySelector('svg');
     
     // Close other cards
-    const allContents = document.querySelectorAll('.card-content');
+    const allContents = document.querySelectorAll('.content');
     allContents.forEach(item => {
         if (item !== content && !item.classList.contains('hidden')) {
             item.classList.add('hidden');
-            item.closest('button').querySelector('svg').classList.remove('rotate-180');
+            item.parentElement.querySelector('svg').classList.remove('rotate-180');
         }
     });
     
@@ -291,28 +292,7 @@ function toggleCard(button) {
     arrow.classList.toggle('rotate-180');
 }
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // Card toggle functionality
-    const cards = document.querySelectorAll('.regulation-card button');
-    
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            const content = this.querySelector('.card-content');
-            const arrow = this.querySelector('svg');
-            
-            // Close other cards
-            document.querySelectorAll('.regulation-card .card-content').forEach(otherContent => {
-                if (otherContent !== content && !otherContent.classList.contains('hidden')) {
-                    otherContent.classList.add('hidden');
-                    otherContent.closest('button').querySelector('svg').classList.remove('rotate-180');
-                }
-            });
-            
-            // Toggle current card
-            content.classList.toggle('hidden');
-            arrow.classList.toggle('rotate-180');
-        });
-    });
+
 
         // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
