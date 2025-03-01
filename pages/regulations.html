@@ -66,21 +66,19 @@
             <!-- Regulations Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <!-- 1. Vaccination Requirements -->
-<div class="bg-purple-50 rounded-lg border border-purple-100 hover:shadow-lg transition-all duration-300">
-    <div class="p-6 cursor-pointer" onclick="toggleContent('vaccination-content')">
+<div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
+    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
         <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
                 <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
             </div>
-            <svg id="vaccination-arrow" class="w-5 h-5 text-purple-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-purple-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
-                             
-        <!-- Collapsible Content -->
-        <div id="vaccination-content" class="hidden mt-4">
-            <ul class="space-y-4 text-purple-900">
+        <div class="card-content hidden mt-4">
+            <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
                     <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
@@ -101,7 +99,7 @@
                 </svg>
             </a>
         </div>
-    </div>
+    </button>
 </div>
 
                 <!-- 2. Pet Registration -->
@@ -266,17 +264,22 @@
 </body>
 
 <script>
-function toggleContent(contentId) {
-    const content = document.getElementById(contentId);
-    const arrow = document.getElementById('vaccination-arrow');
+function toggleCard(button) {
+    const content = button.querySelector('.card-content');
+    const arrow = button.querySelector('svg');
     
-    if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        arrow.classList.add('rotate-180');
-    } else {
-        content.classList.add('hidden');
-        arrow.classList.remove('rotate-180');
-    }
+    // Close other cards
+    const allContents = document.querySelectorAll('.card-content');
+    allContents.forEach(item => {
+        if (item !== content && !item.classList.contains('hidden')) {
+            item.classList.add('hidden');
+            item.closest('button').querySelector('svg').classList.remove('rotate-180');
+        }
+    });
+    
+    // Toggle current card
+    content.classList.toggle('hidden');
+    arrow.classList.toggle('rotate-180');
 }
 
 
