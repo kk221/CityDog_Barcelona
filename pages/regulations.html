@@ -291,6 +291,29 @@ function toggleCard(button) {
     arrow.classList.toggle('rotate-180');
 }
 
+    document.addEventListener('DOMContentLoaded', function() {
+    // Card toggle functionality
+    const cards = document.querySelectorAll('.regulation-card button');
+    
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const content = this.querySelector('.card-content');
+            const arrow = this.querySelector('svg');
+            
+            // Close other cards
+            document.querySelectorAll('.regulation-card .card-content').forEach(otherContent => {
+                if (otherContent !== content && !otherContent.classList.contains('hidden')) {
+                    otherContent.classList.add('hidden');
+                    otherContent.closest('button').querySelector('svg').classList.remove('rotate-180');
+                }
+            });
+            
+            // Toggle current card
+            content.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        });
+    });
+
         // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
