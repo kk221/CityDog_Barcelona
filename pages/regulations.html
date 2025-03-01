@@ -72,13 +72,13 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
-                <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements/h3>
+                <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
             </div>
             <svg class="w-5 h-5 text-purple-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
-        <div class="content hidden mt-4">
+        <div class="card-content hidden mt-4">  <!-- Changed from 'content' to 'card-content' -->
             <ul class="space-y-4 text-purple-900 text-left">
                 <li class="flex items-start space-x-3">
                     <span class="text-purple-600 mt-1">•</span>
@@ -275,11 +275,11 @@
 <script>
     
 function toggleCard(element) {
-    const content = element.querySelector('.content');
+    const content = element.querySelector('.card-content');  // Changed from '.content'
     const arrow = element.querySelector('svg');
     
     // Close other cards
-    const allContents = document.querySelectorAll('.content');
+    const allContents = document.querySelectorAll('.card-content');  // Changed from '.content'
     allContents.forEach(item => {
         if (item !== content && !item.classList.contains('hidden')) {
             item.classList.add('hidden');
