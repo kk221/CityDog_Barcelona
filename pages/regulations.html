@@ -75,25 +75,46 @@
             <!-- Regulations Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 1. Vaccination Requirements -->
-                <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-shadow">
-                        <div class="p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
-                                <h3 class="text-xl font-semibold text-gray-800">Vaccination Requirements</h3>
-                            </div>
-                            <div class="card-content">
-                                <ul class="space-y-3 text-gray-600">
-                                <li>• All pets must be vaccinated against rabies (mandatory in Spain)</li>
-                                <li>• Annual check-ups and booster shots for other diseases recommended</li>
-                                <li>• Keep vaccination records updated and available for city inspections or travel</li>
-                            </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Official Vaccination Guidelines  
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg></a>
+                   <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+            <button class="w-full" onclick="toggleContent('vaccination-content')">
+                <div class="p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Vaccination Requirements</h3>
                         </div>
+                        <svg id="vaccination-arrow" class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                             
+                    <!-- Collapsible Content -->
+                    <div id="vaccination-content" class="hidden mt-4 overflow-hidden transition-all duration-300 opacity-0 max-h-0">
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600">•</span>
+                                <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600">•</span>
+                                <span>Annual check-ups and booster shots for other diseases recommended</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600">•</span>
+                                <span>Keep vaccination records updated and available for city inspections or travel</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center mt-4 text-purple-600 hover:text-purple-700 font-medium">
+                            Official Vaccination Guidelines
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
+            </button>
+        </div>
+    </div>
 
                 <!-- 2. Pet Registration -->
                 <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
@@ -270,6 +291,28 @@ function toggleCard(button) {
     
     // Toggle current card
     content.classList.toggle('hidden');
+}
+
+    function toggleContent(contentId) {
+    const content = document.getElementById(contentId);
+    const arrow = document.getElementById('vaccination-arrow');
+    
+    // Toggle content visibility with animation
+    if (content.classList.contains('hidden')) {
+        // Show content
+        content.classList.remove('hidden');
+        content.classList.remove('opacity-0');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        arrow.classList.add('rotate-180');
+    } else {
+        // Hide content
+        content.classList.add('opacity-0');
+        content.style.maxHeight = '0';
+        arrow.classList.remove('rotate-180');
+        setTimeout(() => {
+            content.classList.add('hidden');
+        }, 300);
+    }
 }
         // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
