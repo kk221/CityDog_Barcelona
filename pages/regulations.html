@@ -67,7 +67,7 @@
             <!-- Regulations Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <!-- 1. Vaccination Requirements -->
-<div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
+            <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
                 <div class="p-6">
                     <!-- Header -->
                     <div class="flex items-center cursor-pointer" id="vaccination-header">
@@ -277,7 +277,11 @@
 
             if (header && content) {
                 header.addEventListener('click', function() {
-                    content.classList.toggle('hidden');
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
                 });
             }
         });
