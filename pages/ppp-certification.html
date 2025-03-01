@@ -8,6 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="font-['Inter'] bg-gray-50">
+<!-- Header -->
+      <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img 
+                            src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif" 
+                            alt="City Dog Barcelona Logo" 
+                            class="h-[100px] w-auto" 
+                        />
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="nav-links hidden md:flex space-x-6">
+                    <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
+                    <a href="services.html" class="hover:text-purple-500">Groom Service</a>
+                    <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
+                    <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden w-full mt-4">
+                <div class="flex flex-col space-y-4 pb-4">
+                <a href="regulations.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Pet Regulations</a>
+                <a href="services.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Groom Service</a>
+                <a href="vets.html" class="block py-2 px-4 hover:bg-gray-100 rounded">Veterinary Care</a>
+                <a href="adoption.html" class="block py-2 px-4 bg-purple-50 text-purple-600 rounded">Adoption</a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <!-- Hero Section -->
     <div class="bg-purple-900 text-white py-20">
         <div class="container mx-auto px-4">
@@ -358,6 +398,13 @@
             </div>
         </div>
     </main>
+
+     <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 City Dog Barcelona. Serving pet owners with ❤️</p>
+        </div>
+    </footer>
 
     <script src="../js/interactive.js"></script>
 </body>
