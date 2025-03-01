@@ -24,22 +24,23 @@
                 </div>
                 
                 <!-- Navigation -->
-                <div class="nav-links hidden md:flex space-x-6">
+       <div class="nav-links hidden md:flex space-x-6">
                     <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
                     <a href="services.html" class="hover:text-purple-500">Groom Service</a>
                     <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
                     <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
                 </div>
 
-                <button id="mobile-menu-button" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+<!-- Update the mobile menu button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-lg hover:bg-gray-100">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
+        </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
+<!-- Update the mobile menu container -->
+<div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
     <div class="flex flex-col space-y-1">
          <a href="regulations.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Pet Regulations</a>
          <a href="services.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Groom Service</a>
@@ -51,51 +52,144 @@
         </nav>
     </header>
 
-    <main class="pt-32 pb-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl font-bold mb-8">Summer Heat Survival Guide</h1>
             
-            <div class="prose max-w-none">
-                <h2 class="text-2xl font-semibold mb-4">Keeping Your Pet Cool in Barcelona's Summer</h2>
-                
-                <p class="mb-6">Barcelona's Mediterranean climate can be challenging for pets during summer months. Here are essential tips to keep your furry friend comfortable and safe:</p>
-                
-                <h3 class="text-xl font-semibold mb-3">1. Grooming Tips</h3>
-                <ul class="list-disc pl-6 mb-6">
-                    <li>Regular brushing to remove excess fur</li>
-                    <li>Professional trimming for long-haired breeds</li>
-                    <li>Avoid shaving double-coated breeds</li>
-                    <li>Keep paw pads trimmed and moisturized</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold mb-3">2. Timing Your Walks</h3>
-                <ul class="list-disc pl-6 mb-6">
-                    <li>Early morning or late evening walks</li>
-                    <li>Check pavement temperature with your hand</li>
-                    <li>Stick to shaded routes</li>
-                    <li>Carry water and a collapsible bowl</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold mb-3">3. Indoor Comfort</h3>
-                <ul class="list-disc pl-6 mb-6">
-                    <li>Provide multiple water stations</li>
-                    <li>Create cool spots with tile floors</li>
-                    <li>Use cooling mats or frozen treats</li>
-                    <li>Ensure good ventilation</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold mb-3">4. Warning Signs of Heat Stress</h3>
-                <ul class="list-disc pl-6 mb-6">
-                    <li>Excessive panting or drooling</li>
-                    <li>Lethargy or weakness</li>
-                    <li>Vomiting or diarrhea</li>
-                    <li>Seek immediate veterinary care if these signs appear</li>
-                </ul>
+    <!-- Main Content -->
+<main class="pt-32 pb-16 px-4">
+    <div class="max-w-4xl mx-auto">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white mt-[120px]">
+            <div class="container mx-auto px-4 py-16">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                            Summer Heat Survival Guide
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                            Keeping Your Pet Cool in Barcelona's Summer
+                    </p>
+                </div>
             </div>
-            
-            <div class="mt-8">
-                <a href="../services.html" class="text-purple-600 hover:text-purple-700 font-medium">← Back to Grooming Guides</a>
-            </div>
+        </section>
+
+            <!-- Guide Content -->
+                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                    <div class="prose max-w-none space-y-8">
+                        <p class="text-lg text-gray-600">Barcelona's Mediterranean climate can be challenging for pets during summer months. Here are essential tips to keep your furry friend comfortable and safe:</p>
+                        
+                        <!-- Grooming Tips -->
+                        <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-purple-600 hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">GT</span>
+                                <h3 class="text-2xl font-semibold text-gray-800">Grooming Tips</h3>
+                            </div>
+                            <ul class="grid md:grid-cols-2 gap-4">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-purple-600">•</span>
+                                    <span>Regular brushing to remove excess fur</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-purple-600">•</span>
+                                    <span>Professional trimming for long-haired breeds</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-purple-600">•</span>
+                                    <span>Avoid shaving double-coated breeds</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-purple-600">•</span>
+                                    <span>Keep paw pads trimmed and moisturized</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Walk Timing -->
+                        <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-blue-600 hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">WT</span>
+                                <h3 class="text-2xl font-semibold text-gray-800">Timing Your Walks</h3>
+                            </div>
+                            <ul class="grid md:grid-cols-2 gap-4">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-blue-600">•</span>
+                                    <span>Early morning or late evening walks</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-blue-600">•</span>
+                                    <span>Check pavement temperature with your hand</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-blue-600">•</span>
+                                    <span>Stick to shaded routes</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-blue-600">•</span>
+                                    <span>Carry water and a collapsible bowl</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Indoor Comfort -->
+                        <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-indigo-600 hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">IC</span>
+                                <h3 class="text-2xl font-semibold text-gray-800">Indoor Comfort</h3>
+                            </div>
+                            <ul class="grid md:grid-cols-2 gap-4">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-indigo-600">•</span>
+                                    <span>Provide multiple water stations</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-indigo-600">•</span>
+                                    <span>Create cool spots with tile floors</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-indigo-600">•</span>
+                                    <span>Use cooling mats or frozen treats</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-indigo-600">•</span>
+                                    <span>Ensure good ventilation</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Warning Signs -->
+                        <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-pink-600 hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">WS</span>
+                                <h3 class="text-2xl font-semibold text-gray-800">Warning Signs of Heat Stress</h3>
+                            </div>
+                            <ul class="grid md:grid-cols-2 gap-4">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-pink-600">•</span>
+                                    <span>Excessive panting or drooling</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-pink-600">•</span>
+                                    <span>Lethargy or weakness</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-pink-600">•</span>
+                                    <span>Vomiting or diarrhea</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-pink-600">•</span>
+                                    <span>Seek immediate veterinary care if these signs appear</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="../services.html" class="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        Back to Grooming Guides
+                    </a>
+                </div>
+            </section>
         </div>
     </main>
 
