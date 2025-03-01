@@ -68,38 +68,35 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <!-- 1. Vaccination Requirements -->
 <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
-    <div class="p-6">
-        <!-- Header -->
-        <div class="flex items-center cursor-pointer" id="vaccination-header">
-            <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
-            <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
-        </div>
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="flex items-center cursor-pointer" id="vaccination-header">
+                        <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
+                        <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
+                    </div>
 
-        <!-- Content -->
-        <div id="vaccination-content" class="mt-4">
-            <ul class="space-y-4 text-purple-900 text-left">
-                <li class="flex items-start space-x-3">
-                    <span class="text-purple-600 mt-1">•</span>
-                    <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
-                </li>
-                <li class="flex items-start space-x-3">
-                    <span class="text-purple-600 mt-1">•</span>
-                    <span>Annual check-ups and booster shots for other diseases recommended</span>
-                </li>
-                <li class="flex items-start space-x-3">
-                    <span class="text-purple-600 mt-1">•</span>
-                    <span>Keep vaccination records updated and available for city inspections or travel</span>
-                </li>
-            </ul>
-            <a href="#" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
-                Official Vaccination Guidelines
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
+                    <!-- Content -->
+                    <div id="vaccination-content" class="mt-4 hidden">
+                        <ul class="space-y-4 text-purple-900 text-left">
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600 mt-1">•</span>
+                                <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600 mt-1">•</span>
+                                <span>Annual check-ups and booster shots for other diseases recommended</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="text-purple-600 mt-1">•</span>
+                                <span>Keep vaccination records updated and available for city inspections or travel</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                            Official Vaccination Guidelines
+                        </a>
+                    </div>
+                </div>
+            </div>
 
                 <!-- 2. Pet Registration -->
                 <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
@@ -272,17 +269,17 @@
 
 <script>
     
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.getElementById('vaccination-header');
-    const content = document.getElementById('vaccination-content');
-    
-    // Initially hide the content
-    content.classList.add('hidden');
-    
-    header.addEventListener('click', function() {
-        content.classList.toggle('hidden');
-    });
-});
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('vaccination-header');
+            const content = document.getElementById('vaccination-content');
+            
+            // Initially hide the content
+            content.classList.add('hidden');
+            
+            header.addEventListener('click', function() {
+                content.classList.toggle('hidden');
+            });
+        });
 
 
         // Mobile menu functionality
