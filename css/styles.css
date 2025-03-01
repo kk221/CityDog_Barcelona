@@ -97,7 +97,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 160px; /* Add this to match header height */
+  margin-top: 180px; /* Add this to match header height */
   padding-top: 40px; /* Adjust this value as needed */
 }
 
