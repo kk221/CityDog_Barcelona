@@ -77,6 +77,16 @@ body {
   transform: translateY(0);
 }
 
+/* Header styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    height: 120px; /* Adjust based on your header height */
+}
 /* Hero Section */
 .hero-section {
   position: relative;
@@ -87,7 +97,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 160px;
+  margin-top: 120px; /* Add this to match header height */
+  padding-top: 40px; /* Adjust this value as needed */
 }
 
 .hero-background {
