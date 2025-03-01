@@ -272,45 +272,17 @@
 
 <script>
     
-function showContent(id) {
-    // Get all content sections
-    const allSections = document.querySelectorAll('.content-section');
-    const allArrows = document.querySelectorAll('.regulation-card svg');
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('vaccination-header');
+    const content = document.getElementById('vaccination-content');
     
-    // Get the clicked section
-    const clickedSection = document.getElementById(id);
+    // Initially hide the content
+    content.classList.add('hidden');
     
-    // Hide all sections first
-    allSections.forEach(section => {
-        if (section !== clickedSection) {
-            section.classList.add('hidden');
-        }
+    header.addEventListener('click', function() {
+        content.classList.toggle('hidden');
     });
-    
-    // Reset all arrows (except vaccination card which doesn't have one)
-    allArrows.forEach(arrow => {
-        arrow.classList.remove('rotate-180');
-    });
-    
-    // If clicked section is hidden, show it and rotate its arrow
-    if (clickedSection.classList.contains('hidden')) {
-        clickedSection.classList.remove('hidden');
-        // Find and rotate arrow (if it exists)
-        const parentCard = clickedSection.closest('.regulation-card');
-        const arrow = parentCard.querySelector('svg');
-        if (arrow) {
-            arrow.classList.add('rotate-180');
-        }
-    } else {
-        // If it's already showing, hide it and reset its arrow
-        clickedSection.classList.add('hidden');
-        const parentCard = clickedSection.closest('.regulation-card');
-        const arrow = parentCard.querySelector('svg');
-        if (arrow) {
-            arrow.classList.remove('rotate-180');
-        }
-    }
-}
+});
 
 
         // Mobile menu functionality
