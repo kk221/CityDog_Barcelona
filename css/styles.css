@@ -276,3 +276,8 @@ header {
     display: none;
 }
 
+/* Specific fix for services page hero section */
+.bg-gradient-to-r.from-purple-600.to-blue-600 {
+    margin-top: 120px; /* Match header height */
+    padding: 60px 0; /* Adjust padding as needed */
+}
