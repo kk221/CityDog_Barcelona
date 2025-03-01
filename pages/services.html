@@ -20,6 +20,8 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
         }
 
         main {
@@ -28,6 +30,15 @@
         }
 
         /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
         .nav-link {
             color: #4b5563;
             transition: color 0.3s ease;
@@ -42,17 +53,20 @@
             background: linear-gradient(135deg, #7c3aed, #4f46e5);
             color: white;
             padding: 100px 0;
+            text-align: center;
         }
 
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.2;
+            margin-bottom: 16px;
         }
 
         .hero p {
             font-size: 1.25rem;
             color: #e5e7eb;
+            margin-bottom: 0;
         }
 
         /* Article Cards */
@@ -60,7 +74,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
-            padding: 40px 0;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .article-card {
@@ -111,7 +127,8 @@
         /* Professional Services Section */
         .services-section {
             background: white;
-            padding: 80px 0;
+            padding: 80px 20px;
+            text-align: center;
         }
 
         .services-section h2 {
@@ -141,7 +158,8 @@
         footer {
             background: #111827;
             color: white;
-            padding: 48px 0;
+            padding: 48px 20px;
+            text-align: center;
         }
 
         footer p {
@@ -151,7 +169,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <header>
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="logo">
@@ -194,50 +212,48 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container mx-auto px-4 text-center">
+            <div class="container mx-auto px-4">
                 <h1>Barcelona Pet Grooming Guides</h1>
                 <p>Expert tips for maintaining your pet's health and appearance in the city</p>
             </div>
         </section>
 
         <!-- Article Cards -->
-        <section class="container mx-auto px-4">
-            <div class="article-cards">
-                <!-- Article 1 -->
-                <article class="article-card">
-                    <img src="https://source.unsplash.com/600x400/?dog,summer" alt="Dog in summer">
-                    <div class="article-card-content">
-                        <h3>Summer Heat Survival Guide</h3>
-                        <p>Keep your pets cool and comfortable during Barcelona's hot summers.</p>
-                        <a href="guides/summer-heat-guide.html">Read Guide →</a>
-                    </div>
-                </article>
+        <section class="article-cards">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <img src="https://source.unsplash.com/600x400/?dog,summer" alt="Dog in summer">
+                <div class="article-card-content">
+                    <h3>Summer Heat Survival Guide</h3>
+                    <p>Keep your pets cool and comfortable during Barcelona's hot summers.</p>
+                    <a href="guides/summer-heat-guide.html">Read Guide →</a>
+                </div>
+            </article>
 
-                <!-- Article 2 -->
-                <article class="article-card">
-                    <img src="https://source.unsplash.com/600x400/?dog,apartment" alt="Dog in apartment">
-                    <div class="article-card-content">
-                        <h3>Apartment Grooming Solutions</h3>
-                        <p>Space-efficient grooming techniques for small Barcelona apartments.</p>
-                        <a href="guides/apartment-grooming.html">Read Guide →</a>
-                    </div>
-                </article>
+            <!-- Article 2 -->
+            <article class="article-card">
+                <img src="https://source.unsplash.com/600x400/?dog,apartment" alt="Dog in apartment">
+                <div class="article-card-content">
+                    <h3>Apartment Grooming Solutions</h3>
+                    <p>Space-efficient grooming techniques for small Barcelona apartments.</p>
+                    <a href="guides/apartment-grooming.html">Read Guide →</a>
+                </div>
+            </article>
 
-                <!-- Article 3 -->
-                <article class="article-card">
-                    <img src="https://source.unsplash.com/600x400/?dog,coat" alt="Dog with coat care">
-                    <div class="article-card-content">
-                        <h3>Breed-Specific Grooming Guide</h3>
-                        <p>Tailored grooming advice for popular dog breeds in Barcelona.</p>
-                        <a href="guides/breed-specific-grooming.html">Read Guide →</a>
-                    </div>
-                </article>
-            </div>
+            <!-- Article 3 -->
+            <article class="article-card">
+                <img src="https://source.unsplash.com/600x400/?dog,coat" alt="Dog with coat care">
+                <div class="article-card-content">
+                    <h3>Breed-Specific Grooming Guide</h3>
+                    <p>Tailored grooming advice for popular dog breeds in Barcelona.</p>
+                    <a href="guides/breed-specific-grooming.html">Read Guide →</a>
+                </div>
+            </article>
         </section>
 
         <!-- Professional Services Section -->
         <section class="services-section">
-            <div class="container mx-auto px-4 text-center">
+            <div class="container mx-auto px-4">
                 <h2>Professional Grooming Services</h2>
                 <p>Looking for professional grooming services in Barcelona? We collaborate with certified pet groomers who provide top-quality care for your furry friends.</p>
                 <a href="#">Find a Groomer</a>
@@ -247,7 +263,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container mx-auto px-4 text-center">
+        <div class="container mx-auto px-4">
             <p>© 2025 City Dog Barcelona. Serving pet owners with ❤️</p>
         </div>
     </footer>
