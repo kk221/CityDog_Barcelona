@@ -47,7 +47,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+        <main class="container mx-auto px-4 py-12">
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
             <div class="container mx-auto px-4 pt-24 pb-20">
@@ -64,48 +64,47 @@
            
             
             <!-- Regulations Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1. Vaccination Requirements -->
-                   <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
-            <button class="w-full" onclick="toggleContent('vaccination-content')">
-                <div class="p-6">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
-                            <h3 class="text-xl font-semibold text-gray-800">Vaccination Requirements</h3>
-                        </div>
-                        <svg id="vaccination-arrow" class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </div>
-                             
-                    <!-- Collapsible Content -->
-                    <div id="vaccination-content" class="hidden mt-4 overflow-hidden transition-all duration-300 opacity-0 max-h-0">
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start space-x-3">
-                                <span class="text-purple-600">•</span>
-                                <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-purple-600">•</span>
-                                <span>Annual check-ups and booster shots for other diseases recommended</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-purple-600">•</span>
-                                <span>Keep vaccination records updated and available for city inspections or travel</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center mt-4 text-purple-600 hover:text-purple-700 font-medium">
-                            Official Vaccination Guidelines
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <!-- 1. Vaccination Requirements -->
+    <div class="bg-purple-50 rounded-lg border border-purple-100 hover:shadow-lg transition-all duration-300">
+    <button class="w-full text-left" onclick="toggleContent('vaccination-content')">
+        <div class="p-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
+                    <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
                 </div>
-            </button>
+                <svg id="vaccination-arrow" class="w-5 h-5 text-purple-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </div>
         </div>
+    </button>
+                             
+    <!-- Collapsible Content (moved outside the button) -->
+    <div id="vaccination-content" class="hidden px-6 pb-6">
+        <ul class="space-y-4 text-purple-900">
+            <li class="flex items-start space-x-3">
+                <span class="text-purple-600 mt-1">•</span>
+                <span>All pets must be vaccinated against rabies (mandatory in Spain)</span>
+            </li>
+            <li class="flex items-start space-x-3">
+                <span class="text-purple-600 mt-1">•</span>
+                <span>Annual check-ups and booster shots for other diseases recommended</span>
+            </li>
+            <li class="flex items-start space-x-3">
+                <span class="text-purple-600 mt-1">•</span>
+                <span>Keep vaccination records updated and available for city inspections or travel</span>
+            </li>
+        </ul>
+        <a href="#" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+            Official Vaccination Guidelines
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
     </div>
+</div>
 
                 <!-- 2. Pet Registration -->
                 <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
@@ -269,42 +268,37 @@
 </body>
 
 <script>
-function toggleCard(button) {
-    const content = button.querySelector('.card-content');
-    const allContents = document.querySelectorAll('.card-content');
-    
-    // Close other cards
-    allContents.forEach(item => {
-        if (item !== content && !item.classList.contains('hidden')) {
-            item.classList.add('hidden');
-        }
-    });
-    
-    // Toggle current card
-    content.classList.toggle('hidden');
-}
 
-    function toggleContent(contentId) {
+
+function toggleContent(contentId) {
     const content = document.getElementById(contentId);
     const arrow = document.getElementById('vaccination-arrow');
+    
+    if (!content || !arrow) return;
     
     // Toggle content visibility with animation
     if (content.classList.contains('hidden')) {
         // Show content
         content.classList.remove('hidden');
-        content.classList.remove('opacity-0');
-        content.style.maxHeight = content.scrollHeight + 'px';
         arrow.classList.add('rotate-180');
     } else {
         // Hide content
-        content.classList.add('opacity-0');
-        content.style.maxHeight = '0';
+        content.classList.add('hidden');
         arrow.classList.remove('rotate-180');
-        setTimeout(() => {
-            content.classList.add('hidden');
-        }, 300);
     }
 }
+
+
+// Add event listener when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('[onclick="toggleContent(\'vaccination-content\')"]');
+    if (button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleContent('vaccination-content');
+        });
+    }
+});
         // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
