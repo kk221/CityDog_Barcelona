@@ -53,30 +53,46 @@
     </nav>
 </header>
 
-<!-- Add this after the header -->
-<main class="pt-32 pb-16 px-4">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">
-            City Regulations for Pet Ownership
-            <span class="block text-xl md:text-2xl text-gray-600 mt-2">Barcelona</span>
-        </h1>
+<!-- Main Content Structure -->
+<main class="pt-32 pb-16">
+    <div class="container mx-auto px-4">
+        
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white mt-[120px]">
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                City Regulations for Pet Ownership
+            </h1>
+            <p class="text-xl text-gray-200 mb-8">
+                Essential Guidelines for Pet Owners in Barcelona
+            </p>
+        </div>
+    </div>
+</section>
            
             
             <!-- Regulations Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 1. Vaccination Requirements -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">1. Vaccination Requirements</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
+                <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
+                                <h3 class="text-xl font-semibold text-gray-800">Vaccination Requirements</h3>
+                            </div>
+                            <div class="card-content">
+                                <ul class="space-y-3 text-gray-600">
                                 <li>• All pets must be vaccinated against rabies (mandatory in Spain)</li>
                                 <li>• Annual check-ups and booster shots for other diseases recommended</li>
                                 <li>• Keep vaccination records updated and available for city inspections or travel</li>
                             </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Official Vaccination Guidelines →</a>
+                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Official Vaccination Guidelines  
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg></a>
                         </div>
-                    </button>
+                    </div>
                 </div>
 
                 <!-- 2. Pet Registration -->
