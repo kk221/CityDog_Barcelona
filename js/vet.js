@@ -1,9 +1,12 @@
-const { AdvancedMarkerElement } = google.maps.marker;
 
 // Global variables
 let map;
 let markers = [];
+
+const { AdvancedMarkerElement } = google.maps.marker;
 const apiKey = 'AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk';
+
+
 
 // Initialize the map
 function initMap() {
