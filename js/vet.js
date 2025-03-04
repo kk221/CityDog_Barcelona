@@ -1,124 +1,136 @@
 // js/vet.js
 
-// Global variables for map functionality
+// Global variables
 let map;
 let markers = [];
-const apiKey = 'AIzaSyBxMdRQfb3TXbXm95nOPTDX7hSts-ce8ms';
+const apiKey = 'AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk';
 
-// Document ready handler
-document.addEventListener('DOMContentLoaded', function() {
-    setupMobileMenu();
-    loadScript(); // Load Google Maps script
-});
-
-// Mobile menu functionality
-function setupMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            isMenuOpen = !isMenuOpen;
-            mobileMenu.classList.toggle('hidden');
-            
-            if (isMenuOpen) {
-                mobileMenu.classList.add('slide-in');
-            } else {
-                mobileMenu.classList.remove('slide-in');
-            }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('slide-in');
-                isMenuOpen = false;
-            }
-        });
-    }
-}
-
-// Map initialization
+// Initialize the map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 41.3851, lng: 2.1734 }, // Barcelona coordinates
         zoom: 12,
+        styles: [
+            {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            }
+        ]
     });
 
+    // Add event listeners for filters
+    document.getElementById('category').addEventListener('change', loadClinics);
+    document.getElementById('district').addEventListener('change', loadClinics);
+
+    // Initial load of clinics
     loadClinics();
 }
 
-// Fetch clinics from Google Places API
+// Load clinics using Places Service instead of direct API call
 async function loadClinics() {
+    // Clear existing markers
+    markers.forEach(marker => marker.setMap(null));
+    markers = [];
+
     const category = document.getElementById('category').value;
     const district = document.getElementById('district').value;
-    const query = `${category} in ${district}, Barcelona`;
+    const query = `${category} in ${district} Barcelona`;
 
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&key=${apiKey}`;
+    const service = new google.maps.places.PlacesService(map);
+    
+    service.textSearch({
+        query: query,
+        location: new google.maps.LatLng(41.3851, 2.1734),
+        radius: 5000
+    }, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            // Clear existing clinic list
+            const clinicList = document.getElementById('clinic-list');
+            clinicList.innerHTML = '';
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+            // Filter and display results
+            results.forEach(place => {
+                if (place.rating >= 4.0) {
+                    // Create marker
+                    const marker = new google.maps.Marker({
+                        position: place.geometry.location,
+                        map: map,
+                        title: place.name,
+                        icon: getMarkerIcon(category)
+                    });
+                    markers.push(marker);
 
-        // Clear existing markers
-        markers.forEach(marker => marker.setMap(null));
-        markers = [];
+                    // Add info window
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div class="p-2">
+                                <h3 class="font-bold">${place.name}</h3>
+                                <p>Rating: ${place.rating} ⭐</p>
+                                <p>${place.formatted_address}</p>
+                            </div>
+                        `
+                    });
 
-        // Filter results by rating and review count
-        const filteredResults = data.results.filter(place => 
-            place.rating >= 4.5 && place.user_ratings_total >= 1000
-        );
+                    marker.addListener('click', () => {
+                        infoWindow.open(map, marker);
+                    });
 
-        // Clear existing clinic list
-        const clinicList = document.getElementById('clinic-list');
-        clinicList.innerHTML = '';
+                    // Add to list
+                    const clinicItem = document.createElement('div');
+                    clinicItem.className = 'p-4 border-b hover:bg-gray-50 cursor-pointer';
+                    clinicItem.innerHTML = `
+                        <h3 class="font-bold">${place.name}</h3>
+                        <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
+                        <p class="text-sm text-gray-600">${place.formatted_address}</p>
+                    `;
 
-        // Display filtered results on the map
-        filteredResults.forEach(place => {
-            const marker = new google.maps.Marker({
-                position: place.geometry.location,
-                map: map,
-                title: place.name,
+                    clinicItem.addEventListener('click', () => {
+                        map.panTo(place.geometry.location);
+                        map.setZoom(15);
+                        infoWindow.open(map, marker);
+                    });
+
+                    clinicList.appendChild(clinicItem);
+                }
             });
-            markers.push(marker);
-
-            // Add clinic to the list
-            const clinicItem = document.createElement('div');
-            clinicItem.className = 'clinic-item';
-            clinicItem.innerHTML = `
-                <h3>${place.name}</h3>
-                <p>Rating: ${place.rating} (${place.user_ratings_total} reviews)</p>
-                <p>Address: ${place.formatted_address}</p>
-            `;
-            clinicList.appendChild(clinicItem);
-        });
-    } catch (error) {
-        console.error('Error loading clinics:', error);
-    }
+        }
+    });
 }
 
-// Find nearest clinics
+// Get marker icon based on category
+function getMarkerIcon(category) {
+    const icons = {
+        emergency_vet: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+        regular_vet: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+        pet_grooming: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+    };
+    return icons[category] || icons.regular_vet;
+}
+
+// Find nearest location
 function findNearest() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             const userLocation = {
                 lat: position.coords.latitude,
-                lng: position.coords.longitude,
+                lng: position.coords.longitude
             };
 
-            // Sort clinics by distance
-            markers.sort((a, b) => {
-                const distanceA = getDistance(userLocation, a.getPosition());
-                const distanceB = getDistance(userLocation, b.getPosition());
-                return distanceA - distanceB;
-            });
-
             if (markers.length > 0) {
-                // Pan to the nearest clinic
-                map.panTo(markers[0].getPosition());
-                map.setZoom(14);
+                let nearest = markers[0];
+                let nearestDistance = getDistance(userLocation, nearest.getPosition());
+
+                markers.forEach(marker => {
+                    const distance = getDistance(userLocation, marker.getPosition());
+                    if (distance < nearestDistance) {
+                        nearest = marker;
+                        nearestDistance = distance;
+                    }
+                });
+
+                map.panTo(nearest.getPosition());
+                map.setZoom(15);
             }
         });
     } else {
@@ -126,24 +138,30 @@ function findNearest() {
     }
 }
 
-// Calculate distance between two coordinates (Haversine formula)
+// Calculate distance between points
 function getDistance(coord1, coord2) {
-    const R = 6371; // Earth radius in km
-    const dLat = (coord2.lat() - coord1.lat) * (Math.PI / 180);
-    const dLng = (coord2.lng() - coord1.lng) * (Math.PI / 180);
-    const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(coord1.lat * (Math.PI / 180)) *
-        Math.cos(coord2.lat() * (Math.PI / 180)) *
-        Math.sin(dLng / 2) * Math.sin(dLng / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in km
+    const R = 6371; // Earth's radius in km
+    const lat1 = coord1.lat * Math.PI / 180;
+    const lat2 = coord2.lat() * Math.PI / 180;
+    const lon1 = coord1.lng * Math.PI / 180;
+    const lon2 = coord2.lng() * Math.PI / 180;
+
+    const dLat = lat2 - lat1;
+    const dLon = lon2 - lon1;
+
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1) * Math.cos(lat2) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
 }
 
 // Load Google Maps API
-function loadScript() {
+window.onload = function() {
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
+    script.async = true;
     script.defer = true;
     document.head.appendChild(script);
-}
+};
