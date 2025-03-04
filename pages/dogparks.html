@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Locations - City Dog Barcelona</title>
-     <!-- Temporarily keep the CDN until we fix the local Tailwind -->
+  
     <!--script src="https://cdn.tailwindcss.com"></script > -->
 
     
@@ -21,7 +21,40 @@
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header (same as other pages) -->
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <!-- ... existing header code ... -->
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif" alt="Logo" class="h-[80px] md:h-[100px] w-auto">
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-links hidden md:flex space-x-6">
+                    <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
+                    <a href="services.html" class="hover:text-purple-500">Groom Service</a>
+                    <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
+                    <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
+                </div>
+
+<!-- Update the mobile menu button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-lg hover:bg-gray-100">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
+        </div>
+
+            <!-- Mobile Menu -->
+             <div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
+    <div class="flex flex-col space-y-1">
+         <a href="regulations.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Pet Regulations</a>
+         <a href="services.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Groom Service</a>
+         <a href="vets.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Veterinary Care</a>
+         <a href="adoption.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Adoption</a>
+    </div>
+                 </div>
+        </nav>
     </header>
 
     <main class="pt-32 pb-16 px-4">
