@@ -1,15 +1,4 @@
 
-
-summer-heat-guide.html
-
-apartment-grooming.html
-
-breed-specific-grooming.html
-
-
-Old SVG version: 
-// js/vet.js
-
 // Global variables
 let map;
 let markers = [];
