@@ -65,18 +65,18 @@
            
             
             <!-- Regulations Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        <!-- 1. Vaccination Requirements -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-6xl mx-auto px-4">
+    <!-- 1. Pet Health Requirements -->
             <div class="regulation-card bg-purple-50 rounded-lg shadow-md overflow-hidden">
                 <div class="p-6">
                     <!-- Header -->
-                    <div class="flex items-center cursor-pointer" id="vaccination-header">
+                    <div class="flex items-center cursor-pointer" id="health-header">
                         <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">01</span>
                         <h3 class="text-xl font-semibold text-purple-800">Vaccination Requirements</h3>
                     </div>
 
                     <!-- Content -->
-                    <div id="vaccination-content" class="mt-4 hidden">
+                    <div id="health-content" class="mt-4 hidden">
                         <ul class="space-y-4 text-purple-900 text-left">
                             <li class="flex items-start space-x-3">
                                 <span class="text-purple-600 mt-1">•</span>
@@ -88,11 +88,11 @@
                             </li>
                             <li class="flex items-start space-x-3">
                                 <span class="text-purple-600 mt-1">•</span>
-                                <span>Keep vaccination records updated and available for city inspections or travel</span>
+                                <span>Keep documentation updated and available for city inspections or travel</span>
                             </li>
                         </ul>
-                        <a href="#" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
-                            Official Vaccination Guidelines
+                        <a href="services.html" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                            Official Vaccination Vets →
                         </a>
                     </div>
                 </div>
@@ -100,139 +100,156 @@
 
 
                 <!-- 2. Pet Registration -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">2. Pet Registration</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Mandatory registration for dogs, cats, and ferrets</li>
-                                <li>• Register within 3 months of ownership or 30 days of moving</li>
-                                <li>• Required documents:
-                                    <ul class="ml-4 mt-2">
-                                        <li>- Valid ID/passport</li>
-                                        <li>- Proof of address in Barcelona</li>
-                                        <li>- Pet's microchip number and vaccination certificate</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <a href="https://seuelectronica.ajuntament.barcelona.cat/APPS/portaltramits/formulari/ptbaltaanimals/T40/init/es/PTCIU.html?" 
-                                class="inline-block mt-4 text-purple-600 hover:text-purple-700">Register Online →</a>
-                        </div>
-                    </button>
-                </div>
 
-                <!-- 3. Microchipping -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">3. Microchipping</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Mandatory for all dogs, cats, and ferrets</li>
-                                <li>• Must be linked to owner's contact information</li>
-                                <li>• Registration required in city pet registry</li>
-                            </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Microchipping Services →</a>
-                        </div>
-                    </button>
-                </div>
 
-                <!-- 4. PPP Certification -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">4. PPP Certification</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Special requirements for Potentially Dangerous Dogs (PPP):
-                                    <ul class="ml-4 mt-2">
-                                        <li>- Special PPP license (renewed every 5 years)</li>
-                                        <li>- Muzzle required in public</li>
-                                        <li>- Liability insurance (min. €120,000)</li>
-                                    </ul>
-                                </li>
-                                <li>• Applies to Pit Bulls, Rottweilers, and other specified breeds</li>
-                            </ul>
-                            <a href="ppp-certification.html" class="inline-block mt-4 text-purple-600 hover:text-purple-700">PPP Guidelines →</a>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- 5. Dog Parks and Public Spaces -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">5. Dog Parks and Public Spaces</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Designated off-leash areas available (e.g., Parc de la Ciutadella)</li>
-                                <li>• Leash required in other public areas</li>
-                                <li>• Beach restrictions during summer months</li>
-                            </ul>
-                            <!-- Update the Dog Park Locations link -->
-<a href="dogparks.html" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Dog Park Locations →</a>
-                         
-                        </div>
-                    </button>
-                </div>
-
-                <!-- 6. Cleaning and Waste Disposal -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">6. Cleaning and Waste Disposal</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Mandatory cleanup in public spaces</li>
-                                <li>• Fines: €300 - €1,500 for violations</li>
-                                <li>• Free waste bags available in many public areas</li>
-                            </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Waste Disposal Guidelines →</a>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- 7. Noise and Behavior -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">7. Noise and Behavior</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Excessive barking can result in fines</li>
-                                <li>• Owners responsible for pet behavior</li>
-                                <li>• Training recommended for public spaces</li>
-                            </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Behavior Guidelines →</a>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- 8. Pet-Friendly Public Transport -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">8. Pet-Friendly Public Transport</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Small pets allowed in carriers</li>
-                                <li>• Large dogs: non-peak hours only</li>
-                                <li>• Muzzle and leash required for large dogs</li>
-                            </ul>
-                            <a href="https://ajuntament.barcelona.cat/benestaranimal/es/transporte" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Transport Rules →</a>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- 9. Emergency Services -->
-                <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleCard(this)">
-                        <h3 class="text-xl font-semibold text-purple-600 mb-2">9. Emergency Services</h3>
-                        <div class="card-content hidden">
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li>• Contact Animal Protection Department for emergencies</li>
-                                <li>• Veterinarians must report dangerous animals</li>
-                                <li>• Emergency contact numbers available 24/7</li>
-                            </ul>
-                            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-700">Emergency Contacts →</a>
-                        </div>
-                    </button>
-                </div>
+    <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-center cursor-pointer" id="registration-header">
+                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">02</span>
+                <h3 class="text-xl font-semibold text-purple-800">Pet Registration</h3>
             </div>
+            <div id="registration-content" class="mt-4 hidden">
+                <ul class="space-y-4 text-purple-900 text-left">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Mandatory registration for dogs, cats, and ferrets</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Register within 3 months of ownership or 30 days of moving</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Required: Valid ID/passport, Proof of address, pet documents</span>
+                    </li>
+                </ul>
+                <a href="https://seuelectronica.ajuntament.barcelona.cat/APPS/portaltramits/formulari/ptbaltaanimals/T40/init/es/PTCIU.html" 
+                    class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                    Register Online →
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+                <!-- 3. PPP Certification -->
+    <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-center cursor-pointer" id="ppp-header">
+                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">03</span>
+                <h3 class="text-xl font-semibold text-purple-800">PPP Certification</h3>
+            </div>
+            <div id="ppp-content" class="mt-4 hidden">
+                <ul class="space-y-4 text-purple-900 text-left">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Special license for Potentially Dangerous Dogs</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Mandatory muzzle and liability insurance</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>License renewal every 5 years</span>
+                    </li>
+                </ul>
+                <a href="ppp-certification.html" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                    PPP Guidelines →
+                </a>
+            </div>
+        </div>
+    </div>
+
+                <!-- 4. Dog Parks and Public Spaces -->
+    <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-center cursor-pointer" id="parks-header">
+                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">04</span>
+                <h3 class="text-xl font-semibold text-purple-800">Dog Parks and Public Spaces</h3>
+            </div>
+            <div id="parks-content" class="mt-4 hidden">
+                <ul class="space-y-4 text-purple-900 text-left">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Designated off-leash areas available</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Leash required in other public areas</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Beach access restrictions during summer</span>
+                    </li>
+                </ul>
+                <a href="dogparks.html" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                    Dog Park Locations →
+                </a>
+            </div>
+        </div>
+    </div>
+
+          <!-- 5. Pet Behavior and Public Space Rules -->
+<div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="p-6">
+        <div class="flex items-center cursor-pointer" id="behavior-header">
+            <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">05</span>
+            <h3 class="text-xl font-semibold text-purple-800">Pet Behavior and Public Space Rules</h3>
+        </div>
+        <div id="behavior-content" class="mt-4 hidden">
+            <ul class="space-y-4 text-purple-900 text-left">
+                <li class="flex items-start space-x-3">
+                    <span class="text-purple-600 mt-1">•</span>
+                    <span>Mandatory waste cleanup (€300 - €1,500 fines for violations)</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-purple-600 mt-1">•</span>
+                    <span>Noise control - excessive barking prohibited</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-purple-600 mt-1">•</span>
+                    <span>Owner responsibility for pet behavior in public spaces</span>
+                </li>
+            </ul>
+            <a href="dogparks.html" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                Public Space Guidelines →
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- 6. Pet-Friendly Public Transport -->
+    <div class="regulation-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-center cursor-pointer" id="transport-header">
+                <span class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 text-sm font-semibold">06</span>
+                <h3 class="text-xl font-semibold text-purple-800">Pet-Friendly Public Transport</h3>
+            </div>
+            <div id="transport-content" class="mt-4 hidden">
+                <ul class="space-y-4 text-purple-900 text-left">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Small pets allowed in carriers</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Large dogs: non-peak hours only</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <span>Muzzle and leash required for large dogs</span>
+                    </li>
+                </ul>
+                <a href="https://ajuntament.barcelona.cat/benestaranimal/es/transporte" class="inline-flex items-center mt-6 text-purple-700 hover:text-purple-800 font-medium">
+                    Transport Rules →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
             <!-- Quick Links Section -->
             <div class="mt-16 bg-white rounded-lg shadow-md p-6">
