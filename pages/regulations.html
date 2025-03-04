@@ -1,5 +1,5 @@
 <html lang="en"><head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com https://raw.githubusercontent.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com https://raw.githubusercontent.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self';">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Dog Barcelona | Grooming Guides</title>
@@ -268,44 +268,6 @@
     </footer>
     
 
-<script>
-    // Toggle Card Functionality
-    function toggleCard(contentId) {
-        const content = document.getElementById(contentId);
-        if (content) {
-            content.classList.toggle('hidden');
-        }
-    }
+<script src="../js/script.js"></script>
 
-    // Mobile Menu Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let isMenuOpen = false;
-
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                isMenuOpen = !isMenuOpen;
-                mobileMenu.classList.toggle('hidden');
-                
-                // Add animation classes
-                if (isMenuOpen) {
-                    mobileMenu.classList.add('slide-in');
-                } else {
-                    mobileMenu.classList.remove('slide-in');
-                }
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('slide-in');
-                    isMenuOpen = false;
-                }
-            });
-        }
-    });
-</script>
 </html>
