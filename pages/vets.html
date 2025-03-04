@@ -64,35 +64,81 @@
             <div class="container mx-auto px-4 pt-24 pb-20">
                 <div class="max-w-3xl mx-auto text-center">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Dog Park Location
+                        Veterinary Clinics
                     </h1>
                     <p class="text-xl text-gray-200 mb-8">
-                         Find the perfect spot for your furry friend in Barcelona
+                         Find the trustful clinics and vets for your furry friend in Barcelona
                     </p>
                 </div>
             </div>
         </section>
 
 
-           <!-- Map Filters -->
-        <div class="filters">
-            <select id="category">
-                <option value="veterinary_care">24/7 Emergency</option>
-                <option value="veterinary_care">Microchip & Vaccination</option>
-                <option value="pet_grooming">Grooming Services</option>
-            </select>
-            <select id="district">
-                <option value="">All Districts</option>
-                <option value="Ciutat Vella">Ciutat Vella</option>
-                <option value="Eixample">Eixample</option>
-                <option value="Sants-Montjuïc">Sants-Montjuïc</option>
-                <!-- Add more districts as needed -->
-            </select>
-            <button onclick="findNearest()">Find Nearest</button>
+  
+        <!-- Map Section -->
+        <div class="container mx-auto">
+            <!-- Map Filters -->
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <select id="category" class="w-full p-2 border rounded-lg">
+                        <option value="emergency_vet">24/7 Emergency</option>
+                        <option value="regular_vet">Microchip & Vaccination</option>
+                        <option value="pet_grooming">Grooming Services</option>
+                    </select>
+                    <select id="district" class="w-full p-2 border rounded-lg">
+                        <option value="">All Districts</option>
+                        <option value="Ciutat Vella">Ciutat Vella</option>
+                        <option value="Eixample">Eixample</option>
+                        <option value="Sants-Montjuïc">Sants-Montjuïc</option>
+                        <option value="Les Corts">Les Corts</option>
+                        <option value="Sarrià-Sant Gervasi">Sarrià-Sant Gervasi</option>
+                        <option value="Gràcia">Gràcia</option>
+                        <option value="Horta-Guinardó">Horta-Guinardó</option>
+                        <option value="Nou Barris">Nou Barris</option>
+                        <option value="Sant Andreu">Sant Andreu</option>
+                        <option value="Sant Martí">Sant Martí</option>
+                    </select>
+                    <button onclick="findNearest()" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+                        Find Nearest
+                    </button>
+                </div>
+            </div>
+
+            <!-- Map Container -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div id="map" class="w-full h-[600px]"></div>
+                    </div>
+                </div>
+                
+                <!-- Clinic List -->
+                <div class="md:col-span-1">
+                    <div id="clinic-list" class="bg-white rounded-lg shadow-md p-4 max-h-[600px] overflow-y-auto">
+                        <!-- Clinics will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="bg-white rounded-lg shadow-md p-4 mt-6">
+                <h3 class="font-semibold mb-3">Map Legend</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                        <span>24/7 Emergency</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
+                        <span>Microchip & Vaccination</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-4 h-4 bg-yellow-400 rounded-full mr-2"></span>
+                        <span>Grooming Services</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="map"></div>
-        <div class="clinic-list" id="clinic-list"></div>
-    </div>
     </main>
 
     <!-- Footer -->
