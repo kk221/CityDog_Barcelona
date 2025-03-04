@@ -1,3 +1,5 @@
+const { AdvancedMarkerElement } = google.maps.marker;
+
 // Global variables
 let map;
 let markers = [];
