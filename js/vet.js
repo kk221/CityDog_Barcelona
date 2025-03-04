@@ -100,12 +100,24 @@ async function loadClinics() {
 
 // Get marker icon based on category
 function getMarkerIcon(category) {
-    const icons = {
-        emergency_vet: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-        regular_vet: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-        pet_grooming: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+    const colors = {
+        emergency_vet: '#FF0000',    // Red
+        regular_vet: '#0000FF',      // Blue
+        pet_grooming: '#FFD700'      // Yellow
     };
-    return icons[category] || icons.regular_vet;
+    
+    // SVG path for a dog paw
+    const pawPath = 'M 12,2 C 8.7,2 6,4.7 6,8 C 6,11.3 8.7,14 12,14 C 15.3,14 18,11.3 18,8 C 18,4.7 15.3,2 12,2 z M 8,8 C 9.1,8 10,8.9 10,10 C 10,11.1 9.1,12 8,12 C 6.9,12 6,11.1 6,10 C 6,8.9 6.9,8 8,8 z M 16,8 C 17.1,8 18,8.9 18,10 C 18,11.1 17.1,12 16,12 C 14.9,12 14,11.1 14,10 C 14,8.9 14.9,8 16,8 z M 12,11 C 13.1,11 14,11.9 14,13 C 14,14.1 13.1,15 12,15 C 10.9,15 10,14.1 10,13 C 10,11.9 10.9,11 12,11 z';
+
+    return {
+        path: pawPath,
+        fillColor: colors[category] || colors.regular_vet,
+        fillOpacity: 1,
+        strokeWeight: 1,
+        strokeColor: '#FFFFFF',
+        scale: 1.5,
+        anchor: new google.maps.Point(12, 12) // Center the icon
+    };
 }
 
 // Find nearest location
