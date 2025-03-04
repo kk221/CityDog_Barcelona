@@ -1,91 +1,9 @@
-// Search functionality - Commented out for now
-/*
-
 document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.querySelector('.search-input');
-    const breedCards = document.querySelectorAll('.breed-card');
-    
-    // List of PPP breed names (excluding "terrier")
-    const pppBreeds = [
-        'pit bull',
-        'staffordshire',
-        'rottweiler',
-        'dogo argentino',
-        'fila brasileiro',
-        'tosa inu',
-        'akita inu'
-    ];
-
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        let foundMatch = false;
-
-        // Hide all cards initially
-        breedCards.forEach(card => {
-            card.style.opacity = '0.3';
-            card.style.transform = 'scale(0.95)';
-        });
-
-        if (searchTerm.length > 2) { // Start searching after 3 characters
-            pppBreeds.forEach((breed, index) => {
-                if (breed.includes(searchTerm)) {
-                    foundMatch = true;
-                    // Show and highlight matching card
-                    breedCards[index].style.opacity = '1';
-                    breedCards[index].style.transform = 'scale(1.05)';
-                    breedCards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-
-            if (!foundMatch) {
-                // Show "not found" popup with GIF
-                showNotFoundPopup();
-            }
-        } else {
-            // Show all cards if search term is too short
-            breedCards.forEach(card => {
-                card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-            });
-            hideNotFoundPopup();
-        }
-    });
-});
-
-// Add popup HTML to your page
-const popupHTML = `
-<div id="notFoundPopup" class="fixed inset-0 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm mx-4">
-        <img src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/ppp/not-found.gif" 
-             alt="Dog not found"
-             class="w-full h-48 object-cover rounded mb-4">
-        <p class="text-center text-gray-700">This breed is not classified as PPP in Barcelona.</p>
-        <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700"
-                onclick="hideNotFoundPopup()">
-            Close
-        </button>
-    </div>
-</div>
-`;
-
-// Add this to your HTML just before </body>
-document.body.insertAdjacentHTML('beforeend', popupHTML);
-
-function showNotFoundPopup() {
-    document.getElementById('notFoundPopup').classList.remove('hidden');
-}
-
-function hideNotFoundPopup() {
-    document.getElementById('notFoundPopup').classList.add('hidden');
-}
-*/
-
-document.addEventListener('DOMContentLoaded', function() {
-    // opt
+    // Tab functionality
     const tabContainer = document.querySelector('.tab-container');
     if (!tabContainer) return;
 
-    // opt
+    // Improved tab event delegation with content organization
     tabContainer.addEventListener('click', function(e) {
         const btn = e.target.closest('.tab-btn');
         if (!btn) return;
@@ -93,47 +11,100 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetTab = btn.dataset.tab;
         if (!targetTab) return;
 
-        // switch button
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        // Switch button states with better visual feedback
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            b.classList.remove('active', 'bg-purple-600', 'text-white');
+            b.classList.add('text-gray-600', 'hover:text-purple-600');
+        });
+        btn.classList.add('active', 'bg-purple-600', 'text-white');
+        btn.classList.remove('text-gray-600', 'hover:text-purple-600');
 
-        // switch content
+        // Smooth content transition
         document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList[content.id === targetTab ? 'remove' : 'add']('hidden');
+            if (content.id === targetTab) {
+                content.classList.remove('hidden');
+                content.classList.add('fade-in'); // Add animation class
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('fade-in');
+            }
         });
 
-        // effect smooth
+        // Smooth scroll with offset for fixed header
         const targetElement = document.getElementById(targetTab);
         if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const headerOffset = 100; // Adjust based on your header height
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
         }
     });
 
-    // default 1st button
-    const firstTab = tabContainer.querySelector('.tab-btn.active');
-    firstTab?.click();
+    // Initialize first tab with animation
+    const firstTab = tabContainer.querySelector('.tab-btn.active') || tabContainer.querySelector('.tab-btn');
+    if (firstTab) {
+        setTimeout(() => firstTab.click(), 100); // Slight delay for smoother initial load
+    }
 });
 
-// calculator
+// Enhanced calculator with district-based pricing
 document.addEventListener('DOMContentLoaded', function() {
     const insuranceSelect = document.getElementById('insurance-select');
+    const districtSelect = document.getElementById('district-select'); // Add district select
     const totalCost = document.querySelector('.total-cost');
 
     if (insuranceSelect && totalCost) {
-        insuranceSelect.addEventListener('change', function() {
-            const prices = {
-                basic: { price: 120, coverage: '€120 (Third Party Liability)' },
-                extended: { price: 180, coverage: '€180 (Full Coverage)' }
+        const calculatePrice = () => {
+            const basePrice = {
+                basic: { price: 120, coverage: 'Third Party Liability' },
+                extended: { price: 180, coverage: 'Full Coverage' }
             };
-            
-            const selected = prices[this.value];
+
+            const districtFees = {
+                'Ciutat Vella': 20,
+                'Eixample': 15,
+                'Sants-Montjuïc': 10,
+                // Add other districts as needed
+            };
+
+            const selected = basePrice[insuranceSelect.value];
+            const districtFee = districtSelect ? districtFees[districtSelect.value] || 0 : 0;
+            const totalPrice = selected.price + districtFee;
+
             totalCost.innerHTML = `
-                <span class="text-lg">${selected.coverage}</span>
-                <div class="text-sm text-gray-500 mt-1">Includes mandatory insurance + certification fees</div>
+                <span class="text-lg">€${totalPrice} (${selected.coverage})</span>
+                <div class="text-sm text-gray-500 mt-1">
+                    Base fee: €${selected.price}
+                    ${districtFee ? `<br>District fee: €${districtFee}` : ''}
+                    <br>Includes mandatory insurance + certification fees
+                </div>
             `;
-        });
+        };
+
+        insuranceSelect.addEventListener('change', calculatePrice);
+        if (districtSelect) {
+            districtSelect.addEventListener('change', calculatePrice);
+        }
+
+        // Initial calculation
+        calculatePrice();
     }
 });
+
+// Add CSS for fade animation
+const style = document.createElement('style');
+style.textContent = `
+    .fade-in {
+        animation: fadeIn 0.3s ease-in;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
