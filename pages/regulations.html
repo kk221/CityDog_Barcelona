@@ -269,53 +269,43 @@
     
 
 <script>
-    
-        // Toggle Vaccination Requirements Content
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.getElementById('vaccination-header');
-            const content = document.getElementById('vaccination-content');
-
-            if (header && content) {
-                header.addEventListener('click', function() {
-                    if (content.classList.contains('hidden')) {
-                        content.classList.remove('hidden');
-                    } else {
-                        content.classList.add('hidden');
-                    }
-                });
-            }
-        });
-
-
-        // Mobile menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            isMenuOpen = !isMenuOpen;
-            mobileMenu.classList.toggle('hidden');
-            
-            // Add animation classes
-            if (isMenuOpen) {
-                mobileMenu.classList.add('slide-in');
-            } else {
-                mobileMenu.classList.remove('slide-in');
-            }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('slide-in');
-                isMenuOpen = false;
-            }
-        });
+    // Toggle Card Functionality
+    function toggleCard(contentId) {
+        const content = document.getElementById(contentId);
+        if (content) {
+            content.classList.toggle('hidden');
+        }
     }
-});
+
+    // Mobile Menu Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                isMenuOpen = !isMenuOpen;
+                mobileMenu.classList.toggle('hidden');
+                
+                // Add animation classes
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('slide-in');
+                } else {
+                    mobileMenu.classList.remove('slide-in');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('slide-in');
+                    isMenuOpen = false;
+                }
+            });
+        }
+    });
 </script>
 </html>
