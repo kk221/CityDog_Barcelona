@@ -7,7 +7,11 @@
     <title>Veterinary Services - City Dog Barcelona</title>
     <link href="../style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dogparks.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Maps API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initMap"></script>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <!-- Header -->
@@ -54,8 +58,23 @@
     </header>
 
     <main class="pt-32 pb-16 px-4">
-    <div class="container">
-        <h1>Veterinary Clinics in Barcelona</h1>
+
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div class="container mx-auto px-4 pt-24 pb-20">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Dog Park Location
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                         Find the perfect spot for your furry friend in Barcelona
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+           <!-- Map Filters -->
         <div class="filters">
             <select id="category">
                 <option value="veterinary_care">24/7 Emergency</option>
