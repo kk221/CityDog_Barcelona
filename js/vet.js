@@ -106,11 +106,11 @@ function getMarkerIcon(category) {
         pet_grooming: '#FFD700'      // Yellow
     };
     
-    // SVG path for a dog paw
-    const pawPath = 'M 12,2 C 8.7,2 6,4.7 6,8 C 6,11.3 8.7,14 12,14 C 15.3,14 18,11.3 18,8 C 18,4.7 15.3,2 12,2 z M 8,8 C 9.1,8 10,8.9 10,10 C 10,11.1 9.1,12 8,12 C 6.9,12 6,11.1 6,10 C 6,8.9 6.9,8 8,8 z M 16,8 C 17.1,8 18,8.9 18,10 C 18,11.1 17.1,12 16,12 C 14.9,12 14,11.1 14,10 C 14,8.9 14.9,8 16,8 z M 12,11 C 13.1,11 14,11.9 14,13 C 14,14.1 13.1,15 12,15 C 10.9,15 10,14.1 10,13 C 10,11.9 10.9,11 12,11 z';
+    // SVG path for a hospital sign
+    const signPath = 'M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13H7v-3H4V8h3V5h2v3h3v2h-3v3z';
 
     return {
-        path: pawPath,
+        path: signPath,
         fillColor: colors[category] || colors.regular_vet,
         fillOpacity: 1,
         strokeWeight: 1,
