@@ -7,17 +7,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setupCards() {
-    const header = document.getElementById('vaccination-header');
-    const content = document.getElementById('vaccination-content');
+    const sections = [
+        'health',
+        'registration',
+        'ppp',
+        'parks',
+        'behavior',
+        'transport'
+    ];
     
-    if (header && content) {
-        // Initially hide the content
-        content.classList.add('hidden');
+    sections.forEach(section => {
+        const header = document.getElementById(`${section}-header`);
+        const content = document.getElementById(`${section}-content`);
         
-        header.addEventListener('click', function() {
-            content.classList.toggle('hidden');
-        });
-    }
+        if (header && content) {
+            // Initially hide the content
+            content.classList.add('hidden');
+            
+            header.addEventListener('click', function() {
+                // Close other sections
+                sections.forEach(otherSection => {
+                    if (otherSection !== section) {
+                        const otherContent = document.getElementById(`${otherSection}-content`);
+                        if (otherContent) {
+                            otherContent.classList.add('hidden');
+                        }
+                    }
+                });
+                
+                // Toggle current section
+                content.classList.toggle('hidden');
+            });
+        }
+    });
 }
 
 function setupMobileMenu() {
