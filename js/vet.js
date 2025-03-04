@@ -35,7 +35,7 @@ async function loadClinics() {
 
     const category = document.getElementById('category').value;
     const district = document.getElementById('district').value;
-    const query = `${category} in ${district} Barcelona`;
+    const query = `${category} Barcelona`;
 
     const service = new google.maps.places.PlacesService(map);
     
