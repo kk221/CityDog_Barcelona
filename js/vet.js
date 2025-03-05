@@ -1,4 +1,6 @@
 
+// js/vet.js
+
 // Global variables
 let map;
 let markers = [];
@@ -34,38 +36,64 @@ async function loadClinics() {
 
     const category = document.getElementById('category').value;
     const district = document.getElementById('district').value;
-    
+    const query = `${category} Barcelona`;
+
     const service = new google.maps.places.PlacesService(map);
     
-    // First get all clinics
     service.textSearch({
-        query: `${category} Barcelona`,
+        query: query,
         location: new google.maps.LatLng(41.3851, 2.1734),
         radius: 5000
     }, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
+            // Clear existing clinic list
             const clinicList = document.getElementById('clinic-list');
             clinicList.innerHTML = '';
 
+            // Filter and display results
             results.forEach(place => {
-                // Get detailed place information including address components
-                service.getDetails({
-                    placeId: place.place_id,
-                    fields: ['name', 'rating', 'formatted_address', 'geometry', 'address_components']
-                }, (placeDetails, detailStatus) => {
-                    if (detailStatus === google.maps.places.PlacesServiceStatus.OK) {
-                        // Check if place is in selected district
-                        const placeDistrict = placeDetails.address_components.find(
-                            component => component.long_name.includes(district)
-                        );
-                        
-                        // Only show places in selected district (or all if no district selected)
-                        if ((!district || placeDistrict) && place.rating >= 4.0) {
-                            // Create marker and info window code...
-                            // [Your existing marker and list item creation code here]
-                        }
-                    }
-                });
+                if (place.rating >= 4.0) {
+                    // Create marker
+                    const marker = new google.maps.Marker({
+                        position: place.geometry.location,
+                        map: map,
+                        title: place.name,
+                        icon: getMarkerIcon(category)
+                    });
+                    markers.push(marker);
+
+                    // Add info window
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div class="p-2">
+                                <h3 class="font-bold">${place.name}</h3>
+                                <p>Rating: ${place.rating} ⭐</p>
+                                <p>${place.formatted_address}</p>
+                            </div>
+                        `
+                    });
+
+                    marker.addListener('click', () => {
+                        infoWindow.open(map, marker);
+                    });
+
+                    // Add to list
+                    const clinicItem = document.createElement('div');
+                    clinicItem.className = 'p-4 border-b hover:bg-gray-50 cursor-pointer';
+                    clinicItem.innerHTML = `
+                        <h3 class="font-bold">${place.name}</h3>
+                        <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
+                        <p class="text-sm text-gray-600">${place.formatted_address}</p>
+                    `;
+
+                    clinicItem.addEventListener('click', () => {
+                        map.panTo(place.geometry.location);
+                        map.setZoom(15);
+                        infoWindow.open(map, marker);
+                    });
+
+                    clinicList.appendChild(clinicItem);
+                }
             });
         }
     });
