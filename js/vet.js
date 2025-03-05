@@ -44,59 +44,120 @@ async function loadClinics() {
         query: query,
         location: new google.maps.LatLng(41.3851, 2.1734),
         radius: 5000
-    }, (results, status) => {
+    }, async (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            // Clear existing clinic list
             const clinicList = document.getElementById('clinic-list');
             clinicList.innerHTML = '';
 
-            // Filter and display results
-            results.forEach(place => {
-                if (place.rating >= 4.0) {
-                    // Create marker
-                    const marker = new google.maps.Marker({
-                        position: place.geometry.location,
-                        map: map,
-                        title: place.name,
-                        icon: getMarkerIcon(category)
-                    });
-                    markers.push(marker);
+            // Process each result
+            for (const place of results) {
+                // Skip places with low ratings
+                if (place.rating < 4.0) continue;
 
-                    // Add info window
-                    const infoWindow = new google.maps.InfoWindow({
-                        content: `
-                            <div class="p-2">
-                                <h3 class="font-bold">${place.name}</h3>
-                                <p>Rating: ${place.rating} ⭐</p>
-                                <p>${place.formatted_address}</p>
-                            </div>
-                        `
-                    });
+                // Get detailed place information
+                try {
+                    const placeDetails = await getPlaceDetails(service, place.place_id);
+                    
+                    // Check if place is in selected district
+                    const isInDistrict = district ? isPlaceInDistrict(placeDetails, district) : true;
+                    
+                    if (isInDistrict) {
+                        // Create marker
+                        const marker = new google.maps.Marker({
+                            position: place.geometry.location,
+                            map: map,
+                            title: place.name,
+                            icon: getMarkerIcon(category)
+                        });
+                        markers.push(marker);
 
-                    marker.addListener('click', () => {
-                        infoWindow.open(map, marker);
-                    });
+                        // Add info window
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                                <div class="p-2">
+                                    <h3 class="font-bold">${place.name}</h3>
+                                    <p>Rating: ${place.rating} ⭐</p>
+                                    <p>${place.formatted_address}</p>
+                                </div>
+                            `
+                        });
 
-                    // Add to list
-                    const clinicItem = document.createElement('div');
-                    clinicItem.className = 'p-4 border-b hover:bg-gray-50 cursor-pointer';
-                    clinicItem.innerHTML = `
-                        <h3 class="font-bold">${place.name}</h3>
-                        <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
-                        <p class="text-sm text-gray-600">${place.formatted_address}</p>
-                    `;
+                        marker.addListener('click', () => {
+                            infoWindow.open(map, marker);
+                        });
 
-                    clinicItem.addEventListener('click', () => {
-                        map.panTo(place.geometry.location);
-                        map.setZoom(15);
-                        infoWindow.open(map, marker);
-                    });
-
-                    clinicList.appendChild(clinicItem);
+                        // Add to list
+                        addToClinicList(clinicList, place, marker, infoWindow);
+                    }
+                } catch (error) {
+                    console.error('Error getting place details:', error);
                 }
-            });
+            }
         }
     });
+}
+
+// Helper function to get place details
+function getPlaceDetails(service, placeId) {
+    return new Promise((resolve, reject) => {
+        service.getDetails({
+            placeId: placeId,
+            fields: ['address_components', 'formatted_address']
+        }, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                resolve(place);
+            } else {
+                reject(status);
+            }
+        });
+    });
+}
+
+// Helper function to check if place is in district
+function isPlaceInDistrict(place, district) {
+    // Barcelona districts mapping (add more as needed)
+    const districtMappings = {
+        'Ciutat Vella': ['Ciutat Vella', 'El Raval', 'El Gòtic', 'La Barceloneta'],
+        'Eixample': ['Eixample', "L'Eixample", 'Sant Antoni', 'Dreta de l\'Eixample'],
+        'Sants-Montjuïc': ['Sants', 'Montjuïc', 'Sants-Montjuïc'],
+        'Les Corts': ['Les Corts'],
+        'Sarrià-Sant Gervasi': ['Sarrià', 'Sant Gervasi', 'Sarrià-Sant Gervasi'],
+        'Gràcia': ['Gràcia', 'Vila de Gràcia'],
+        'Horta-Guinardó': ['Horta', 'Guinardó', 'Horta-Guinardó'],
+        'Nou Barris': ['Nou Barris'],
+        'Sant Andreu': ['Sant Andreu'],
+        'Sant Martí': ['Sant Martí', 'Poblenou']
+    };
+
+    // Get the district variations to check
+    const districtVariations = districtMappings[district] || [district];
+
+    // Check address components
+    return place.address_components.some(component => {
+        const longName = component.long_name.toLowerCase();
+        return districtVariations.some(d => 
+            longName.includes(d.toLowerCase())
+        );
+    });
+}
+
+// Helper function to add clinic to list
+function addToClinicList(clinicList, place, marker, infoWindow) {
+    const clinicItem = document.createElement('div');
+    clinicItem.className = 'p-4 border-b hover:bg-gray-50 cursor-pointer';
+    clinicItem.innerHTML = `
+        <h3 class="font-bold">${place.name}</h3>
+        <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
+        <p class="text-sm text-gray-600">${place.formatted_address}</p>
+    `;
+
+    clinicItem.addEventListener('click', () => {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        infoWindow.open(map, marker);
+    });
+
+    clinicList.appendChild(clinicItem);
 }
 
 // Get marker icon based on category
