@@ -101,7 +101,14 @@ function getPlaceDetails(service, placeId) {
     return new Promise((resolve, reject) => {
         service.getDetails({
             placeId: placeId,
-            fields: ['address_components', 'formatted_address']
+            fields: [
+                'address_components',
+                'formatted_address',
+                'opening_hours',
+                'website',
+                'formatted_phone_number',
+                'photos'
+            ]
         }, (place, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 resolve(place);
@@ -184,7 +191,7 @@ function getMarkerIcon(category) {
     };
 
     return {
-        ...icons[category] || icons.regular_vet,
+        ...icons[category] || icons.Restaurants,
         fillOpacity: 1,
         strokeWeight: 1,
         strokeColor: '#FFFFFF'
