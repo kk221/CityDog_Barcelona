@@ -1,14 +1,68 @@
+// venues.js
 
-
-// Global variables
 let map;
 let markers = [];
 const apiKey = 'AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk';
 
+
+// Curated venues list (restaurants and cafes only)
+const curatedVenues = {
+    'Restaurants': [
+        {
+            name: "Brunch & Cake",
+            location: { lat: 41.3935, lng: 2.1892 },
+            address: "Carrer d'Enric Granados, 19",
+            district: "Eixample",
+            rating: 4.5,
+            description: "Popular brunch spot with a beautiful terrace. Dogs are welcome in the outdoor area.",
+            website: "https://brunchandcake.com",
+            phone: "+34 932 00 08 00",
+            isCurated: true,
+            hasOutdoorSeating: true
+        },
+        // Add more curated restaurants...
+    ],
+    'Cafes': [
+        {
+            name: "Satan's Coffee Corner",
+            location: { lat: 41.3837, lng: 2.1699 },
+            address: "Carrer de l'Arc de Sant Ramon del Call, 11",
+            district: "Ciutat Vella",
+            rating: 4.4,
+            description: "Cozy cafe with excellent coffee and a dog-friendly terrace.",
+            website: "https://satanscoffee.com",
+            phone: "+34 666 22 32 73",
+            isCurated: true,
+            hasOutdoorSeating: true
+        },
+        // Add more curated cafes...
+    ]
+};
+
+// Curated hotels list (for separate section)
+const curatedHotels = [
+    {
+        name: "Hotel 1898",
+        address: "La Rambla, 109",
+        district: "Ciutat Vella",
+        rating: 4.6,
+        priceRange: "€€€€",
+        petPolicy: {
+            allowedSize: "Up to 20kg",
+            fee: "€30/night",
+            amenities: ["Pet bed", "Water bowl", "Welcome treat"]
+        },
+        description: "Luxury hotel in the heart of Las Ramblas, pet-friendly with special amenities.",
+        image: "https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/hotels/hotel-1898.jpg",
+        bookingUrl: "https://www.booking.com/hotel/es/1898.html?pets_accepted=1"
+    },
+    // Add more curated hotels...
+];
+
 // Initialize the map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 41.3851, lng: 2.1734 }, // Barcelona coordinates
+        center: { lat: 41.3851, lng: 2.1734 },
         zoom: 12,
         styles: [
             {
@@ -19,15 +73,19 @@ function initMap() {
         ]
     });
 
-    // Add event listeners for filters
+    // Add event listeners
     document.getElementById('category').addEventListener('change', loadVenues);
     document.getElementById('district').addEventListener('change', loadVenues);
+    document.getElementById('terrace-filter')?.addEventListener('change', loadVenues);
 
     // Initial load of venues
     loadVenues();
+    
+    // Load hotels section separately
+    displayHotels();
 }
 
-// Load venues using Places Service instead of direct API call
+// Load restaurants and cafes
 async function loadVenues() {
     // Clear existing markers
     markers.forEach(marker => marker.setMap(null));
@@ -35,65 +93,126 @@ async function loadVenues() {
 
     const category = document.getElementById('category').value;
     const district = document.getElementById('district').value;
-    const query = `${category} Barcelona pet-friendly`;
+    const showOnlyTerrace = document.getElementById('terrace-filter')?.checked || false;
 
+    const venueList = document.getElementById('venue-list');
+    venueList.innerHTML = '<div class="p-4">Loading venues...</div>';
+
+    // First, add curated venues
+    if (curatedVenues[category]) {
+        curatedVenues[category].forEach(venue => {
+            if ((!district || venue.district === district) && 
+                (!showOnlyTerrace || venue.hasOutdoorSeating)) {
+                addVenueMarker(venue);
+            }
+        });
+    }
+
+    // Then, fetch from Google Places API
     const service = new google.maps.places.PlacesService(map);
-    
-    service.textSearch({
-        query: query,
-        location: new google.maps.LatLng(41.3851, 2.1734),
-        radius: 5000
-    }, async (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            const venueList = document.getElementById('venue-list');
-            venueList.innerHTML = '';
+    const query = `${category.toLowerCase()} Barcelona outdoor seating`;
 
-            // Process each result
-            for (const place of results) {
-                // Skip places with low ratings
-                if (place.rating < 4.0) continue;
-
-                // Get detailed place information
-                try {
-                    const placeDetails = await getPlaceDetails(service, place.place_id);
-                    
-                    // Check if place is in selected district
-                    const isInDistrict = district ? isPlaceInDistrict(placeDetails, district) : true;
-                    
-                    if (isInDistrict) {
-                        // Create marker
-                        const marker = new google.maps.Marker({
-                            position: place.geometry.location,
-                            map: map,
-                            title: place.name,
-                            icon: getMarkerIcon(category)
-                        });
-                        markers.push(marker);
-
-                        // Add info window
-                        const infoWindow = new google.maps.InfoWindow({
-                            content: `
-                                <div class="p-2">
-                                    <h3 class="font-bold">${place.name}</h3>
-                                    <p>Rating: ${place.rating} ⭐</p>
-                                    <p>${place.formatted_address}</p>
-                                </div>
-                            `
-                        });
-
-                        marker.addListener('click', () => {
-                            infoWindow.open(map, marker);
-                        });
-
-                        // Add to list
-                        addToVenueList(venueList, place, marker, infoWindow);
-                    }
-                } catch (error) {
-                    console.error('Error getting place details:', error);
+    try {
+        const results = await new Promise((resolve, reject) => {
+            service.textSearch({
+                query: query,
+                location: new google.maps.LatLng(41.3851, 2.1734),
+                radius: 5000
+            }, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    resolve(results);
+                } else {
+                    reject(status);
                 }
+            });
+        });
+
+        // Process Google Places results
+        for (const place of results) {
+            if (place.rating < 4.0) continue;
+
+            // Skip if it's already in curated list
+            if (curatedVenues[category]?.some(v => v.name === place.name)) continue;
+
+            try {
+                const details = await getPlaceDetails(service, place.place_id);
+                
+                const hasOutdoorSeating = details.amenities?.includes('outdoor_seating') || 
+                                        details.types?.includes('outdoor_seating');
+                
+                if (showOnlyTerrace && !hasOutdoorSeating) continue;
+                
+                const isInDistrict = district ? isPlaceInDistrict(details, district) : true;
+                if (!isInDistrict) continue;
+
+                addVenueMarker({...place, ...details, hasOutdoorSeating, isCurated: false});
+            } catch (error) {
+                console.error('Error getting place details:', error);
             }
         }
-    });
+
+    } catch (error) {
+        console.error('Error loading venues:', error);
+        venueList.innerHTML = `
+            <div class="p-4 text-red-600">
+                Error loading venues. Please try again later.
+            </div>
+        `;
+    }
+}
+
+// Modified marker icon function
+function getMarkerIcon(isCurated) {
+    return {
+        path: isCurated 
+            ? 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z' // Star for curated
+            : 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z', // Pin for regular
+        fillColor: isCurated ? '#FFD700' : '#FF6B6B',
+        fillOpacity: 1,
+        strokeWeight: 1,
+        strokeColor: '#FFFFFF',
+        scale: 1.5,
+        anchor: new google.maps.Point(12, isCurated ? 21 : 22)
+    };
+}
+
+// Display curated hotels section
+function displayHotels() {
+    const hotelList = document.getElementById('hotel-list');
+    if (!hotelList) return;
+
+    hotelList.innerHTML = curatedHotels.map(hotel => `
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="${hotel.image}" alt="${hotel.name}" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-xl">${hotel.name}</h3>
+                    <span class="text-gray-600">${hotel.priceRange}</span>
+                </div>
+                
+                <p class="text-gray-600 mb-4">${hotel.description}</p>
+
+                <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold mb-2">Pet Policy</h4>
+                    <p class="text-sm">🐾 ${hotel.petPolicy.allowedSize}</p>
+                    <p class="text-sm">💶 ${hotel.petPolicy.fee}</p>
+                    <p class="text-sm">🎁 Amenities: ${hotel.petPolicy.amenities.join(', ')}</p>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <div class="text-sm text-gray-600">
+                        <p>📍 ${hotel.address}</p>
+                        <p>⭐ ${hotel.rating}</p>
+                    </div>
+                    <a href="${hotel.bookingUrl}" 
+                       target="_blank"
+                       class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
 // Helper function to get place details
@@ -147,18 +266,25 @@ function isPlaceInDistrict(place, district) {
     });
 }
 
-// Helper function to add venue to list
+// Modify addToVenueList function to show curated status
 function addToVenueList(venueList, place, marker, infoWindow) {
     const venueItem = document.createElement('div');
     venueItem.className = 'p-4 border-b hover:bg-gray-50 cursor-pointer';
     venueItem.innerHTML = `
-        <h3 class="font-bold">${place.name}</h3>
+        <div class="flex justify-between items-start">
+            <h3 class="font-bold">${place.name}</h3>
+            ${place.isCurated ? '<span class="text-yellow-500">✨</span>' : ''}
+        </div>
         <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
-        <p class="text-sm text-gray-600">${place.formatted_address}</p>
+        <p class="text-sm text-gray-600">${place.isCurated ? place.address : place.formatted_address}</p>
+        ${place.hasOutdoorSeating ? '<p class="text-sm text-green-600">☀️ Outdoor Seating</p>' : ''}
     `;
 
     venueItem.addEventListener('click', () => {
-        map.panTo(place.geometry.location);
+        map.panTo(place.isCurated ? 
+            new google.maps.LatLng(place.location.lat, place.location.lng) : 
+            place.geometry.location
+        );
         map.setZoom(15);
         infoWindow.open(map, marker);
     });
@@ -166,86 +292,45 @@ function addToVenueList(venueList, place, marker, infoWindow) {
     venueList.appendChild(venueItem);
 }
 
-// Get marker icon based on category
-function getMarkerIcon(category) {
-    const icons = {
-        Restaurants: {
-            path: 'M3.5,0l-1,5.5c-0.1464,0.805,1.7815,1.181,1.75,2L4,14c-0.0384,0.9993,1,1,1,1s1.0384-0.0007,1-1L5.75,7.5&#xA;&#x9;c-0.0314-0.8176,1.7334-1.1808,1.75-2L6.5,0H6l0.25,4L5.5,4.5L5.25,0h-0.5L4.5,4.5L3.75,4L4,0H3.5z M12,0&#xA;&#x9;c-0.7364,0-1.9642,0.6549-2.4551,1.6367C9.1358,2.3731,9,4.0182,9,5v2.5c0,0.8182,1.0909,1,1.5,1L10,14c-0.0905,0.9959,1,1,1,1&#xA;&#x9;s1,0,1-1V0z',
-            fillColor: '#FF0000',
-            scale: 1.5,
-            anchor: new google.maps.Point(8, 8)
-        },
-        Cafes: {
-               path: 'M12,5h-2V3H2v4c0.0133,2.2091,1.8149,3.9891,4.024,3.9758C7.4345,10.9673,8.7362,10.2166,9.45,9H12c1.1046,0,2-0.8954,2-2&#xA;&#x9;S13.1046,5,12,5z M12,8H9.86C9.9487,7.6739,9.9958,7.3379,10,7V6h2c0.5523,0,1,0.4477,1,1S12.5523,8,12,8z M10,12.5&#xA;&#x9;c0,0.2761-0.2239,0.5-0.5,0.5h-7C2.2239,13,2,12.7761,2,12.5S2.2239,12,2.5,12h7C9.7761,12,10,12.2239,10,12.5z',
-            fillColor: '#0000FF',
-            scale: 1.5,
-            anchor: new google.maps.Point(8, 8)
-        },
-        Bars: {
-            // Dog Paw SVG path
-            path: 'M7.5,1c-2,0-7,0.25-6.5,0.75L7,8v4&#xA;&#x9;c0,1-3,0.5-3,2h7c0-1.5-3-1-3-2V8l6-6.25C14.5,1.25,9.5,1,7.5,1z M7.5,2c2.5,0,4.75,0.25,4.75,0.25L11.5,3h-8L2.75,2.25&#xA;&#x9;C2.75,2.25,5,2,7.5,2z',
-            fillColor: '#FFD700',
-            scale: 1.5,
-            anchor: new google.maps.Point(8, 8)
-        }
-    };
+// Modify addVenueMarker function to handle both curated and regular venues
+function addVenueMarker(place) {
+    const position = place.isCurated ? 
+        new google.maps.LatLng(place.location.lat, place.location.lng) : 
+        place.geometry.location;
 
-    return {
-        ...icons[category] || icons.Restaurants,
-        fillOpacity: 1,
-        strokeWeight: 1,
-        strokeColor: '#FFFFFF'
-    };
+    const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: place.name,
+        icon: getMarkerIcon(place.isCurated)
+    });
+    markers.push(marker);
+
+    const infoWindow = new google.maps.InfoWindow({
+        content: `
+            <div class="p-4">
+                <h3 class="font-bold text-lg">${place.name}</h3>
+                ${place.isCurated ? '<p class="text-sm text-yellow-600">✨ Recommended</p>' : ''}
+                <p class="text-sm">Rating: ${place.rating} ⭐</p>
+                <p class="text-sm">${place.isCurated ? place.address : place.formatted_address}</p>
+                ${place.hasOutdoorSeating ? '<p class="text-sm text-green-600">☀️ Outdoor Seating</p>' : ''}
+                ${place.phone || place.formatted_phone_number ? 
+                    `<p class="text-sm">📞 ${place.phone || place.formatted_phone_number}</p>` : ''}
+                ${place.website ? 
+                    `<a href="${place.website}" target="_blank" 
+                        class="text-blue-600 hover:text-blue-800 text-sm">Visit Website</a>` : ''}
+                ${place.description ? `<p class="text-sm mt-2">${place.description}</p>` : ''}
+            </div>
+        `
+    });
+
+    marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+    });
+
+    addToVenueList(document.getElementById('venue-list'), place, marker, infoWindow);
 }
 
-// Find nearest location
-function findNearest() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const userLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            if (markers.length > 0) {
-                let nearest = markers[0];
-                let nearestDistance = getDistance(userLocation, nearest.getPosition());
-
-                markers.forEach(marker => {
-                    const distance = getDistance(userLocation, marker.getPosition());
-                    if (distance < nearestDistance) {
-                        nearest = marker;
-                        nearestDistance = distance;
-                    }
-                });
-
-                map.panTo(nearest.getPosition());
-                map.setZoom(15);
-            }
-        });
-    } else {
-        alert('Geolocation is not supported by this browser.');
-    }
-}
-
-// Calculate distance between points
-function getDistance(coord1, coord2) {
-    const R = 6371; // Earth's radius in km
-    const lat1 = coord1.lat * Math.PI / 180;
-    const lat2 = coord2.lat() * Math.PI / 180;
-    const lon1 = coord1.lng * Math.PI / 180;
-    const lon2 = coord2.lng() * Math.PI / 180;
-
-    const dLat = lat2 - lat1;
-    const dLon = lon2 - lon1;
-
-    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(lat1) * Math.cos(lat2) *
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-    
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
-}
 
 // Load Google Maps API
 window.onload = function() {
