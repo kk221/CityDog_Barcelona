@@ -97,20 +97,19 @@ async function loadVenues() {
     venueList.innerHTML = '<div class="hidden p-4">Loading venues...</div>';
 
     // First, add curated venues
-    if (curatedVenues[category]) {
-        curatedVenues[category].forEach(venue => {
-            if ((!district || venue.district === district) { 
-    
-                addVenueMarker({
-                    ...venue,
-                    category: category,
-                    geometry: { // Add this for consistency with Google Places API
-                        location: new google.maps.LatLng(venue.location.lat, venue.location.lng)
-                    }
-                });
-            }
-        });
-    }
+if (curatedVenues[category]) {
+    curatedVenues[category].forEach(venue => {
+        if (!district || venue.district === district) {  // Fixed syntax error: removed extra {
+            addVenueMarker({
+                ...venue,
+                category: category,
+                geometry: { // Add this for consistency with Google Places API
+                    location: new google.maps.LatLng(venue.location.lat, venue.location.lng)
+                }
+            });
+        }
+    });
+}
 
     // Then, fetch from Google Places API
     const service = new google.maps.places.PlacesService(map);
