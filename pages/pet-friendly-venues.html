@@ -79,59 +79,70 @@
 
         <!-- Content Sections -->
         <div class="container mx-auto px-4 py-12">
-            <!-- Restaurants Section -->
-            <section id="restaurants" class="mb-16">
-                <h2 class="text-3xl font-bold mb-6">Pet-Friendly Restaurants</h2>
+            <!-- Map and Filters Section -->
+            <section id="venues-map" class="mb-16">
+                <h2 class="text-3xl font-bold mb-6">Find Pet-Friendly Venues</h2>
                 
-                <!-- Pet Etiquette Box -->
-                <div class="bg-purple-50 p-6 rounded-lg mb-8">
-                    <h3 class="font-bold text-xl mb-4">Pet Dining Etiquette</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-semibold mb-2">Do's:</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Keep your pet leashed and close to your table</li>
-                                <li>Bring a portable water bowl</li>
-                                <li>Choose off-peak hours when possible</li>
-                                <li>Inform staff about your pet when making reservations</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold mb-2">Don'ts:</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Let your pet sit on chairs or tables</li>
-                                <li>Feed your pet from the restaurant's plates</li>
-                                <li>Let your pet disturb other diners</li>
-                                <li>Bring pets inside during food service hours</li>
-                            </ul>
+                <!-- Filters -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <select id="category" class="w-full p-2 border rounded-lg">
+                        <option value="Restaurants">Restaurants</option>
+                        <option value="Cafes">Cafes</option>
+                    </select>
+                    
+                    <select id="district" class="w-full p-2 border rounded-lg">
+                        <option value="">All Districts</option>
+                        <option value="Ciutat Vella">Ciutat Vella</option>
+                        <option value="Eixample">Eixample</option>
+                        <option value="Sants-Montjuïc">Sants-Montjuïc</option>
+                        <option value="Les Corts">Les Corts</option>
+                        <option value="Sarrià-Sant Gervasi">Sarrià-Sant Gervasi</option>
+                        <option value="Gràcia">Gràcia</option>
+                        <option value="Horta-Guinardó">Horta-Guinardó</option>
+                        <option value="Nou Barris">Nou Barris</option>
+                        <option value="Sant Andreu">Sant Andreu</option>
+                        <option value="Sant Martí">Sant Martí</option>
+                    </select>
+
+                    <div class="flex items-center" id="terrace-filter-container">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" id="terrace-filter" class="form-checkbox">
+                            <span class="ml-2">Outdoor Seating</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Map and List View -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Map -->
+                    <div class="md:col-span-2">
+                        <div id="map" class="w-full h-[500px] rounded-lg shadow-md"></div>
+                    </div>
+                    
+                    <!-- Venue List -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div id="venue-list" class="h-[500px] overflow-y-auto">
+                            <!-- Venues will be populated by JavaScript -->
                         </div>
                     </div>
                 </div>
 
-                <!-- Restaurant Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="restaurant-list">
-                    <!-- Cards will be populated by JavaScript -->
+                <!-- Legend -->
+                <div class="mt-4 bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold mb-3">Map Legend</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <span class="text-yellow-500 mr-2">✨</span>
+                            <span>Recommended Venues</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-red-500 mr-2">📍</span>
+                            <span>Other Pet-Friendly Venues</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Cafes Section -->
-            <section id="cafes" class="mb-16">
-                <h2 class="text-3xl font-bold mb-6">Dog-Friendly Cafes</h2>
-                
-                <!-- Terrace Filter -->
-                <div class="flex items-center mb-8 bg-blue-50 p-4 rounded-lg">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" id="terrace-filter" class="form-checkbox h-5 w-5 text-blue-600">
-                        <span class="ml-2 text-gray-700">Show only cafes with terrace</span>
-                    </label>
-                    <span class="ml-4 text-sm text-gray-600">☀️ Perfect for sunny days!</span>
-                </div>
-
-                <!-- Cafe Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cafe-list">
-                    <!-- Cards will be populated by JavaScript -->
-                </div>
-            </section>
 
             <!-- Hotels Section -->
             <section id="hotels" class="mb-16">
