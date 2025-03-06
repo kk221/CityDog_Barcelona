@@ -93,10 +93,8 @@ async function loadVenues() {
 
     const category = document.getElementById('category').value;
     const district = document.getElementById('district').value;
-    const showOnlyTerrace = document.getElementById('terrace-filter')?.checked || false;
-
     const venueList = document.getElementById('venue-list');
-    venueList.innerHTML = '<div class="p-4">Loading venues...</div>';
+    venueList.innerHTML = '<div class="hidden p-4">Loading venues...</div>';
 
     // First, add curated venues
     if (curatedVenues[category]) {
@@ -136,16 +134,14 @@ async function loadVenues() {
 
             try {
                 const details = await getPlaceDetails(service, place.place_id);
-                
-                const hasOutdoorSeating = details.amenities?.includes('outdoor_seating') || 
-                                        details.types?.includes('outdoor_seating');
-                
-                if (showOnlyTerrace && !hasOutdoorSeating) continue;
-                
                 const isInDistrict = district ? isPlaceInDistrict(details, district) : true;
                 if (!isInDistrict) continue;
 
-                addVenueMarker({...place, ...details, hasOutdoorSeating, isCurated: false});
+                addVenueMarker({
+                    ...place, 
+                    ...details, 
+                    category: category, 
+                    isCurated: false});
             } catch (error) {
                 console.error('Error getting place details:', error);
             }
@@ -288,7 +284,7 @@ function addToVenueList(venueList, place, marker, infoWindow) {
         </div>
         <p class="text-sm text-gray-600">Rating: ${place.rating} ⭐</p>
         <p class="text-sm text-gray-600">${place.isCurated ? place.address : place.formatted_address}</p>
-        ${place.hasOutdoorSeating ? '<p class="text-sm text-green-600">☀️ Outdoor Seating</p>' : ''}
+        ${place.description ? `<p class="text-sm text-gray-600 mt-1">${place.description}</p>` : ''}
     `;
 
     venueItem.addEventListener('click', () => {
@@ -324,7 +320,6 @@ function addVenueMarker(place) {
                 ${place.isCurated ? '<p class="text-sm text-yellow-600">✨ Recommended</p>' : ''}
                 <p class="text-sm">Rating: ${place.rating} ⭐</p>
                 <p class="text-sm">${place.isCurated ? place.address : place.formatted_address}</p>
-                ${place.hasOutdoorSeating ? '<p class="text-sm text-green-600">☀️ Outdoor Seating</p>' : ''}
                 ${place.phone || place.formatted_phone_number ? 
                     `<p class="text-sm">📞 ${place.phone || place.formatted_phone_number}</p>` : ''}
                 ${place.website ? 
