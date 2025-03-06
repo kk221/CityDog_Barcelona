@@ -162,18 +162,29 @@ async function loadVenues() {
 }
 
 // Modified marker icon function
-function getMarkerIcon(isCurated) {
-    return {
-        path: isCurated 
-            ? 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z' // Star for curated
-            : 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z', // Pin for regular
-        fillColor: isCurated ? '#FFD700' : '#FF6B6B',
-        fillOpacity: 1,
-        strokeWeight: 1,
-        strokeColor: '#FFFFFF',
-        scale: 1.5,
-        anchor: new google.maps.Point(12, isCurated ? 21 : 22)
+function getMarkerIcon(category, isCurated) {
+    const icons = {
+        Restaurants: {
+            path: 'M3.5,0l-1,5.5c-0.1464,0.805,1.7815,1.181,1.75,2L4,14c-0.0384,0.9993,1,1,1,1s1.0384-0.0007,1-1L5.75,7.5c-0.0314-0.8176,1.7334-1.1808,1.75-2L6.5,0H6l0.25,4L5.5,4.5L5.25,0h-0.5L4.5,4.5L3.75,4L4,0H3.5z M12,0c-0.7364,0-1.9642,0.6549-2.4551,1.6367C9.1358,2.3731,9,4.0182,9,5v2.5c0,0.8182,1.0909,1,1.5,1L10,14c-0.0905,0.9959,1,1,1,1s1,0,1-1V0z',
+            fillColor: isCurated ? '#FFD700' : '#FF0000', // Gold for curated, Red for regular
+            strokeColor: '#FFFFFF',
+            strokeWeight: 1,
+            fillOpacity: 1,
+            scale: 1.5,
+            anchor: new google.maps.Point(8, 8)
+        },
+        Cafes: {
+            path: 'M12,5h-2V3H2v4c0.0133,2.2091,1.8149,3.9891,4.024,3.9758C7.4345,10.9673,8.7362,10.2166,9.45,9H12c1.1046,0,2-0.8954,2-2S13.1046,5,12,5z M12,8H9.86C9.9487,7.6739,9.9958,7.3379,10,7V6h2c0.5523,0,1,0.4477,1,1S12.5523,8,12,8z M10,12.5c0,0.2761-0.2239,0.5-0.5,0.5h-7C2.2239,13,2,12.7761,2,12.5S2.2239,12,2.5,12h7C9.7761,12,10,12.2239,10,12.5z',
+            fillColor: isCurated ? '#FFD700' : '#0000FF', // Gold for curated, Blue for regular
+            strokeColor: '#FFFFFF',
+            strokeWeight: 1,
+            fillOpacity: 1,
+            scale: 1.5,
+            anchor: new google.maps.Point(8, 8)
+        }
     };
+
+    return icons[category] || icons.Restaurants; // Default to restaurant icon if category not found
 }
 
 // Display curated hotels section
@@ -302,7 +313,7 @@ function addVenueMarker(place) {
         position: position,
         map: map,
         title: place.name,
-        icon: getMarkerIcon(place.isCurated)
+        icon: getMarkerIcon(place.category || document.getElementById('category').value, place.isCurated)
     });
     markers.push(marker);
 
