@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://*.googleapis.com https://*.gstatic.com https://raw.githubusercontent.com;
+    script-src 'self' https://*.googleapis.com 'unsafe-inline';
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    img-src 'self' https://*.googleapis.com https://*.gstatic.com https://maps.google.com data: https://raw.githubusercontent.com;
+    connect-src 'self' https://*.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+">    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Dog Barcelona | Training & Behavior</title>
+  <link href="../style.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+      <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="../index.html">
+                        <img 
+                            src="https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/city-petcare-logo2.gif" 
+                            alt="City Dog Barcelona Logo" 
+                            class="h-[80px] md:h-[100px] w-auto" 
+                        />
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="nav-links hidden md:flex space-x-6">
+                    <a href="regulations.html" class="hover:text-purple-500">Pet Regulations</a>
+                    <a href="services.html" class="hover:text-purple-500">Groom Service</a>
+                    <a href="vets.html" class="hover:text-purple-500">Veterinary Care</a>
+                    <a href="adoption.html" class="hover:text-purple-500">Adoption</a>
+                </div>
+
+<!-- Update the mobile menu button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-lg hover:bg-gray-100">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
+        </div>
+            
+            <!-- Mobile Menu -->
+           <div id="mobile-menu" class="hidden md:hidden w-full mt-4 bg-white border-t border-gray-100">
+    <div class="flex flex-col space-y-1">
+         <a href="regulations.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Pet Regulations</a>
+         <a href="services.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Groom Service</a>
+         <a href="vets.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Veterinary Care</a>
+         <a href="adoption.html" class="block py-2 px-4 hover:bg-purple-50 text-purple-600 rounded">Adoption</a>
+    </div>
+            
+        </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div class="container mx-auto px-4 pt-24 pb-20">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Pet Training & Behavior
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                        Expert tips and resources for raising a well-behaved city pet
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="container mx-auto px-4 py-12">
+            <!-- Featured Video Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8">Featured Training Videos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Video Cards -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe src="[YouTube Embed URL]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">Basic Obedience Training</h3>
+                            <p class="text-gray-600">Essential commands every city dog should know</p>
+                        </div>
+                    </div>
+                    <!-- Add more video cards -->
+                </div>
+            </section>
+
+            <!-- Urban Training Tips -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8">City Pet Training Tips</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Elevator Etiquette -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <span class="text-3xl mr-4">🛗</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Elevator Etiquette</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Train your dog to wait before entering</li>
+                                    <li>• Practice calm behavior in small spaces</li>
+                                    <li>• Reward quiet and patient behavior</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Public Transport -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <span class="text-3xl mr-4">🚇</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Public Transport Training</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Getting comfortable with crowds</li>
+                                    <li>• Staying calm during transit</li>
+                                    <li>• Safe entry and exit practices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more urban training tips -->
+                </div>
+            </section>
+
+            <!-- Online Courses -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8">Online Training Courses</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Course Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="../images/training/basic-course.jpg" alt="Basic Training Course" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Basic Training Course</h3>
+                            <p class="text-gray-600 mb-4">Perfect for new pet owners in the city</p>
+                            <ul class="text-sm text-gray-600 mb-4">
+                                <li>✓ 6 video lessons</li>
+                                <li>✓ Downloadable resources</li>
+                                <li>✓ Certificate upon completion</li>
+                            </ul>
+                            <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Add more course cards -->
+                </div>
+            </section>
+
+            <!-- Behavior Resources -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8">Common Behavior Issues</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Resource Card -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-xl mb-4">Separation Anxiety</h3>
+                        <p class="text-gray-600 mb-4">
+                            Tips and techniques for helping your pet cope with being alone in an apartment.
+                        </p>
+                        <a href="#" class="text-purple-600 hover:text-purple-800">Read More →</a>
+                    </div>
+                    <!-- Add more resource cards -->
+                </div>
+            </section>
+
+            <!-- Expert Directory -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8">Professional Trainers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Trainer Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="../images/trainers/trainer1.jpg" alt="Trainer Name" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Trainer Name</h3>
+                            <p class="text-gray-600 mb-4">Specializing in positive reinforcement training</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">📍 Eixample</span>
+                                <a href="#" class="text-purple-600 hover:text-purple-800">Contact →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more trainer cards -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <footer class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white">© 2025 City Dog Barcelona. Serving pet owners with ❤️</p>
+        </div>
+    </footer>
+  
+</body>
+</html>
