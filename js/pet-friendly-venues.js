@@ -218,7 +218,7 @@ function displayHotels() {
                     </div>
                     <a href="${hotel.bookingUrl}" 
                        target="_blank"
-                       class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                       class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
                         Book Now
                     </a>
                 </div>
