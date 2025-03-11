@@ -298,130 +298,16 @@
         </div>
     </footer>
 
-    <!-- Map Script -->
-<script>
-function initFestivalMap() {
-    const map = new google.maps.Map(document.getElementById('festival-map'), {
-        center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center
-        zoom: 13,
-        styles: [
-            {
-                featureType: "poi",
-                elementType: "labels",
-                stylers: [{ visibility: "off" }]
-            }
-        ]
-    });
-
-    // Festival locations
-    const festivalLocations = [
-        {
-            name: "La Mercè - Main Events",
-            location: { lat: 41.3851, lng: 2.1734 },
-            type: "major",
-            dates: "September 20-24",
-            noise: "High"
-        },
-        {
-            name: "Barceloneta Beach Fireworks",
-            location: { lat: 41.3721, lng: 2.1924 },
-            type: "fireworks",
-            dates: "La Mercè closing",
-            noise: "Very High"
-        },
-        {
-            name: "Gràcia Festival Area",
-            location: { lat: 41.4033, lng: 2.1526 },
-            type: "neighborhood",
-            dates: "August 15-21",
-            noise: "High"
-        }
-    ];
-
-    // Quiet areas
-    const quietAreas = [
-        {
-            name: "Parc del Laberint d'Horta",
-            location: { lat: 41.4402, lng: 2.1476 },
-            type: "park",
-            facilities: "Dog-friendly paths, water fountains"
-        },
-        {
-            name: "Jardins de Pedralbes",
-            location: { lat: 41.3875, lng: 2.1151 },
-            type: "garden",
-            facilities: "Shaded areas, quiet environment"
-        },
-        {
-            name: "Parc de Cervantes",
-            location: { lat: 41.3833, lng: 2.1060 },
-            type: "park",
-            facilities: "Rose garden, open spaces"
-        },
-        {
-            name: "Turó Park",
-            location: { lat: 41.3947, lng: 2.1439 },
-            type: "park",
-            facilities: "Small dog area, peaceful setting"
-        }
-    ];
-
-    // Add markers with custom icons
-    festivalLocations.forEach(location => {
-        const marker = new google.maps.Marker({
-            position: location.location,
-            map: map,
-            title: location.name,
-            icon: {
-                url: `../images/markers/${location.type}-marker.png`,
-                scaledSize: new google.maps.Size(30, 30)
-            }
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-            content: `
-                <div class="p-3">
-                    <h3 class="font-bold">${location.name}</h3>
-                    <p>Dates: ${location.dates}</p>
-                    <p>Noise Level: ${location.noise}</p>
-                </div>
-            `
-        });
-
-        marker.addListener('click', () => {
-            infoWindow.open(map, marker);
-        });
-    });
-
-    // Add quiet area markers
-    quietAreas.forEach(area => {
-        const marker = new google.maps.Marker({
-            position: area.location,
-            map: map,
-            title: area.name,
-            icon: {
-                url: '../images/markers/quiet-marker.png',
-                scaledSize: new google.maps.Size(30, 30)
-            }
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-            content: `
-                <div class="p-3">
-                    <h3 class="font-bold">${area.name}</h3>
-                    <p>${area.facilities}</p>
-                </div>
-            `
-        });
-
-        marker.addListener('click', () => {
-            infoWindow.open(map, marker);
-        });
-    });
-}
-</script>
 
 <!-- Add Google Maps API script -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initFestivalMap" async defer></script>
+    <!-- Custom map script -->
+<script src="../js/festival-map.js" defer></script>
+
+<!-- Initialize map -->
+<script>
+    document.addEventListener('DOMContentLoaded', initFestivalMap);
+</script>
+    
 </body>
 </html>
