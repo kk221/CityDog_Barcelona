@@ -190,29 +190,104 @@
             </section>
 
             <!-- Quiet Areas -->
-            <section class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-md p-8">
-                    <h2 class="text-2xl font-bold mb-6">Quiet Areas During Festivals</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="border rounded-lg p-6">
-                            <h3 class="font-bold text-xl mb-3">Parks & Gardens</h3>
-                            <ul class="space-y-2 text-gray-600">
-                                <li>• Parc del Laberint d'Horta</li>
-                                <li>• Jardins de Pedralbes</li>
-                                <li>• Parc de Cervantes</li>
-                            </ul>
-                        </div>
-                        <div class="border rounded-lg p-6">
-                            <h3 class="font-bold text-xl mb-3">Quiet Neighborhoods</h3>
-                            <ul class="space-y-2 text-gray-600">
-                                <li>• Sarrià</li>
-                                <li>• Pedralbes</li>
-                                <li>• Tres Torres</li>
-                            </ul>
-                        </div>
+<section class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-6">Quiet Areas During Festivals</h2>
+        
+        <!-- Parks & Gardens -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="border rounded-lg p-6">
+                <h3 class="font-bold text-xl mb-3">Parks & Gardens</h3>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <h4 class="font-semibold">Parc del Laberint d'Horta</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Large, quiet historical garden</li>
+                            <li>• Multiple walking paths</li>
+                            <li>• Water fountains available</li>
+                            <li>• Best times: Early morning</li>
+                        </ul>
+                    </div>
+                    <div class="border-b pb-4">
+                        <h4 class="font-semibold">Jardins de Pedralbes</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Peaceful palace gardens</li>
+                            <li>• Shaded areas</li>
+                            <li>• Less crowded</li>
+                            <li>• Best times: All day</li>
+                        </ul>
+                    </div>
+                    <div class="pb-4">
+                        <h4 class="font-semibold">Parc de Cervantes</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Rose garden area</li>
+                            <li>• Open spaces</li>
+                            <li>• Good morning visibility</li>
+                            <li>• Best times: Sunrise to noon</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Quiet Neighborhoods -->
+            <div class="border rounded-lg p-6">
+                <h3 class="font-bold text-xl mb-3">Quiet Neighborhoods</h3>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <h4 class="font-semibold">Sarrià</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Residential area</li>
+                            <li>• Wide, quiet streets</li>
+                            <li>• Several small parks</li>
+                            <li>• Dog-friendly cafes</li>
+                        </ul>
+                    </div>
+                    <div class="border-b pb-4">
+                        <h4 class="font-semibold">Pedralbes</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Upscale, quiet area</li>
+                            <li>• University gardens</li>
+                            <li>• Less tourist traffic</li>
+                            <li>• Green spaces available</li>
+                        </ul>
+                    </div>
+                    <div class="pb-4">
+                        <h4 class="font-semibold">Tres Torres</h4>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• Residential neighborhood</li>
+                            <li>• Quiet side streets</li>
+                            <li>• Small local parks</li>
+                            <li>• Morning walk friendly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alternative Routes -->
+        <div class="bg-blue-50 p-6 rounded-lg">
+            <h3 class="font-bold text-lg mb-3">Alternative Walking Routes</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold mb-2">Morning Routes</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• Carretera de les Aigües (panoramic walk)</li>
+                        <li>• Montjuïc Gardens (early morning)</li>
+                        <li>• Parc de la Ciutadella (before 9am)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2">Evening Routes</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• Parc del Turó del Putxet</li>
+                        <li>• Forum area coastal walk</li>
+                        <li>• Sant Gervasi quiet streets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         </div>
     </main>
 
@@ -224,8 +299,129 @@
     </footer>
 
     <!-- Map Script -->
-    <script>
-        // Add Google Maps initialization code here
-    </script>
+<script>
+function initFestivalMap() {
+    const map = new google.maps.Map(document.getElementById('festival-map'), {
+        center: { lat: 41.3851, lng: 2.1734 }, // Barcelona center
+        zoom: 13,
+        styles: [
+            {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            }
+        ]
+    });
+
+    // Festival locations
+    const festivalLocations = [
+        {
+            name: "La Mercè - Main Events",
+            location: { lat: 41.3851, lng: 2.1734 },
+            type: "major",
+            dates: "September 20-24",
+            noise: "High"
+        },
+        {
+            name: "Barceloneta Beach Fireworks",
+            location: { lat: 41.3721, lng: 2.1924 },
+            type: "fireworks",
+            dates: "La Mercè closing",
+            noise: "Very High"
+        },
+        {
+            name: "Gràcia Festival Area",
+            location: { lat: 41.4033, lng: 2.1526 },
+            type: "neighborhood",
+            dates: "August 15-21",
+            noise: "High"
+        }
+    ];
+
+    // Quiet areas
+    const quietAreas = [
+        {
+            name: "Parc del Laberint d'Horta",
+            location: { lat: 41.4402, lng: 2.1476 },
+            type: "park",
+            facilities: "Dog-friendly paths, water fountains"
+        },
+        {
+            name: "Jardins de Pedralbes",
+            location: { lat: 41.3875, lng: 2.1151 },
+            type: "garden",
+            facilities: "Shaded areas, quiet environment"
+        },
+        {
+            name: "Parc de Cervantes",
+            location: { lat: 41.3833, lng: 2.1060 },
+            type: "park",
+            facilities: "Rose garden, open spaces"
+        },
+        {
+            name: "Turó Park",
+            location: { lat: 41.3947, lng: 2.1439 },
+            type: "park",
+            facilities: "Small dog area, peaceful setting"
+        }
+    ];
+
+    // Add markers with custom icons
+    festivalLocations.forEach(location => {
+        const marker = new google.maps.Marker({
+            position: location.location,
+            map: map,
+            title: location.name,
+            icon: {
+                url: `../images/markers/${location.type}-marker.png`,
+                scaledSize: new google.maps.Size(30, 30)
+            }
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+                <div class="p-3">
+                    <h3 class="font-bold">${location.name}</h3>
+                    <p>Dates: ${location.dates}</p>
+                    <p>Noise Level: ${location.noise}</p>
+                </div>
+            `
+        });
+
+        marker.addListener('click', () => {
+            infoWindow.open(map, marker);
+        });
+    });
+
+    // Add quiet area markers
+    quietAreas.forEach(area => {
+        const marker = new google.maps.Marker({
+            position: area.location,
+            map: map,
+            title: area.name,
+            icon: {
+                url: '../images/markers/quiet-marker.png',
+                scaledSize: new google.maps.Size(30, 30)
+            }
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+                <div class="p-3">
+                    <h3 class="font-bold">${area.name}</h3>
+                    <p>${area.facilities}</p>
+                </div>
+            `
+        });
+
+        marker.addListener('click', () => {
+            infoWindow.open(map, marker);
+        });
+    });
+}
+</script>
+
+<!-- Add Google Maps API script -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClaGtt3VGdSrvJf2Gye88y2EJYWWz_lxk&callback=initFestivalMap" async defer></script>
 </body>
 </html>
