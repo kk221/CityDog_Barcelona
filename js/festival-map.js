@@ -1,3 +1,4 @@
+
 // Map configuration and initialization
 const mapConfig = {
     barcelona: { lat: 41.3851, lng: 2.1734 },
@@ -173,7 +174,8 @@ function addMapLegend(map) {
 }
 
 // Initialize map (global scope for Google Maps callback)
-window.initMap = function() {
+
+window.initFestivalMap = function() {
     const map = new google.maps.Map(
         document.getElementById('festival-map'),
         {
@@ -192,3 +194,4 @@ window.initMap = function() {
     // Add legend
     addMapLegend(map);
 };
+
