@@ -235,8 +235,10 @@ function initializeQuietAreaLinks(map) {
     parkHeadings.forEach(heading => {
         const parkName = heading.textContent;
         const park = MapData.parks.find(p => p.name === parkName);
+        const neighborhood = MapData.neighborhoods.find(n => n.name === name);
+
         
-        if (park) {
+        if (park || neighborhood) {
             // Create a container for the heading and link
             const container = document.createElement('div');
             container.className = 'flex items-center gap-2';
@@ -246,9 +248,21 @@ function initializeQuietAreaLinks(map) {
             heading.style.cursor = 'pointer';
             
             // Add click handler to center map
-            heading.addEventListener('click', () => {
-                map.setCenter(park.center);
-                map.setZoom(16);
+             heading.addEventListener('click', () => {
+                if (park) {
+                    map.setCenter(park.center);
+                    map.setZoom(16);
+                } else if (neighborhood) {
+                    // Calculate neighborhood center
+                    const bounds = neighborhood.bounds;
+                    const center = {
+                        lat: bounds.reduce((sum, point) => sum + point.lat, 0) / bounds.length,
+                        lng: bounds.reduce((sum, point) => sum + point.lng, 0) / bounds.length
+                    };
+                    map.setCenter(center);
+                    map.setZoom(15);
+                }
+                
                 document.getElementById('festival-map').scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
@@ -257,7 +271,7 @@ function initializeQuietAreaLinks(map) {
             
             // Create Google Maps link
             const googleLink = document.createElement('a');
-            const searchQuery = encodeURIComponent(`${parkName} Barcelona`);
+            const searchQuery = encodeURIComponent(`${name} Barcelona`);
             googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
             googleLink.className = 'text-sm text-gray-500 hover:text-gray-700';
             googleLink.target = '_blank';
