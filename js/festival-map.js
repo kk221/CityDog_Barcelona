@@ -49,34 +49,63 @@
         neighborhoods: [
             {
                 name: "Sarrià",
-                center: { lat: 41.3977, lng: 2.1230 },
-                polygon: [
-                    { lat: 41.3970, lng: 2.1220 },
-                    { lat: 41.3985, lng: 2.1220 },
-                    { lat: 41.3985, lng: 2.1240 },
-                    { lat: 41.3970, lng: 2.1240 }
-                ]
+                bounds: [
+            { lat: 41.3935, lng: 2.1133 }, // SW
+            { lat: 41.3935, lng: 2.1207 }, // SE
+            { lat: 41.3972, lng: 2.1235 }, // E
+            { lat: 41.4018, lng: 2.1235 }, // NE
+            { lat: 41.4047, lng: 2.1207 }, // N
+            { lat: 41.4047, lng: 2.1133 }, // NW
+            { lat: 41.4018, lng: 2.1105 }, // W
+            { lat: 41.3972, lng: 2.1105 }  // SW
+        ]
             },
             {
                 name: "Pedralbes",
-                center: { lat: 41.3897, lng: 2.1151 },
-                polygon: [
-                    { lat: 41.3890, lng: 2.1145 },
-                    { lat: 41.3905, lng: 2.1145 },
-                    { lat: 41.3905, lng: 2.1157 },
-                    { lat: 41.3890, lng: 2.1157 }
-                ]
+                bounds: [
+            { lat: 41.3847, lng: 2.1027 }, // SW
+            { lat: 41.3847, lng: 2.1160 }, // SE
+            { lat: 41.3935, lng: 2.1160 }, // NE
+            { lat: 41.3935, lng: 2.1027 }  // NW
+        ]
             },
             {
                 name: "Tres Torres",
-                center: { lat: 41.3977, lng: 2.1320 },
-                polygon: [
-                    { lat: 41.3970, lng: 2.1310 },
-                    { lat: 41.3985, lng: 2.1310 },
-                    { lat: 41.3985, lng: 2.1330 },
-                    { lat: 41.3970, lng: 2.1330 }
-                ]
-            }
+                bounds: [
+            { lat: 41.3935, lng: 2.1235 }, // SW
+            { lat: 41.3935, lng: 2.1368 }, // SE
+            { lat: 41.4018, lng: 2.1368 }, // NE
+            { lat: 41.4018, lng: 2.1235 }  // NW
+        ]
+            },
+               {
+        name: "Sant Gervasi - La Bonanova",
+        bounds: [
+            { lat: 41.4018, lng: 2.1235 }, // SW
+            { lat: 41.4018, lng: 2.1368 }, // SE
+            { lat: 41.4102, lng: 2.1368 }, // NE
+            { lat: 41.4102, lng: 2.1235 }  // NW
+        ]
+    },
+    {
+        name: "Sant Gervasi - Galvany",
+        bounds: [
+            { lat: 41.3935, lng: 2.1368 }, // SW
+            { lat: 41.3935, lng: 2.1501 }, // SE
+            { lat: 41.4018, lng: 2.1501 }, // NE
+            { lat: 41.4018, lng: 2.1368 }  // NW
+        ]
+    },
+    {
+        name: "Vallvidrera",
+        bounds: [
+            { lat: 41.4102, lng: 2.1027 }, // SW
+            { lat: 41.4102, lng: 2.1235 }, // SE
+            { lat: 41.4185, lng: 2.1235 }, // NE
+            { lat: 41.4185, lng: 2.1027 }  // NW
+        ]
+    }
+            
         ]
     };
 
@@ -88,13 +117,6 @@
         initializeStyles: function() {
             mapStyles = {
                 parks: {
-                    polygon: {
-                        strokeColor: "#228B22",
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        fillColor: "#90EE90",
-                        fillOpacity: 0.35
-                    },
                     marker: {
                         path: 'M4.086 7.9a1.91 1.91 0 0 1-.763 2.52c-.81.285-1.782-.384-2.17-1.492a1.91 1.91 0 0 1 .762-2.521c.81-.285 1.782.384 2.171 1.492zm6.521 7.878a2.683 2.683 0 0 1-1.903-.788.996.996 0 0 0-1.408 0 2.692 2.692 0 0 1-3.807-3.807 6.377 6.377 0 0 1 9.022 0 2.692 2.692 0 0 1-1.904 4.595zM7.73 6.057c.127 1.337-.563 2.496-1.54 2.588-.977.092-1.872-.917-1.998-2.254-.127-1.336.563-2.495 1.54-2.587.977-.093 1.871.916 1.998 2.253zm.54 0c-.127 1.337.563 2.496 1.54 2.588.977.092 1.871-.917 1.998-2.254.127-1.336-.563-2.495-1.54-2.587-.977-.093-1.872.916-1.998 2.253zm3.644 1.842a1.91 1.91 0 0 0 .763 2.522c.81.284 1.782-.385 2.17-1.493a1.91 1.91 0 0 0-.762-2.521c-.81-.285-1.782.384-2.171 1.492z',
                         fillColor: "#228B22",
@@ -112,97 +134,116 @@
                         strokeWeight: 2,
                         fillColor: "#B0C4DE",
                         fillOpacity: 0.35
-                    },
-                    marker: {
-                        path: 'M4.086 7.9a1.91 1.91 0 0 1-.763 2.52c-.81.285-1.782-.384-2.17-1.492a1.91 1.91 0 0 1 .762-2.521c.81-.285 1.782.384 2.171 1.492zm6.521 7.878a2.683 2.683 0 0 1-1.903-.788.996.996 0 0 0-1.408 0 2.692 2.692 0 0 1-3.807-3.807 6.377 6.377 0 0 1 9.022 0 2.692 2.692 0 0 1-1.904 4.595zM7.73 6.057c.127 1.337-.563 2.496-1.54 2.588-.977.092-1.872-.917-1.998-2.254-.127-1.336.563-2.495 1.54-2.587.977-.093 1.871.916 1.998 2.253zm.54 0c-.127 1.337.563 2.496 1.54 2.588.977.092 1.871-.917 1.998-2.254.127-1.336-.563-2.495-1.54-2.587-.977-.093-1.872.916-1.998 2.253zm3.644 1.842a1.91 1.91 0 0 0 .763 2.522c.81.284 1.782-.385 2.17-1.493a1.91 1.91 0 0 0-.762-2.521c-.81-.285-1.782.384-2.171 1.492z',
-                        fillColor: "#4169E1",
-                        fillOpacity: 1,
-                        strokeWeight: 0,
-                        rotation: 0,
-                        scale: 1.5,
-                        anchor: new google.maps.Point(8, 8)
                     }
                 }
             };
         },
+// Helper Functions
+function addParkToMap(map, park) {
+    // Create marker with SVG icon
+    const marker = new google.maps.Marker({
+        position: park.center,
+        map: map,
+        title: park.name,
+        icon: mapStyles.parks.marker
+    });
 
-        addAreaToMap: function(map, area, type) {
-            const styles = mapStyles[type];
+    // Create info window
+    const infoWindow = new google.maps.InfoWindow({
+        content: `
+            <div class="p-3">
+                <h3 class="font-bold">${park.name}</h3>
+                <p>Quiet Area - Park & Garden</p>
+            </div>
+        `
+    });
 
-            // Create polygon
-            const polygon = new google.maps.Polygon({
-                paths: area.polygon,
-                ...styles.polygon
-            });
-            polygon.setMap(map);
+    marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+    });
+}
 
-            // Create marker
-            const marker = new google.maps.Marker({
-                position: area.center,
-                map: map,
-                title: area.name,
-                icon: styles.marker
-            });
+function addNeighborhoodToMap(map, neighborhood) {
+    // Create polygon for neighborhood
+    const polygon = new google.maps.Polygon({
+        paths: neighborhood.bounds,
+        ...mapStyles.neighborhoods.polygon
+    });
+    polygon.setMap(map);
 
-            // Create info window
-            const infoWindow = new google.maps.InfoWindow({
-                content: `
-                    <div class="p-3">
-                        <h3 class="font-bold">${area.name}</h3>
-                        <p>Quiet Area - ${type === 'parks' ? 'Park & Garden' : 'Neighborhood'}</p>
-                    </div>
-                `
-            });
-
-            marker.addListener('click', () => {
-                infoWindow.open(map, marker);
-            });
-        },
-
-        addMapLegend: function(map) {
-            const legend = document.createElement('div');
-            legend.className = 'bg-white p-3 rounded shadow absolute bottom-4 left-4';
-            legend.innerHTML = `
-                <div class="text-sm">
-                    <div class="flex items-center mb-2">
-                        <div class="w-4 h-4 bg-[#90EE90] opacity-35 border border-[#228B22] mr-2"></div>
-                        <span>Parks & Gardens</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="w-4 h-4 bg-[#B0C4DE] opacity-35 border border-[#4169E1] mr-2"></div>
-                        <span>Quiet Neighborhoods</span>
-                    </div>
+    // Add click listener to polygon
+    polygon.addListener('click', () => {
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+                <div class="p-3">
+                    <h3 class="font-bold">${neighborhood.name}</h3>
+                    <p>Quiet Neighborhood</p>
                 </div>
-            `;
-            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(legend);
-        }
+            `,
+            position: getPolygonCenter(neighborhood.bounds)
+        });
+        infoWindow.open(map);
+    });
+}
+
+function getPolygonCenter(bounds) {
+    // Calculate center of polygon
+    let lat = 0, lng = 0;
+    bounds.forEach(point => {
+        lat += point.lat;
+        lng += point.lng;
+    });
+    return {
+        lat: lat / bounds.length,
+        lng: lng / bounds.length
     };
+}
 
-    // Initialize Map (Google Maps callback function)
-    window.initFestivalMap = function() {
-        try {
-            // Initialize styles
-            MapHelpers.initializeStyles();
+function addMapLegend(map) {
+    const legend = document.createElement('div');
+    legend.className = 'bg-white p-3 rounded shadow absolute bottom-4 left-4';
+    legend.innerHTML = `
+        <div class="text-sm">
+            <div class="flex items-center mb-2">
+                <svg width="20" height="20" viewBox="0 0 16 16" class="mr-2">
+                    <path d="${mapStyles.parks.marker.path}" 
+                          fill="#228B22"/>
+                </svg>
+                <span>Parks & Gardens</span>
+            </div>
+            <div class="flex items-center">
+                <div class="w-4 h-4 bg-[#B0C4DE] opacity-35 border border-[#4169E1] mr-2"></div>
+                <span>Quiet Neighborhoods</span>
+            </div>
+        </div>
+    `;
+    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(legend);
+}
 
-            // Create map
-            const map = new google.maps.Map(
-                document.getElementById('festival-map'),
-                {
-                    center: MapData.config.barcelona,
-                    zoom: MapData.config.zoom,
-                    styles: MapData.config.styles
-                }
-            );
+// Initialize Map
+function initFestivalMap() {
+    try {
+        const map = new google.maps.Map(
+            document.getElementById('festival-map'),
+            {
+                center: MapData.config.barcelona,
+                zoom: MapData.config.zoom,
+                styles: MapData.config.styles
+            }
+        );
 
-            // Add features
-            MapData.parks.forEach(park => MapHelpers.addAreaToMap(map, park, 'parks'));
-            MapData.neighborhoods.forEach(neighborhood => 
-                MapHelpers.addAreaToMap(map, neighborhood, 'neighborhoods')
-            );
-            MapHelpers.addMapLegend(map);
+        // Add parks with SVG markers
+        MapData.parks.forEach(park => addParkToMap(map, park));
+        
+        // Add neighborhoods with color overlays
+        MapData.neighborhoods.forEach(neighborhood => 
+            addNeighborhoodToMap(map, neighborhood)
+        );
 
-        } catch (error) {
-            console.error('Error initializing map:', error);
-        }
-    };
+        // Add legend with SVG for parks
+        addMapLegend(map);
+
+    } catch (error) {
+        console.error('Error initializing map:', error);
+    }
 })();
