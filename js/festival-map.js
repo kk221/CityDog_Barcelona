@@ -229,63 +229,75 @@
     }
 
 function initializeQuietAreaLinks(map) {
-    // Get all park headings
-    const parkHeadings = document.querySelectorAll('.quiet-areas h4');
+    // Get all park|neighborhood headings
+    const parkHeadings = document.querySelectorAll('.quiet-areas .border:first-child h4');
+    const neighborhoodHeadings = document.querySelectorAll('.quiet-areas .border:last-child h4');
     
+    // Function to create interactive heading
+    function createInteractiveHeading(heading, location, isNeighborhood) {
+        const container = document.createElement('div');
+        container.className = 'flex items-center gap-2';
+        
+        // Style the heading as a button
+        heading.className = 'font-semibold text-blue-600 hover:text-blue-800 cursor-pointer';
+        heading.style.cursor = 'pointer';
+        
+        // Add click handler to center map
+        heading.addEventListener('click', () => {
+            if (isNeighborhood) {
+                // Calculate neighborhood center
+                const center = {
+                    lat: location.bounds.reduce((sum, point) => sum + point.lat, 0) / location.bounds.length,
+                    lng: location.bounds.reduce((sum, point) => sum + point.lng, 0) / location.bounds.length
+                };
+                map.setCenter(center);
+                map.setZoom(15); // Slightly zoomed out for neighborhoods
+            } else {
+                map.setCenter(location.center);
+                map.setZoom(16); // Closer zoom for parks
+            }
+            
+            document.getElementById('festival-map').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+        
+            
+        // Create Google Maps link
+        const googleLink = document.createElement('a');
+        const searchQuery = encodeURIComponent(`${heading.textContent} Barcelona`);
+        googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+        googleLink.className = 'text-sm text-gray-500 hover:text-gray-700';
+        googleLink.target = '_blank';
+        googleLink.rel = 'noopener noreferrer';
+        googleLink.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M14.8 2.8l-3 3v12.4l3-3V2.8zM7 4.2L4.7 2A1 1 0 003 2.8v10.4a1 1 0 00.3.7L7 17.8V4.2zM17 4.2L14.7 2A1 1 0 0013 2.8v10.4a1 1 0 00.3.7L17 17.8V4.2z"/>
+            </svg>
+        `;
+        
+        // Replace original heading with container
+        heading.parentNode.insertBefore(container, heading);
+        container.appendChild(heading);
+        container.appendChild(googleLink);
+    }
+
+    // Handle parks
     parkHeadings.forEach(heading => {
         const parkName = heading.textContent;
         const park = MapData.parks.find(p => p.name === parkName);
-        const neighborhood = MapData.neighborhoods.find(n => n.name === name);
+        if (park) {
+            createInteractiveHeading(heading, park, false);
+        }
+    });
 
-        
-        if (park || neighborhood) {
-            // Create a container for the heading and link
-            const container = document.createElement('div');
-            container.className = 'flex items-center gap-2';
-            
-            // Style the heading as a button
-            heading.className = 'font-semibold text-blue-600 hover:text-blue-800 cursor-pointer';
-            heading.style.cursor = 'pointer';
-            
-            // Add click handler to center map
-             heading.addEventListener('click', () => {
-                if (park) {
-                    map.setCenter(park.center);
-                    map.setZoom(16);
-                } else if (neighborhood) {
-                    // Calculate neighborhood center
-                    const bounds = neighborhood.bounds;
-                    const center = {
-                        lat: bounds.reduce((sum, point) => sum + point.lat, 0) / bounds.length,
-                        lng: bounds.reduce((sum, point) => sum + point.lng, 0) / bounds.length
-                    };
-                    map.setCenter(center);
-                    map.setZoom(15);
-                }
-                
-                document.getElementById('festival-map').scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-            
-            // Create Google Maps link
-            const googleLink = document.createElement('a');
-            const searchQuery = encodeURIComponent(`${name} Barcelona`);
-            googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
-            googleLink.className = 'text-sm text-gray-500 hover:text-gray-700';
-            googleLink.target = '_blank';
-            googleLink.rel = 'noopener noreferrer';
-            googleLink.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M14.8 2.8l-3 3v12.4l3-3V2.8zM7 4.2L4.7 2A1 1 0 003 2.8v10.4a1 1 0 00.3.7L7 17.8V4.2zM17 4.2L14.7 2A1 1 0 0013 2.8v10.4a1 1 0 00.3.7L17 17.8V4.2z"/>
-                </svg>
-            `;
-            
-            // Replace original heading with container
-            heading.parentNode.insertBefore(container, heading);
-            container.appendChild(heading);
-            container.appendChild(googleLink);
+    // Handle neighborhoods
+    neighborhoodHeadings.forEach(heading => {
+        const neighborhoodName = heading.textContent;
+        const neighborhood = MapData.neighborhoods.find(n => n.name === neighborhoodName);
+        if (neighborhood) {
+            createInteractiveHeading(heading, neighborhood, true);
         }
     });
 }
