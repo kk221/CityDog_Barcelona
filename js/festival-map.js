@@ -228,68 +228,52 @@
         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(legend);
     }
 
-    function createParkLinks(map) {
-    const parkList = document.createElement('div');
-    parkList.className = 'park-list bg-white p-6 rounded-lg shadow-sm mt-6';
+function initializeQuietAreaLinks(map) {
+    // Get all park headings
+    const parkHeadings = document.querySelectorAll('.quiet-areas h4');
     
-    const title = document.createElement('h3');
-    title.className = 'text-xl font-semibold mb-4 text-gray-800';
-    title.textContent = 'Quiet Areas During Festivals';
-    parkList.appendChild(title);
-
-    const ul = document.createElement('ul');
-    ul.className = 'space-y-3';
-
-    MapData.parks.forEach(park => {
-        const li = document.createElement('li');
-        li.className = 'flex flex-col sm:flex-row sm:items-center sm:justify-between';
-
-        // Create main park name button
-        const mainLink = document.createElement('button');
-        mainLink.className = 'text-left text-lg text-blue-600 hover:text-blue-800 font-medium mb-1 sm:mb-0';
-        mainLink.textContent = park.name;
+    parkHeadings.forEach(heading => {
+        const parkName = heading.textContent;
+        const park = MapData.parks.find(p => p.name === parkName);
         
-        // Add click handler to center map on park
-        mainLink.addEventListener('click', () => {
-            map.setCenter(park.center);
-            map.setZoom(16);
+        if (park) {
+            // Create a container for the heading and link
+            const container = document.createElement('div');
+            container.className = 'flex items-center gap-2';
             
-            // Smooth scroll to map
-            document.getElementById('festival-map').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'center'
+            // Style the heading as a button
+            heading.className = 'font-semibold text-blue-600 hover:text-blue-800 cursor-pointer';
+            heading.style.cursor = 'pointer';
+            
+            // Add click handler to center map
+            heading.addEventListener('click', () => {
+                map.setCenter(park.center);
+                map.setZoom(16);
+                document.getElementById('festival-map').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
-        });
-
-        // Create Google Maps link
-        const googleLink = document.createElement('a');
-        const searchQuery = encodeURIComponent(`${park.name} Barcelona`);
-        googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
-        googleLink.className = 'text-sm text-gray-600 hover:text-gray-800 flex items-center gap-1';
-        googleLink.target = '_blank';
-        googleLink.rel = 'noopener noreferrer';
-        googleLink.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l4 4V6a1 1 0 00-.293-.707z" clip-rule="evenodd" />
-            </svg>
-            Open in Google Maps
-        `;
-
-        // Create container for links
-        const linkContainer = document.createElement('div');
-        linkContainer.className = 'flex flex-col sm:flex-row sm:items-center gap-2';
-        linkContainer.appendChild(mainLink);
-        linkContainer.appendChild(googleLink);
-
-        li.appendChild(linkContainer);
-        ul.appendChild(li);
+            
+            // Create Google Maps link
+            const googleLink = document.createElement('a');
+            const searchQuery = encodeURIComponent(`${parkName} Barcelona`);
+            googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+            googleLink.className = 'text-sm text-gray-500 hover:text-gray-700';
+            googleLink.target = '_blank';
+            googleLink.rel = 'noopener noreferrer';
+            googleLink.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M14.8 2.8l-3 3v12.4l3-3V2.8zM7 4.2L4.7 2A1 1 0 003 2.8v10.4a1 1 0 00.3.7L7 17.8V4.2zM17 4.2L14.7 2A1 1 0 0013 2.8v10.4a1 1 0 00.3.7L17 17.8V4.2z"/>
+                </svg>
+            `;
+            
+            // Replace original heading with container
+            heading.parentNode.insertBefore(container, heading);
+            container.appendChild(heading);
+            container.appendChild(googleLink);
+        }
     });
-
-    parkList.appendChild(ul);
-    
-    // Insert the list after the map
-    const mapElement = document.getElementById('festival-map');
-    mapElement.parentNode.insertBefore(parkList, mapElement.nextSibling);
 }
 
     // Initialize Map (Google Maps callback function)
@@ -311,8 +295,8 @@ window.initFestivalMap = function() {
         );
         addMapLegend(map, mapStyles);
         
-        // Pass the map instance to createParkLinks
-        createParkLinks(map);
+         // Initialize the quiet area links
+        initializeQuietAreaLinks(map);
 
     } catch (error) {
         console.error('Error initializing map:', error);
