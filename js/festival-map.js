@@ -110,7 +110,7 @@
     };
 
     // Map Styles (will be initialized when Google Maps loads)
-       let mapStyles； 
+       let mapStyles;
 
     // Helper Functions
 
