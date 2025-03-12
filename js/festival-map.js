@@ -228,30 +228,94 @@
         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(legend);
     }
 
+    function createParkLinks(map) {
+    const parkList = document.createElement('div');
+    parkList.className = 'park-list bg-white p-6 rounded-lg shadow-sm mt-6';
+    
+    const title = document.createElement('h3');
+    title.className = 'text-xl font-semibold mb-4 text-gray-800';
+    title.textContent = 'Quiet Areas During Festivals';
+    parkList.appendChild(title);
+
+    const ul = document.createElement('ul');
+    ul.className = 'space-y-3';
+
+    MapData.parks.forEach(park => {
+        const li = document.createElement('li');
+        li.className = 'flex flex-col sm:flex-row sm:items-center sm:justify-between';
+
+        // Create main park name button
+        const mainLink = document.createElement('button');
+        mainLink.className = 'text-left text-lg text-blue-600 hover:text-blue-800 font-medium mb-1 sm:mb-0';
+        mainLink.textContent = park.name;
+        
+        // Add click handler to center map on park
+        mainLink.addEventListener('click', () => {
+            map.setCenter(park.center);
+            map.setZoom(16);
+            
+            // Smooth scroll to map
+            document.getElementById('festival-map').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+
+        // Create Google Maps link
+        const googleLink = document.createElement('a');
+        const searchQuery = encodeURIComponent(`${park.name} Barcelona`);
+        googleLink.href = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+        googleLink.className = 'text-sm text-gray-600 hover:text-gray-800 flex items-center gap-1';
+        googleLink.target = '_blank';
+        googleLink.rel = 'noopener noreferrer';
+        googleLink.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l4 4V6a1 1 0 00-.293-.707z" clip-rule="evenodd" />
+            </svg>
+            Open in Google Maps
+        `;
+
+        // Create container for links
+        const linkContainer = document.createElement('div');
+        linkContainer.className = 'flex flex-col sm:flex-row sm:items-center gap-2';
+        linkContainer.appendChild(mainLink);
+        linkContainer.appendChild(googleLink);
+
+        li.appendChild(linkContainer);
+        ul.appendChild(li);
+    });
+
+    parkList.appendChild(ul);
+    
+    // Insert the list after the map
+    const mapElement = document.getElementById('festival-map');
+    mapElement.parentNode.insertBefore(parkList, mapElement.nextSibling);
+}
+
     // Initialize Map (Google Maps callback function)
-    window.initFestivalMap = function() {
-        try {
-            // Initialize styles after Google Maps is loaded
-            const styles = initializeMapStyles();
+window.initFestivalMap = function() {
+    try {
+        mapStyles = initializeMapStyles();
+        const map = new google.maps.Map(
+            document.getElementById('festival-map'),
+            {
+                center: MapData.config.barcelona,
+                zoom: MapData.config.zoom,
+                styles: MapData.config.styles
+            }
+        );
 
-            const map = new google.maps.Map(
-                document.getElementById('festival-map'),
-                {
-                    center: MapData.config.barcelona,
-                    zoom: MapData.config.zoom,
-                    styles: MapData.config.styles
-                }
-            );
+        MapData.parks.forEach(park => addParkToMap(map, park, mapStyles));
+        MapData.neighborhoods.forEach(neighborhood => 
+            addNeighborhoodToMap(map, neighborhood, mapStyles)
+        );
+        addMapLegend(map, mapStyles);
+        
+        // Pass the map instance to createParkLinks
+        createParkLinks(map);
 
-            // Add features
-            MapData.parks.forEach(park => addParkToMap(map, park, styles));
-            MapData.neighborhoods.forEach(neighborhood => 
-                addNeighborhoodToMap(map, neighborhood, styles)
-            );
-            addMapLegend(map, styles);
-
-        } catch (error) {
-            console.error('Error initializing map:', error);
-        }
-    };
+    } catch (error) {
+        console.error('Error initializing map:', error);
+    }
+};
 })();
