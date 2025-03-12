@@ -110,37 +110,44 @@
     };
 
     // Map Styles (will be initialized when Google Maps loads)
-       let mapStyles = {
-        parks: {
-            marker: {
-                path: 'M4.086 7.9a1.91 1.91 0 0 1-.763 2.52c-.81.285-1.782-.384-2.17-1.492a1.91 1.91 0 0 1 .762-2.521c.81-.285 1.782.384 2.171 1.492zm6.521 7.878a2.683 2.683 0 0 1-1.903-.788.996.996 0 0 0-1.408 0 2.692 2.692 0 0 1-3.807-3.807 6.377 6.377 0 0 1 9.022 0 2.692 2.692 0 0 1-1.904 4.595zM7.73 6.057c.127 1.337-.563 2.496-1.54 2.588-.977.092-1.872-.917-1.998-2.254-.127-1.336.563-2.495 1.54-2.587.977-.093 1.871.916 1.998 2.253zm.54 0c-.127 1.337.563 2.496 1.54 2.588.977.092 1.871-.917 1.998-2.254.127-1.336-.563-2.495-1.54-2.587-.977-.093-1.872.916-1.998 2.253zm3.644 1.842a1.91 1.91 0 0 0 .763 2.522c.81.284 1.782-.385 2.17-1.493a1.91 1.91 0 0 0-.762-2.521c-.81-.285-1.782.384-2.171 1.492z',
-                fillColor: "#228B22",
-                fillOpacity: 1,
-                strokeWeight: 0,
-                rotation: 0,
-                scale: 1.5,
-                anchor: new google.maps.Point(8, 8)
-            }
-        },
-        neighborhoods: {
-            polygon: {
-                strokeColor: "#4169E1",
-                strokeOpacity: 0.6,
-                strokeWeight: 2,
-                fillColor: "#B0C4DE",
-                fillOpacity: 0.25,
-                clickable: true,
-                zIndex: 1
-            }
-        }
-    };
+       let mapStyles； 
+
     // Helper Functions
-    function addParkToMap(map, park) {
+
+    function initializeMapStyles() {
+        return {
+            parks: {
+                marker: {
+                    path: 'M4.086 7.9a1.91 1.91 0 0 1-.763 2.52c-.81.285-1.782-.384-2.17-1.492a1.91 1.91 0 0 1 .762-2.521c.81-.285 1.782.384 2.171 1.492zm6.521 7.878a2.683 2.683 0 0 1-1.903-.788.996.996 0 0 0-1.408 0 2.692 2.692 0 0 1-3.807-3.807 6.377 6.377 0 0 1 9.022 0 2.692 2.692 0 0 1-1.904 4.595zM7.73 6.057c.127 1.337-.563 2.496-1.54 2.588-.977.092-1.872-.917-1.998-2.254-.127-1.336.563-2.495 1.54-2.587.977-.093 1.871.916 1.998 2.253zm.54 0c-.127 1.337.563 2.496 1.54 2.588.977.092 1.871-.917 1.998-2.254.127-1.336-.563-2.495-1.54-2.587-.977-.093-1.872.916-1.998 2.253zm3.644 1.842a1.91 1.91 0 0 0 .763 2.522c.81.284 1.782-.385 2.17-1.493a1.91 1.91 0 0 0-.762-2.521c-.81-.285-1.782.384-2.171 1.492z',
+                    fillColor: "#228B22",
+                    fillOpacity: 1,
+                    strokeWeight: 0,
+                    rotation: 0,
+                    scale: 1.5,
+                    anchor: new google.maps.Point(8, 8)
+                }
+            },
+            neighborhoods: {
+                polygon: {
+                    strokeColor: "#4169E1",
+                    strokeOpacity: 0.6,
+                    strokeWeight: 2,
+                    fillColor: "#B0C4DE",
+                    fillOpacity: 0.25,
+                    clickable: true,
+                    zIndex: 1
+                }
+            }
+        };
+    }
+
+
+    function addParkToMap(map, park, styles) {
         const marker = new google.maps.Marker({
             position: park.center,
             map: map,
             title: park.name,
-            icon: mapStyles.parks.marker
+            icon: styles.parks.marker
         });
 
         const infoWindow = new google.maps.InfoWindow({
@@ -157,14 +164,13 @@
         });
     }
 
-    function addNeighborhoodToMap(map, neighborhood) {
+    function addNeighborhoodToMap(map, neighborhood, styles) {
         const polygon = new google.maps.Polygon({
             paths: neighborhood.bounds,
-            ...mapStyles.neighborhoods.polygon
+            ...styles.neighborhoods.polygon
         });
         polygon.setMap(map);
 
-        // Add hover effect
         polygon.addListener('mouseover', () => {
             polygon.setOptions({
                 fillOpacity: 0.4,
@@ -205,14 +211,14 @@
         };
     }
 
-    function addMapLegend(map) {
+    function addMapLegend(map, styles) {
         const legend = document.createElement('div');
         legend.className = 'bg-white p-3 rounded shadow absolute bottom-4 left-4';
         legend.innerHTML = `
             <div class="text-sm">
                 <div class="flex items-center mb-2">
                     <svg width="20" height="20" viewBox="0 0 16 16" class="mr-2">
-                        <path d="${mapStyles.parks.marker.path}" 
+                        <path d="${styles.parks.marker.path}" 
                               fill="#228B22"/>
                     </svg>
                     <span>Parks & Gardens</span>
@@ -229,6 +235,9 @@
     // Initialize Map (Google Maps callback function)
     window.initFestivalMap = function() {
         try {
+            // Initialize styles after Google Maps is loaded
+            const styles = initializeMapStyles();
+
             const map = new google.maps.Map(
                 document.getElementById('festival-map'),
                 {
@@ -239,11 +248,11 @@
             );
 
             // Add features
-            MapData.parks.forEach(park => addParkToMap(map, park));
+            MapData.parks.forEach(park => addParkToMap(map, park, styles));
             MapData.neighborhoods.forEach(neighborhood => 
-                addNeighborhoodToMap(map, neighborhood)
+                addNeighborhoodToMap(map, neighborhood, styles)
             );
-            addMapLegend(map);
+            addMapLegend(map, styles);
 
         } catch (error) {
             console.error('Error initializing map:', error);
