@@ -56,7 +56,36 @@ const curatedHotels = [
         image: "https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/hotels/hotel-1898.jpg",
         bookingUrl: "https://www.booking.com/hotel/es/1898.html?pets_accepted=1"
     },
-    // Add more curated hotels...
+       {
+        name: "Almanac Barcelona",
+        address: "Gran Via de les Corts Catalanes, 619-621",
+        district: "Eixample",
+        rating: 4.7,
+        priceRange: "€€€€",
+        petPolicy: {
+            allowedSize: "Up to 10kg",
+            fee: "€40/stay",
+            amenities: ["Pet bed", "Food bowls", "Pet welcome kit"]
+        },
+        description: "Luxury boutique hotel in Eixample, offering premium pet amenities and services.",
+        image: "https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/hotels/almanac.jpg",
+        bookingUrl: "https://www.booking.com/hotel/es/almanac-barcelona.html"
+    },
+    {
+        name: "Kimpton Vividora",
+        address: "Carrer del Duc, 15",
+        district: "Gothic Quarter",
+        rating: 4.5,
+        priceRange: "€€€",
+        petPolicy: {
+            allowedSize: "No weight limit",
+            fee: "No pet fee",
+            amenities: ["Pet bed", "Bowls", "Treats", "Pet concierge"]
+        },
+        description: "Pet-friendly boutique hotel in Gothic Quarter with no pet fees or size restrictions.",
+        image: "https://raw.githubusercontent.com/kk221/CityDog_Barcelona/main/images/hotels/kimpton.jpg",
+        bookingUrl: "https://www.booking.com/hotel/es/kimpton-vividora-barcelona.html"
+    }
 ];
 
 // Initialize the map
