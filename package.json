@@ -7,9 +7,13 @@
     "build": "tailwindcss -i ./input.css -o ./style.css"
     
   },
+  "dependencies": {
+    "yaml": "^2.3.4"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "@types/yaml": "^1.9.7"
   }
 }
