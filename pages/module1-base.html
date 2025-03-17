@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 1: Getting Started - Interactive Training Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #ddd6fe;
+            --gray-light: #f3f4f6;
+            --gray-medium: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            color: #1f2937;
+        }
+
+        /* Cover Page Styles */
+        .cover {
+            text-align: center;
+            padding: 3em;
+            background: linear-gradient(135deg, #7c3aed10, #3b82f610);
+            border-radius: 12px;
+            margin-bottom: 2em;
+        }
+
+        .cover h1 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 0.5em;
+        }
+
+        .cover p {
+            font-size: 1.2em;
+            color: #4b5563;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--gray-light);
+            padding: 1.5em;
+            border-radius: 8px;
+            margin: 2em 0;
+        }
+
+        .toc h2 {
+            color: var(--primary);
+            margin-bottom: 1em;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc-item {
+            padding: 0.5em 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Quick Start Section */
+        .quick-start {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 2em 0;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75em 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        /* Training Session Layout */
+        .training-session {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 2em 0;
+        }
+
+        .timer-section {
+            text-align: center;
+            padding: 1em;
+            background: var(--gray-light);
+            border-radius: 8px;
+            margin: 1em 0;
+        }
+
+        .timer-display {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Progress Tracking */
+        .progress-section {
+            margin: 2em 0;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5em;
+            margin: 1em 0;
+        }
+
+        .progress-day {
+            text-align: center;
+            padding: 0.5em;
+            background: var(--gray-light);
+            border-radius: 4px;
+        }
+
+        /* Notes Section */
+        .notes-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 2em 0;
+        }
+
+        .notes-field {
+            width: 100%;
+            min-height: 150px;
+            padding: 1em;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            margin: 1em 0;
+        }
+
+        /* Success Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+
+        .metric-card {
+            background: var(--gray-light);
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Buttons and Interactive Elements */
+        .button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75em 1.5em;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <h1>Module 1: Getting Started</h1>
+        <p>Interactive Training Guide</p>
+        <p class="subtitle">Foundation Training for City Dogs</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Quick Navigation</h2>
+        <ul class="toc-list">
+            <li class="toc-item">Quick Start Guide</li>
+            <li class="toc-item">Today's Training Session</li>
+            <li class="toc-item">Progress Tracking</li>
+            <li class="toc-item">Training Notes</li>
+            <li class="toc-item">Success Metrics</li>
+        </ul>
+    </div>
+
+    <!-- Quick Start Section -->
+    <div class="quick-start">
+        <h2>Quick Start Checklist</h2>
+        <ul class="checklist">
+            <li class="checklist-item">
+                <input type="checkbox" id="prep1">
+                <label for="prep1">High-value treats prepared</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="prep2">
+                <label for="prep2">Training area cleared</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="prep3">
+                <label for="prep3">10-15 minutes set aside</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="prep4">
+                <label for="prep4">Dog is hungry but not starving</label>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Training Session -->
+    <div class="training-session">
+        <h2>Today's Training Session</h2>
+        
+        <div class="timer-section">
+            <div class="timer-display">15:00</div>
+            <button class="button">Start Session</button>
+        </div>
+
+        <h3>Command: Name Recognition</h3>
+        <div class="training-steps">
+            <ol>
+                <li>Hold treat at nose level</li>
+                <li>Move treat to your eyes</li>
+                <li>Say dog's name once</li>
+                <li>Mark and reward when they make eye contact</li>
+            </ol>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h4>Attempts</h4>
+                <div class="metric-value">0</div>
+            </div>
+            <div class="metric-card">
+                <h4>Successes</h4>
+                <div class="metric-value">0</div>
+            </div>
+            <div class="metric-card">
+                <h4>Success Rate</h4>
+                <div class="metric-value">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Tracking -->
+    <div class="progress-section">
+        <h2>Weekly Progress</h2>
+        <div class="progress-grid">
+            <div class="progress-day">Mon</div>
+            <div class="progress-day">Tue</div>
+            <div class="progress-day">Wed</div>
+            <div class="progress-day">Thu</div>
+            <div class="progress-day">Fri</div>
+            <div class="progress-day">Sat</div>
+            <div class="progress-day">Sun</div>
+        </div>
+    </div>
+
+    <!-- Notes Section -->
+    <div class="notes-section">
+        <h2>Training Notes</h2>
+        <textarea class="notes-field" placeholder="Add your observations here..."></textarea>
+        
+        <h3>Today's Session Details</h3>
+        <div class="session-details">
+            <p>Date: <input type="date"></p>
+            <p>Location: 
+                <select>
+                    <option>Home</option>
+                    <option>Yard</option>
+                    <option>Park</option>
+                    <option>Other</option>
+                </select>
+            </p>
+            <p>Distraction Level:
+                <select>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </p>
+        </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="quick-start">
+        <h2>Ready for Next Module?</h2>
+        <ul class="checklist">
+            <li class="checklist-item">
+                <input type="checkbox" id="next1">
+                <label for="next1">Responds to name 90% of time</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="next2">
+                <label for="next2">Maintains focus for 30 seconds</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="next3">
+                <label for="next3">Shows enthusiasm for training</label>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
