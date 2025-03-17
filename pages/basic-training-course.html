@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Training Course - City Pets Care Barcelona</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Add Lottie for animations -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <style>
+        .celebration-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .celebration-overlay.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <main class="max-w-4xl mx-auto py-12 px-4">
+        <!-- Back to Courses Link -->
+        <a href="/pages/training.html" class="inline-flex items-center text-gray-600 mb-8 hover:text-gray-800">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to All Courses
+        </a>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <!-- Course Header -->
+            <div class="p-8">
+                <h1 class="text-3xl font-bold mb-4">Basic Training Course</h1>
+                <p class="text-gray-600 text-lg mb-8">Perfect for new pet owners in the city</p>
+
+                <!-- Progress Tracker -->
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold">Your Progress</h2>
+                        <span class="text-sm text-gray-600">0/6 Completed</span>
+                    </div>
+                    <div class="h-2 bg-gray-200 rounded-full">
+                        <div class="h-full bg-purple-600 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Course Modules -->
+                <div class="space-y-6">
+                    <!-- Module 1 -->
+                    <div class="border rounded-lg overflow-hidden">
+                        <div class="p-4 bg-white">
+                            <div class="flex items-start">
+                                <!-- Lottie Animation -->
+                                <lottie-player
+                                    src="https://assets2.lottiefiles.com/packages/lf20_zw0djhar.json"
+                                    background="transparent"
+                                    speed="1"
+                                    style="width: 100px; height: 100px;"
+                                    hover
+                                ></lottie-player>
+                                
+                                <div class="ml-4 flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold text-lg">1. Getting Started</h3>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                                            <span class="ml-2 text-sm text-gray-600">Mark Complete</span>
+                                        </label>
+                                    </div>
+                                    <p class="text-gray-600 mt-2">Basic commands and foundation training</p>
+                                    
+                                    <!-- Resources -->
+                                    <div class="mt-4 flex gap-4">
+                                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                            </svg>
+                                            Watch Video
+                                        </a>
+                                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"/>
+                                            </svg>
+                                            Download Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ <!-- Module 2: Leash Training -->
+    <div class="border rounded-lg overflow-hidden">
+        <div class="p-4 bg-white">
+            <div class="flex items-start">
+                <lottie-player
+                    src="https://assets8.lottiefiles.com/packages/lf20_myejiggj.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100px; height: 100px;"
+                    hover
+                ></lottie-player>
+                
+                <div class="ml-4 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">2. Leash Training</h3>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                            <span class="ml-2 text-sm text-gray-600">Mark Complete</span>
+                        </label>
+                    </div>
+                    <p class="text-gray-600 mt-2">Master proper leash techniques for city walks</p>
+                    
+                    <div class="mt-4 flex gap-4">
+                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                            Watch Video
+                        </a>
+                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"/>
+                            </svg>
+                            Download Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 3: Socialization -->
+    <div class="border rounded-lg overflow-hidden">
+        <div class="p-4 bg-white">
+            <div class="flex items-start">
+                <lottie-player
+                    src="https://assets2.lottiefiles.com/packages/lf20_syqnfe7c.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100px; height: 100px;"
+                    hover
+                ></lottie-player>
+                
+                <div class="ml-4 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">3. Socialization Skills</h3>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                            <span class="ml-2 text-sm text-gray-600">Mark Complete</span>
+                        </label>
+                    </div>
+                    <p class="text-gray-600 mt-2">Learn safe interaction with other dogs and people</p>
+                    
+                    <div class="mt-4 flex gap-4">
+                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                            Watch Video
+                        </a>
+                        <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"/>
+                            </svg>
+                            Download Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
+                    Module 4: https://assets7.lottiefiles.com/packages/lf20_btyopbbm.json (City challenges)
+                    Module 5: https://assets8.lottiefiles.com/packages/lf20_q5pk6p1k.json (Advanced training)
+                    Module 6: https://assets9.lottiefiles.com/packages/lf20_5tl1xxnz.json (Completion) -->
+                </div>
+
+<!-- Replace the Certificate Section with this Achievement Section -->
+<div class="mt-12 bg-purple-50 rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4 text-center">Track Your Learning Progress</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div class="text-center">
+            <div class="text-4xl font-bold text-purple-600 mb-2">
+                <span id="completedCount">0</span>/6
+            </div>
+            <p class="text-gray-600">Lessons Completed</p>
+        </div>
+        <div class="h-16 w-px bg-purple-200 hidden md:block"></div>
+        <div class="text-center">
+            <div id="achievementStatus" class="text-lg font-medium text-gray-700 mb-2">
+                Just Getting Started
+            </div>
+            <p class="text-gray-600">Keep going! Each lesson builds your skills</p>
+        </div>
+    </div>
+</div>
+
+<!-- Update the celebration overlay to remove certificate references -->
+<div id="celebrationOverlay" class="celebration-overlay">
+    <lottie-player
+        src="https://assets9.lottiefiles.com/packages/lf20_touohxv0.json"
+        background="transparent"
+        speed="1"
+        style="width: 400px; height: 400px;"
+        autoplay
+    ></lottie-player>
+    <div class="text-white text-center mt-4">
+        <h2 class="text-2xl font-bold mb-4">Congratulations!</h2>
+        <p class="mb-6">You've completed all lessons in the Basic Training Course</p>
+        <button id="closeOverlay" 
+                class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+            Continue Learning
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+    </main>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const progressBar = document.querySelector('.bg-purple-600');
+    const progressText = document.querySelector('.text-gray-600');
+    const celebrationOverlay = document.getElementById('celebrationOverlay');
+    const closeOverlayButton = document.getElementById('closeOverlay');
+    const completedCount = document.getElementById('completedCount');
+    const achievementStatus = document.getElementById('achievementStatus');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateProgress);
+    });
+
+    function updateProgress() {
+        const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+        const total = checkboxes.length;
+        const percentage = (completed / total) * 100;
+        
+        progressBar.style.width = `${percentage}%`;
+        progressText.textContent = `${completed}/${total} Completed`;
+        completedCount.textContent = completed;
+
+        // Update achievement status
+        updateAchievementStatus(completed);
+
+        // Show celebration when all modules are completed
+        if (completed === total) {
+            celebrationOverlay.classList.add('active');
+        }
+    }
+
+    function updateAchievementStatus(completed) {
+        const statuses = {
+            0: 'Just Getting Started',
+            1: 'Taking First Steps',
+            2: 'Building Foundations',
+            3: 'Halfway There!',
+            4: 'Making Great Progress',
+            5: 'Almost There!',
+            6: 'Course Completed!'
+        };
+        achievementStatus.textContent = statuses[completed];
+    }
+
+    // Close celebration overlay
+    closeOverlayButton.addEventListener('click', () => {
+        celebrationOverlay.classList.remove('active');
+    });
+
+    celebrationOverlay.addEventListener('click', (e) => {
+        if (e.target === celebrationOverlay) {
+            celebrationOverlay.classList.remove('active');
+        }
+    });
+</script>
+  
+</body>
+</html>
