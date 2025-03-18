@@ -75,6 +75,15 @@ h3 {
     margin: 1.5rem 0 1rem;
 }
 
+.cover {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(59, 130, 246, 0.05));
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}        
+
 
 /* Section styles */
 section {
@@ -212,16 +221,75 @@ select, input[type="date"] {
     width: 100%;
     max-width: 200px;
 }
+
+
+/* Progress Tracking Styles */
+.progress-tracker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--primary-light);
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+}
+
+.progress-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 60px;
+}
+
+.day-label {
+    font-weight: 500;
+    color: var(--gray-700);
+    font-size: 0.875rem;
+}
+
+.progress-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.progress-checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.progress-checkbox:hover {
+    border-color: var(--primary-hover);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    .progress-tracker {
+        overflow-x: auto;
+        padding: 1rem 0.5rem;
+    }
+    
+    .progress-day {
+        min-width: 50px;
+    }
+}
         
     </style>
 </head>
 <body>
-    <!-- Cover Page -->
-    <div class="cover">
-        <h1>Module 1: Getting Started</h1>
-        <p>Interactive Training Guide</p>
-        <p class="subtitle">Foundation Training for City Dogs</p>
-    </div>
+
+<!-- Cover Page -->
+<div class="cover">
+    <h1 class="text-3xl md:text-4xl font-bold text-purple-600 mb-4">Module 1: Getting Started</h1>
+    <p class="text-xl md:text-2xl font-medium text-gray-600 mb-2">Interactive Training Guide</p>
+    <div class="w-24 h-1 bg-purple-600 mx-auto my-4"></div>
+    <p class="text-lg text-gray-500">Foundation Training for City Dogs</p>
+</div>
 
 <!-- Quick Navigation Section -->
 <section class="nav-container">
@@ -312,18 +380,46 @@ select, input[type="date"] {
     </section>
 
     <!-- Progress Tracking -->
-    <section id="progress">
-        <h2>Weekly Progress</h2>
-        <div class="progress-grid">
-            <div class="progress-day">Mon</div>
-            <div class="progress-day">Tue</div>
-            <div class="progress-day">Wed</div>
-            <div class="progress-day">Thu</div>
-            <div class="progress-day">Fri</div>
-            <div class="progress-day">Sat</div>
-            <div class="progress-day">Sun</div>
+<section id="progress">
+    <h2>Weekly Progress</h2>
+    <div class="progress-tracker">
+        <div class="progress-day">
+            <label class="day-label">Mon</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
         </div>
-    </section>
+        <div class="progress-day">
+            <label class="day-label">Tue</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+        <div class="progress-day">
+            <label class="day-label">Wed</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+        <div class="progress-day">
+            <label class="day-label">Thu</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+        <div class="progress-day">
+            <label class="day-label">Fri</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+        <div class="progress-day">
+            <label class="day-label">Sat</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+        <div class="progress-day">
+            <label class="day-label">Sun</label>
+            <input type="checkbox" class="progress-checkbox">
+            <span class="day-status"></span>
+        </div>
+    </div>
+</section>
 
     <!-- Notes Section -->
     <section id="notes">
