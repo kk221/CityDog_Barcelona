@@ -159,6 +159,36 @@
         .button:hover {
             opacity: 0.9;
         }
+
+                /* Add navigation styles */
+        .nav-container {
+            position: sticky;
+            top: 1.25rem;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-button {
+            background-color: #7C3AED;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .nav-button:hover {
+            background-color: #6D28D9;
+        }
+        
     </style>
 </head>
 <body>
@@ -170,34 +200,34 @@
     </div>
 
 <!-- Quick Navigation Section -->
-<div class="sticky top-20 z-40 bg-white/95 backdrop-blur-sm shadow-sm mb-6 px-4 py-3 rounded-lg">
-    <div class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
-        <button onclick="window.location.href='#quick-start'" 
-                class="bg-[#7C3AED] text-white py-2 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium">
+<section class="nav-container">
+    <nav class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto" aria-label="Page Navigation">
+        <button onclick="document.getElementById('quick-start').scrollIntoView({behavior: 'smooth'})" 
+                class="nav-button">
             Quick Start
         </button>
         
-        <button onclick="window.location.href='#training-session'" 
-                class="bg-[#7C3AED] text-white py-2 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium">
+        <button onclick="document.getElementById('training-session').scrollIntoView({behavior: 'smooth'})" 
+                class="nav-button">
             Training
         </button>
         
-        <button onclick="window.location.href='#progress'" 
-                class="bg-[#7C3AED] text-white py-2 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium">
+        <button onclick="document.getElementById('progress').scrollIntoView({behavior: 'smooth'})" 
+                class="nav-button">
             Progress
         </button>
         
-        <button onclick="window.location.href='#notes'" 
-                class="bg-[#7C3AED] text-white py-2 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium">
+        <button onclick="document.getElementById('notes').scrollIntoView({behavior: 'smooth'})" 
+                class="nav-button">
             Notes
         </button>
         
-        <button onclick="window.location.href='#readiness'" 
-                class="bg-[#7C3AED] text-white py-2 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium">
+        <button onclick="document.getElementById('readiness').scrollIntoView({behavior: 'smooth'})" 
+                class="nav-button">
             Readiness
         </button>
-    </div>
-</div>
+    </nav>
+</section>
 
     <!-- Quick Start Section -->
     <section id="quick-start">
@@ -315,5 +345,34 @@
             </li>
         </ul>
     </section>
+
+<script>
+    // Timer functionality
+    let timeLeft = 900; // 15 minutes in seconds
+    let timerId = null;
+
+    function startTimer() {
+        if (timerId) return;
+        timerId = setInterval(() => {
+            timeLeft--;
+            updateTimerDisplay();
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                alert('Session Complete!');
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.querySelector('.timer-display').textContent = 
+            `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Add event listener to Start Session button
+    document.querySelector('.timer-section .nav-button').addEventListener('click', startTimer);
+</script>
+    
 </body>
 </html>
