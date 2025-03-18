@@ -191,20 +191,53 @@
         <p class="subtitle">Foundation Training for City Dogs</p>
     </div>
 
-    <!-- Table of Contents -->
-    <div class="toc">
-        <h2>Quick Navigation</h2>
-        <ul class="toc-list">
-            <li class="toc-item">Quick Start Guide</li>
-            <li class="toc-item">Today's Training Session</li>
-            <li class="toc-item">Progress Tracking</li>
-            <li class="toc-item">Training Notes</li>
-            <li class="toc-item">Success Metrics</li>
-        </ul>
+<!-- Quick Navigation Section -->
+<div class="sticky top-20 z-40 bg-white/95 backdrop-blur-sm shadow-sm mb-8 px-4 py-3 rounded-lg">
+    <div class="flex flex-wrap gap-3 justify-center">
+        <a href="#quick-start" 
+           class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            Quick Start
+        </a>
+        
+        <a href="#training-session" 
+           class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Training
+        </a>
+        
+        <a href="#progress" 
+           class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5M8 8v8m8-16l-8 4m8 0l-8 4m8-4v12"/>
+            </svg>
+            Progress
+        </a>
+        
+        <a href="#notes" 
+           class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+            </svg>
+            Notes
+        </a>
+        
+        <a href="#readiness" 
+           class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Readiness
+        </a>
     </div>
+</div>
 
     <!-- Quick Start Section -->
-    <div class="quick-start">
+    <section id="quick-start">
         <h2>Quick Start Checklist</h2>
         <ul class="checklist">
             <li class="checklist-item">
@@ -224,10 +257,10 @@
                 <label for="prep4">Dog is hungry but not starving</label>
             </li>
         </ul>
-    </div>
+    </section>
 
     <!-- Training Session -->
-    <div class="training-session">
+    <section id="training-session">
         <h2>Today's Training Session</h2>
         
         <div class="timer-section">
@@ -243,7 +276,7 @@
                 <li>Say dog's name once</li>
                 <li>Mark and reward when they make eye contact</li>
             </ol>
-        </div>
+        </section>
 
         <div class="metrics-grid">
             <div class="metric-card">
@@ -259,10 +292,10 @@
                 <div class="metric-value">0%</div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Progress Tracking -->
-    <div class="progress-section">
+    <section id="progress">
         <h2>Weekly Progress</h2>
         <div class="progress-grid">
             <div class="progress-day">Mon</div>
@@ -273,10 +306,10 @@
             <div class="progress-day">Sat</div>
             <div class="progress-day">Sun</div>
         </div>
-    </div>
+    </section>
 
     <!-- Notes Section -->
-    <div class="notes-section">
+    <section id="notes">
         <h2>Training Notes</h2>
         <textarea class="notes-field" placeholder="Add your observations here..."></textarea>
         
@@ -299,10 +332,10 @@
                 </select>
             </p>
         </div>
-    </div>
+    </section>
 
     <!-- Next Steps -->
-    <div class="quick-start">
+    <section id="readiness">
         <h2>Ready for Next Module?</h2>
         <ul class="checklist">
             <li class="checklist-item">
@@ -318,6 +351,6 @@
                 <label for="next3">Shows enthusiasm for training</label>
             </li>
         </ul>
-    </div>
+    </section>
 </body>
 </html>
