@@ -96,19 +96,21 @@ h3 {
             margin: 2em 0;
         }
 
-        .timer-section {
-            text-align: center;
-            padding: 1em;
-            background: var(--gray-light);
-            border-radius: 8px;
-            margin: 1em 0;
-        }
+.timer-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
 
-        .timer-display {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--primary);
-        }
+.timer-display {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
 
         /* Progress Tracking */
         .progress-section {
@@ -216,6 +218,12 @@ h3 {
         .nav-button:hover {
             background-color: #6D28D9;
         }
+
+        /* Add disabled button state */
+.nav-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
 
         input[type="checkbox"] {
     width: 1.25rem;
@@ -396,15 +404,25 @@ select, input[type="date"] {
     // Timer functionality
     let timeLeft = 900; // 15 minutes in seconds
     let timerId = null;
+    const timerDisplay = document.getElementById('timer-display');
+    const startButton = document.getElementById('start-button');
 
     function startTimer() {
+        // Prevent multiple timers
         if (timerId) return;
+        
+        // Change button text
+        startButton.textContent = 'Session in Progress';
+        startButton.disabled = true;
+        startButton.style.backgroundColor = '#9CA3AF';  // Gray out the button
+        
         timerId = setInterval(() => {
             timeLeft--;
             updateTimerDisplay();
+            
             if (timeLeft <= 0) {
                 clearInterval(timerId);
-                alert('Session Complete!');
+                timerComplete();
             }
         }, 1000);
     }
@@ -412,12 +430,36 @@ select, input[type="date"] {
     function updateTimerDisplay() {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
-        document.querySelector('.timer-display').textContent = 
-            `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function timerComplete() {
+        timerDisplay.textContent = 'Complete!';
+        startButton.textContent = 'Session Complete';
+        
+        // Optional: Show completion alert
+        alert('Training session complete!');
+        
+        // Reset for next session
+        setTimeout(() => {
+            timeLeft = 900;
+            timerId = null;
+            updateTimerDisplay();
+            startButton.textContent = 'Start Session';
+            startButton.disabled = false;
+            startButton.style.backgroundColor = '#7C3AED';
+        }, 3000);
     }
 
     // Add event listener to Start Session button
-    document.querySelector('.timer-section .nav-button').addEventListener('click', startTimer);
+    startButton.addEventListener('click', startTimer);
+
+    // Optional: Add keyboard support
+    startButton.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            startTimer();
+        }
+    });
 </script>
     
 </body>
