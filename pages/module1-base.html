@@ -310,10 +310,10 @@ select, input[type="date"] {
     <section id="training-session">
         <h2>Today's Training Session</h2>
         
-        <div class="timer-section">
-            <div class="timer-display">15:00</div>
-            <button class="button">Start Session</button>
-        </div>
+    <div class="timer-section">
+        <div id="timer-display" class="timer-display">15:00</div>
+        <button id="start-button" class="nav-button">Start Session</button>
+    </div>
 
         <h3>Command: Name Recognition</h3>
         <div class="training-steps">
@@ -401,63 +401,71 @@ select, input[type="date"] {
     </section>
 
 <script>
-    // Timer functionality
-    let timeLeft = 900; // 15 minutes in seconds
-    let timerId = null;
-    const timerDisplay = document.getElementById('timer-display');
-    const startButton = document.getElementById('start-button');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Timer functionality
+        let timeLeft = 900; // 15 minutes in seconds
+        let timerId = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const startButton = document.getElementById('start-button');
 
-    function startTimer() {
-        // Prevent multiple timers
-        if (timerId) return;
-        
-        // Change button text
-        startButton.textContent = 'Session in Progress';
-        startButton.disabled = true;
-        startButton.style.backgroundColor = '#9CA3AF';  // Gray out the button
-        
-        timerId = setInterval(() => {
-            timeLeft--;
-            updateTimerDisplay();
-            
-            if (timeLeft <= 0) {
-                clearInterval(timerId);
-                timerComplete();
+        // Check if elements exist before adding event listeners
+        if (startButton && timerDisplay) {
+            function startTimer() {
+                // Prevent multiple timers
+                if (timerId) return;
+                
+                // Change button text
+                startButton.textContent = 'Session in Progress';
+                startButton.disabled = true;
+                startButton.style.backgroundColor = '#9CA3AF';
+                
+                timerId = setInterval(() => {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(timerId);
+                        timerComplete();
+                    }
+                }, 1000);
             }
-        }, 1000);
-    }
 
-    function updateTimerDisplay() {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    }
+            function updateTimerDisplay() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
 
-    function timerComplete() {
-        timerDisplay.textContent = 'Complete!';
-        startButton.textContent = 'Session Complete';
-        
-        // Optional: Show completion alert
-        alert('Training session complete!');
-        
-        // Reset for next session
-        setTimeout(() => {
-            timeLeft = 900;
-            timerId = null;
-            updateTimerDisplay();
-            startButton.textContent = 'Start Session';
-            startButton.disabled = false;
-            startButton.style.backgroundColor = '#7C3AED';
-        }, 3000);
-    }
+            function timerComplete() {
+                timerDisplay.textContent = 'Complete!';
+                startButton.textContent = 'Session Complete';
+                
+                // Optional: Show completion alert
+                alert('Training session complete!');
+                
+                // Reset for next session
+                setTimeout(() => {
+                    timeLeft = 900;
+                    timerId = null;
+                    updateTimerDisplay();
+                    startButton.textContent = 'Start Session';
+                    startButton.disabled = false;
+                    startButton.style.backgroundColor = '#7C3AED';
+                }, 3000);
+            }
 
-    // Add event listener to Start Session button
-    startButton.addEventListener('click', startTimer);
+            // Add event listeners
+            startButton.addEventListener('click', startTimer);
 
-    // Optional: Add keyboard support
-    startButton.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            startTimer();
+            // Optional: Add keyboard support
+            startButton.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    startTimer();
+                }
+            });
+        } else {
+            console.error('Timer elements not found in the DOM');
         }
     });
 </script>
